@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  
+  --color-jambu-50: #FAF5FC;
+  --color-jambu-100: #F3E8F8;
+  --color-jambu-200: #E7D1F1;
+  --color-jambu-300: #D6ACE5;
+  --color-jambu-400: #BD7FD3;
+  --color-jambu-500: #9F54BE;
+  --color-jambu-600: #843B9F;
+  --color-jambu-700: #6B2C7E;
+  --color-jambu-800: #582468;
+  --color-jambu-900: #492055;
+  --color-jambu-950: #2F0E38;
+
+  --color-navy-50: #F1F6FB;
+  --color-navy-100: #DDEBF7;
+  --color-navy-200: #BED8F0;
+  --color-navy-300: #91BFE6;
+  --color-navy-400: #5C9FD8;
+  --color-navy-500: #3882C7;
+  --color-navy-600: #2668A9;
+  --color-navy-700: #205389;
+  --color-navy-800: #1D4672;
+  --color-navy-900: #18385D;
+  --color-navy-950: #0F233C;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom scrollbar and glassmorphism utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}

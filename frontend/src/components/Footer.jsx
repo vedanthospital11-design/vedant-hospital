@@ -87,18 +87,30 @@ export default function Footer({ onOpenAppointment }) {
               <span className="w-2 h-2 rounded-full bg-blue-500"></span>
               Specialist Doctors
             </h4>
-            <div className="space-y-3.5 text-sm">
-              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-                <p className="font-semibold text-white">Dr. Happy Patel</p>
+            <div className="space-y-3 text-sm">
+              <Link
+                to="/doctors/happy-patel"
+                className="block p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 hover:bg-slate-900 transition-all group"
+              >
+                <div className="flex items-center justify-between">
+                  <p className="font-semibold text-white group-hover:text-purple-300 transition-colors">Dr. Happy Patel</p>
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-400 transition-colors" />
+                </div>
                 <p className="text-xs text-purple-300 font-medium">M.B.D.G.O, DNB</p>
                 <p className="text-xs text-slate-400 mt-1">Obstetrics & Gynecologist, Laparoscopic Surgeon</p>
-              </div>
+              </Link>
 
-              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-                <p className="font-semibold text-white">Dr. Paras Patel</p>
+              <Link
+                to="/doctors/paras-patel"
+                className="block p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900 transition-all group"
+              >
+                <div className="flex items-center justify-between">
+                  <p className="font-semibold text-white group-hover:text-blue-300 transition-colors">Dr. Paras Patel</p>
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-blue-400 transition-colors" />
+                </div>
                 <p className="text-xs text-blue-300 font-medium">M.D. Physician</p>
                 <p className="text-xs text-slate-400 mt-1">Consultant Diabetologist & Cardiac Physician</p>
-              </div>
+              </Link>
             </div>
           </div>
 

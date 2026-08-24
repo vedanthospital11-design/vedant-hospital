@@ -155,7 +155,7 @@ export default function Navbar() {
         "Laparoscopy",
         "Maternity Care"
       ],
-      link: "/doctors#dr-happy-patel",
+      link: "/doctors/happy-patel",
       cta: "View Dr. Happy Patel's Profile",
       ctaClass: "text-[#6B2C7E] group-hover:text-[#582468]",
       borderHover: "hover:border-purple-300 hover:shadow-purple-900/10"
@@ -174,7 +174,7 @@ export default function Navbar() {
         "Diabetes Management",
         "Emergency Medicine"
       ],
-      link: "/doctors#dr-paras-patel",
+      link: "/doctors/paras-patel",
       cta: "View Dr. Paras Patel's Profile",
       ctaClass: "text-[#1E3A5F] group-hover:text-[#162A45]",
       borderHover: "hover:border-blue-300 hover:shadow-blue-900/10"

@@ -24,6 +24,7 @@ export const hospitalInfo = {
 export const doctorsData = [
   {
     id: "dr-happy-patel",
+    slug: "happy-patel",
     name: "Dr. Happy Patel",
     qualifications: "M.B.D.G.O, DNB",
     designation: "Consultant Obstetrician & Gynecologist",
@@ -60,6 +61,7 @@ export const doctorsData = [
   },
   {
     id: "dr-paras-patel",
+    slug: "paras-patel",
     name: "Dr. Paras Patel",
     qualifications: "M.D. Physician",
     designation: "Consultant Diabetologist & Cardiac Physician",

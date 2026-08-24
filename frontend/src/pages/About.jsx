@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { HeartPulse, ShieldCheck, CheckCircle2, Award, Clock, Users, Building, Activity, Calendar } from 'lucide-react';
+import { HeartPulse, ShieldCheck, CheckCircle2, Award, Clock, Users, Building, Activity, Calendar, ArrowRight } from 'lucide-react';
 import { hospitalInfo, doctorsData } from '../data/hospitalData';
 import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
 
@@ -171,14 +171,21 @@ export default function About({ onOpenAppointment }) {
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {doctor.about}
                 </p>
-                <div className="pt-2">
+                <div className="pt-2 flex flex-wrap items-center gap-2.5">
+                  <Link
+                    to={`/doctors/${doctor.slug || doctor.id.replace('dr-', '')}`}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#6B2C7E] hover:bg-[#582468] text-white text-xs font-bold rounded-xl transition-colors shadow-xs btn-lift"
+                  >
+                    <span>View Profile</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                   <a
                     href={hospitalInfo.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#6B2C7E] hover:bg-[#582468] text-white text-xs font-bold rounded-xl transition-colors shadow-xs btn-lift"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold rounded-xl transition-colors"
                   >
-                    <span>Contact via WhatsApp</span>
+                    <span>WhatsApp</span>
                   </a>
                 </div>
               </div>

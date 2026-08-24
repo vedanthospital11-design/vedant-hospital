@@ -75,7 +75,7 @@ export default function DoctorCard({ doctor }) {
           {/* View Full Profile Link */}
           <div className="pt-1">
             <Link
-              to={`/doctors#${doctor.id}`}
+              to={`/doctors/${doctor.slug || doctor.id.replace('dr-', '')}`}
               className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold transition-colors group/link ${
                 isGynecologist ? 'text-[#6B2C7E] hover:text-[#582468]' : 'text-[#1E3A5F] hover:text-[#162A45]'
               }`}

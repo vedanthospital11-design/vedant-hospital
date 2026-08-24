@@ -14,7 +14,7 @@ export default function DoctorCard({ doctor }) {
         <img
           src={doctor.image}
           alt={doctor.altText || doctor.name}
-          className="w-full h-full object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover object-[center_28%] group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent"></div>
         

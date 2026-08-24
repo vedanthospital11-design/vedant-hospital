@@ -85,7 +85,7 @@ export default function DoctorProfile({ specifiedSlug }) {
                 <img
                   src={doctor.image}
                   alt={doctor.altText || doctor.name}
-                  className="w-full h-full object-cover object-[center_30%] group-hover:scale-102 transition-transform duration-500"
+                  className="w-full h-full object-cover object-[center_28%] group-hover:scale-102 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
                 

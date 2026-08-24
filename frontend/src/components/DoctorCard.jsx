@@ -14,7 +14,7 @@ export default function DoctorCard({ doctor, onBookAppointment }) {
           src={doctor.image}
           alt={doctor.altText || doctor.name}
           className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
-            isGynecologist ? 'object-center' : 'object-[center_28%]'
+            isGynecologist ? 'object-[center_30%]' : 'object-[center_28%]'
           }`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>

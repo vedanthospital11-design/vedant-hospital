@@ -160,7 +160,7 @@ export default function About({ onOpenAppointment }) {
               <img
                 src={doctor.image}
                 alt={doctor.altText || doctor.name}
-                className="w-32 h-32 rounded-2xl object-cover object-center border-2 border-purple-200 shrink-0"
+                className="w-32 h-32 rounded-2xl object-cover object-[center_30%] border-2 border-purple-200 shrink-0"
               />
               <div className="space-y-3 text-center sm:text-left">
                 <div>

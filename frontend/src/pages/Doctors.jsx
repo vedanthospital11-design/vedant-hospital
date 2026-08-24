@@ -43,7 +43,7 @@ export default function Doctors({ onOpenAppointment }) {
                     src={doctor.image}
                     alt={doctor.altText || doctor.name}
                     className={`w-full h-full object-cover ${
-                      isGynecologist ? 'object-center' : 'object-[center_28%]'
+                      isGynecologist ? 'object-[center_30%]' : 'object-[center_28%]'
                     }`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>

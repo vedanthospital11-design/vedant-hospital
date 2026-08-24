@@ -71,6 +71,7 @@ export default function AppRouter() {
           <Route path="/" element={<Home onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/about" element={<About onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/doctors" element={<Doctors onOpenAppointment={handleOpenAppointment} />} />
+          <Route path="/doctors/:doctorId" element={<Doctors onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/facilities" element={<Facilities onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact onOpenAppointment={handleOpenAppointment} />} />

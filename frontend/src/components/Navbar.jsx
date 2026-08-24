@@ -4,27 +4,25 @@ import {
   Menu, 
   X, 
   ChevronDown, 
-  ChevronRight, 
   MessageCircle, 
-  Phone, 
   HeartPulse, 
-  Activity, 
   Sparkles, 
-  ArrowRight,
-  Building2,
-  ShieldAlert
+  ArrowRight
 } from 'lucide-react';
 import { hospitalInfo } from '../data/hospitalData';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
+  const [doctorsMenuOpen, setDoctorsMenuOpen] = useState(false);
   const [mobileAboutExpanded, setMobileAboutExpanded] = useState(false);
+  const [mobileDoctorsExpanded, setMobileDoctorsExpanded] = useState(false);
   const [mobileFacsExpanded, setMobileFacsExpanded] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const location = useLocation();
-  const dropdownTimeoutRef = useRef(null);
+  const aboutDropdownTimeoutRef = useRef(null);
+  const doctorsDropdownTimeoutRef = useRef(null);
   const navContainerRef = useRef(null);
 
   // Detect scroll to dynamically adjust navbar padding/shadow
@@ -39,32 +37,58 @@ export default function Navbar() {
   // Close dropdowns on route or anchor change
   useEffect(() => {
     setAboutMenuOpen(false);
+    setDoctorsMenuOpen(false);
     setMobileMenuOpen(false);
   }, [location.pathname, location.hash]);
 
-  const isHomepage = location.pathname === '/';
-  // Whether the navbar should use the transparent hero overlay treatment (mobile only)
-  const isMobileHeroMode = isHomepage && !isScrolled;
-
-  // Handle outside click to close desktop mega menu
+  // Handle outside click & escape key to close desktop mega menu
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navContainerRef.current && !navContainerRef.current.contains(event.target)) {
         setAboutMenuOpen(false);
+        setDoctorsMenuOpen(false);
       }
     };
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setAboutMenuOpen(false);
+        setDoctorsMenuOpen(false);
+        setMobileMenuOpen(false);
+      }
+    };
+
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
-  const handleMouseEnter = () => {
-    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+  const handleAboutMouseEnter = () => {
+    if (aboutDropdownTimeoutRef.current) clearTimeout(aboutDropdownTimeoutRef.current);
+    if (doctorsDropdownTimeoutRef.current) clearTimeout(doctorsDropdownTimeoutRef.current);
+    setDoctorsMenuOpen(false);
     setAboutMenuOpen(true);
   };
 
-  const handleMouseLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
+  const handleAboutMouseLeave = () => {
+    aboutDropdownTimeoutRef.current = setTimeout(() => {
       setAboutMenuOpen(false);
+    }, 180);
+  };
+
+  const handleDoctorsMouseEnter = () => {
+    if (doctorsDropdownTimeoutRef.current) clearTimeout(doctorsDropdownTimeoutRef.current);
+    if (aboutDropdownTimeoutRef.current) clearTimeout(aboutDropdownTimeoutRef.current);
+    setAboutMenuOpen(false);
+    setDoctorsMenuOpen(true);
+  };
+
+  const handleDoctorsMouseLeave = () => {
+    doctorsDropdownTimeoutRef.current = setTimeout(() => {
+      setDoctorsMenuOpen(false);
     }, 180);
   };
 
@@ -76,13 +100,18 @@ export default function Navbar() {
     );
   };
 
+  // Active check: "Our Doctors" is active if on /doctors
+  const isDoctorsActive = () => {
+    return location.pathname.startsWith('/doctors');
+  };
+
   const isNavActive = (path) => {
     if (path === '/' && location.pathname === '/') return true;
     if (path !== '/' && location.pathname.startsWith(path)) return true;
     return false;
   };
 
-  // 2 Category Cards for the Balanced Mega Menu
+  // 2 Category Cards for the About Us Mega Menu
   const categoryCards = [
     {
       badge: "ABOUT US",
@@ -107,6 +136,48 @@ export default function Navbar() {
       cta: "View Facilities",
       borderHover: "hover:border-indigo-300 hover:shadow-indigo-900/10",
       ctaClass: "text-indigo-700 group-hover:text-indigo-900"
+    }
+  ];
+
+  // 2 Distinct Doctor Panels for the Our Doctors Mega Menu
+  const doctorCards = [
+    {
+      id: "dr-happy-patel",
+      name: "Dr. Happy Patel",
+      qualifications: "M.B.D.G.O, DNB",
+      designation: "Consultant Obstetrician & Gynecologist",
+      badge: "OBSTETRICS & GYNECOLOGY",
+      badgeClass: "text-[#6B2C7E] bg-purple-50 border-purple-200/70",
+      image: "/images/dr-happy-patel.jpg",
+      specialties: [
+        "Obstetrics & Gynecology",
+        "Advanced Sonography",
+        "Laparoscopy",
+        "Maternity Care"
+      ],
+      link: "/doctors#dr-happy-patel",
+      cta: "View Dr. Happy Patel's Profile",
+      ctaClass: "text-[#6B2C7E] group-hover:text-[#582468]",
+      borderHover: "hover:border-purple-300 hover:shadow-purple-900/10"
+    },
+    {
+      id: "dr-paras-patel",
+      name: "Dr. Paras Patel",
+      qualifications: "M.D. Physician",
+      designation: "Consultant Diabetologist & Cardiac Physician",
+      badge: "GENERAL MEDICINE & ICU",
+      badgeClass: "text-[#1E3A5F] bg-blue-50 border-blue-200/70",
+      image: "/images/dr-paras-patel.jpg",
+      specialties: [
+        "Critical Care & ICU",
+        "Cardiac Care",
+        "Diabetes Management",
+        "Emergency Medicine"
+      ],
+      link: "/doctors#dr-paras-patel",
+      cta: "View Dr. Paras Patel's Profile",
+      ctaClass: "text-[#1E3A5F] group-hover:text-[#162A45]",
+      borderHover: "hover:border-blue-300 hover:shadow-blue-900/10"
     }
   ];
 
@@ -170,11 +241,14 @@ export default function Navbar() {
             {/* About Us (Balanced 2-Category Mega-Menu) */}
             <div
               className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={handleAboutMouseEnter}
+              onMouseLeave={handleAboutMouseLeave}
             >
               <button
-                onClick={() => setAboutMenuOpen(!aboutMenuOpen)}
+                onClick={() => {
+                  setDoctorsMenuOpen(false);
+                  setAboutMenuOpen(!aboutMenuOpen);
+                }}
                 className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${
                   isAboutActive() || aboutMenuOpen
                     ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
@@ -246,17 +320,114 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Our Doctors */}
-            <Link
-              to="/doctors"
-              className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                isNavActive('/doctors')
-                  ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
-                  : 'text-slate-600 hover:text-[#6B2C7E] hover:bg-purple-50/50'
-              }`}
+            {/* Our Doctors (Premium 2-Column Doctor Mega-Menu) */}
+            <div
+              className="relative"
+              onMouseEnter={handleDoctorsMouseEnter}
+              onMouseLeave={handleDoctorsMouseLeave}
             >
-              Our Doctors
-            </Link>
+              <button
+                onClick={() => {
+                  setAboutMenuOpen(false);
+                  setDoctorsMenuOpen(!doctorsMenuOpen);
+                }}
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${
+                  isDoctorsActive() || doctorsMenuOpen
+                    ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
+                    : 'text-slate-600 hover:text-[#6B2C7E] hover:bg-purple-50/50'
+                }`}
+                aria-expanded={doctorsMenuOpen}
+              >
+                <span>Our Doctors</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${doctorsMenuOpen ? 'rotate-180 text-[#6B2C7E]' : 'text-slate-400'}`} />
+              </button>
+
+              {/* 2-Column Dedicated Doctor Panels Mega Menu */}
+              {doctorsMenuOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[720px] max-w-[95vw] animate-in fade-in-0 slide-in-from-top-2 duration-200 z-50">
+                  <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 p-6">
+                    
+                    {/* Header Strip */}
+                    <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 text-xs">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#6B2C7E]"></span>
+                        <span className="font-extrabold tracking-wider uppercase text-slate-400">
+                          Our Specialist Doctors
+                        </span>
+                      </div>
+                      <Link
+                        to="/doctors"
+                        onClick={() => setDoctorsMenuOpen(false)}
+                        className="font-bold text-[#6B2C7E] hover:underline"
+                      >
+                        View All Doctors →
+                      </Link>
+                    </div>
+
+                    {/* 2 Distinct Doctor Panels */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {doctorCards.map((doc) => (
+                        <Link
+                          key={doc.id}
+                          to={doc.link}
+                          onClick={() => setDoctorsMenuOpen(false)}
+                          className={`rounded-2xl p-4.5 border border-slate-200/80 bg-white hover:bg-slate-50/70 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between group ${doc.borderHover}`}
+                        >
+                          <div className="space-y-3">
+                            
+                            {/* Doctor Header & Portrait */}
+                            <div className="flex items-start gap-3.5">
+                              <img
+                                src={doc.image}
+                                alt={doc.name}
+                                className="w-16 h-20 rounded-xl object-cover object-[center_30%] border border-slate-200 shadow-2xs shrink-0"
+                              />
+                              <div className="min-w-0 flex-1">
+                                <span className={`inline-block text-[9.5px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md border mb-1 ${doc.badgeClass}`}>
+                                  {doc.badge}
+                                </span>
+                                <h3 className="text-sm font-extrabold text-slate-900 group-hover:text-[#6B2C7E] transition-colors leading-snug">
+                                  {doc.name}
+                                </h3>
+                                <p className="text-[11.5px] font-bold text-purple-700 mt-0.5">
+                                  {doc.qualifications}
+                                </p>
+                                <p className="text-[10.5px] text-slate-500 line-clamp-1 mt-0.5">
+                                  {doc.designation}
+                                </p>
+                              </div>
+                            </div>
+
+                            {/* Short Key Specialties list */}
+                            <div className="pt-2.5 border-t border-slate-100">
+                              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
+                                Key Specialties
+                              </p>
+                              <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[11px] text-slate-600">
+                                {doc.specialties.map((spec, sIdx) => (
+                                  <span key={sIdx} className="flex items-center gap-1.5 truncate">
+                                    <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
+                                    <span className="truncate">{spec}</span>
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+
+                          </div>
+
+                          {/* Action Link at Bottom */}
+                          <div className="pt-3.5 mt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold transition-all">
+                            <span className={doc.ctaClass}>{doc.cta}</span>
+                            <ArrowRight className={`w-3.5 h-3.5 group-hover:translate-x-1 transition-transform ${doc.ctaClass}`} />
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Photo Gallery */}
             <Link
@@ -424,18 +595,62 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* 3. Our Doctors */}
-            <Link
-              to="/doctors"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                isNavActive('/doctors')
-                  ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
-                  : 'text-slate-700 hover:bg-slate-50'
-              }`}
-            >
-              <span>Our Doctors</span>
-            </Link>
+            {/* 3. Our Doctors Accordion (Mobile) */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-50/60">
+              <button
+                onClick={() => setMobileDoctorsExpanded(!mobileDoctorsExpanded)}
+                className={`w-full flex items-center justify-between px-4 py-3.5 text-sm font-bold transition-colors cursor-pointer ${
+                  isDoctorsActive() || mobileDoctorsExpanded
+                    ? 'text-[#6B2C7E] bg-purple-50/80'
+                    : 'text-slate-800 hover:bg-slate-100'
+                }`}
+              >
+                <span>Our Doctors</span>
+                <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${mobileDoctorsExpanded ? 'rotate-180 text-[#6B2C7E]' : ''}`} />
+              </button>
+
+              {mobileDoctorsExpanded && (
+                <div className="px-3 py-2 space-y-2 border-t border-slate-100 bg-white">
+                  {doctorCards.map((doc) => (
+                    <Link
+                      key={doc.id}
+                      to={doc.link}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-3 p-2.5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-purple-50/50 hover:border-purple-200 transition-colors group"
+                    >
+                      <img
+                        src={doc.image}
+                        alt={doc.name}
+                        className="w-12 h-14 rounded-lg object-cover object-[center_30%] border border-slate-200 shrink-0"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-extrabold text-slate-900 group-hover:text-[#6B2C7E] transition-colors truncate">
+                          {doc.name}
+                        </p>
+                        <p className="text-[11px] font-semibold text-purple-700">
+                          {doc.qualifications}
+                        </p>
+                        <p className="text-[10.5px] text-slate-500 truncate">
+                          {doc.designation}
+                        </p>
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#6B2C7E] mt-1">
+                          <span>View Profile</span>
+                          <ArrowRight className="w-2.5 h-2.5 group-hover:translate-x-0.5 transition-transform" />
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+
+                  <Link
+                    to="/doctors"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block text-center py-2 rounded-xl text-xs font-bold text-[#1E3A5F] hover:bg-blue-50 transition-colors"
+                  >
+                    View All Doctors & Profile Directory →
+                  </Link>
+                </div>
+              )}
+            </div>
 
             {/* 4. Photo Gallery */}
             <Link
@@ -460,38 +675,40 @@ export default function Navbar() {
                   : 'text-slate-700 hover:bg-slate-50'
               }`}
             >
-              <span>Contact & Location</span>
-              <ChevronRight className="w-4 h-4 text-slate-400" />
+              <span>Contact Us</span>
             </Link>
 
           </nav>
 
-          {/* Mobile Bottom Contact & Emergency Buttons */}
-          <div className="pt-4 border-t border-slate-100 space-y-2.5">
+          {/* Quick Direct Actions in Mobile Menu */}
+          <div className="pt-3 border-t border-slate-100 space-y-2">
             <a
               href={hospitalInfo.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-sm font-extrabold text-white bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 transition-colors shadow-md"
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-white font-bold text-xs bg-emerald-600 hover:bg-emerald-700 shadow-sm"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Contact Us on WhatsApp</span>
             </a>
 
-            <a
-              href={`tel:${hospitalInfo.contacts.emergency}`}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 transition-colors"
-            >
-              <Phone className="w-4 h-4 text-rose-600" />
-              <span>24x7 Emergency: {hospitalInfo.contacts.emergencyDisplay}</span>
-            </a>
+            <div className="grid grid-cols-2 gap-2 pt-1">
+              <a
+                href={`tel:${hospitalInfo.emergencyPhone}`}
+                className="py-2.5 px-3 rounded-xl text-center font-bold text-xs bg-rose-50 text-rose-700 border border-rose-200"
+              >
+                Emergency 24x7
+              </a>
+              <a
+                href={`tel:${hospitalInfo.contacts.appointment1}`}
+                className="py-2.5 px-3 rounded-xl text-center font-bold text-xs bg-blue-50 text-blue-700 border border-blue-200"
+              >
+                OPD Helpline
+              </a>
+            </div>
           </div>
         </div>
       )}
     </header>
   );
 }
-
-
-

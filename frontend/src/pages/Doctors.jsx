@@ -1,23 +1,30 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { Calendar, Phone, Award, CheckCircle2, Stethoscope, Clock, ShieldCheck, HeartPulse, Activity } from 'lucide-react';
 import { doctorsData, hospitalInfo } from '../data/hospitalData';
 import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
 
 export default function Doctors({ onOpenAppointment }) {
   const location = useLocation();
+  const { doctorId } = useParams();
 
   useEffect(() => {
+    let targetId = null;
     if (location.hash) {
-      const elementId = location.hash.replace('#', '');
-      const element = document.getElementById(elementId);
+      targetId = location.hash.replace('#', '');
+    } else if (doctorId) {
+      targetId = doctorId.startsWith('dr-') ? doctorId : `dr-${doctorId}`;
+    }
+
+    if (targetId) {
+      const element = document.getElementById(targetId);
       if (element) {
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
+        }, 120);
       }
     }
-  }, [location]);
+  }, [location, doctorId]);
 
   return (
     <div className="space-y-16 py-8 sm:py-12">

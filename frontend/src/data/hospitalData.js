@@ -4,9 +4,12 @@ export const hospitalInfo = {
   motto: "Safe Motherhood & Compassionate Healing",
   taglineGujarati: "માતૃત્વસ્પર્શ એવમ્ શમનમ્",
   address: "3rd Floor, Gajanand Complex, Above Bank of Baroda, Deep Area, Shamlaji Road, Modasa, Dist. Aravalli, Gujarat",
+  whatsappUrl: "https://wa.me/916352590491?text=Hello%20Vedant%20Hospital,%20I%20would%20like%20to%20enquire%20about%20an%20appointment.",
   contacts: {
     emergency: "8160810013",
     emergencyDisplay: "+91 81608 10013",
+    whatsapp: "6352590491",
+    whatsappDisplay: "+91 63525 90491",
     appointment1: "6352590491",
     appointment1Display: "+91 63525 90491",
     appointment2: "9428339050",
@@ -25,6 +28,7 @@ export const doctorsData = [
     qualifications: "M.B.D.G.O, DNB",
     designation: "Consultant Obstetrician & Gynecologist",
     department: "Obstetrics & Gynecology",
+    altText: "Dr. Happy Patel - Obstetrics and Gynecology Specialist",
     image: "/images/dr-happy-patel.jpg",
     experience: [
       "Ex. Resident Doctor, SVP Hospital / Shardaben Hospital",
@@ -49,6 +53,7 @@ export const doctorsData = [
     qualifications: "M.D. Physician",
     designation: "Consultant Diabetologist & Cardiac Physician",
     department: "General Medicine & Critical Care",
+    altText: "Dr. Paras Patel - General Medicine and Critical Care Specialist",
     image: "/images/dr-paras-patel.jpg",
     experience: [
       "Consultant Diabetologist & Cardiac Physician",
@@ -159,49 +164,57 @@ export const facilitiesData = [
     id: "emergency",
     title: "24 x 7 Emergency Treatment",
     description: "Equipped to handle medical and obstetric emergencies round-the-clock with on-duty medical staff and rapid response setup.",
-    icon: "ShieldAlert"
+    icon: "ShieldAlert",
+    image: "/images/hospital-reception.jpg"
   },
   {
     id: "icu",
     title: "24 x 7 Doctor-Supervised ICU",
     description: "Fully equipped Intensive Care Unit featuring advanced multi-channel cardiac monitors, ventilators, and dedicated critical care support.",
-    icon: "Activity"
+    icon: "Activity",
+    image: "/images/icu-care.jpg"
   },
   {
     id: "ot",
     title: "Modern Modular OT & Labour Room",
     description: "HEPA-filtered sterile modular surgical theatres designed for laparoscopic, gynecological, and general surgical procedures.",
-    icon: "Sparkles"
+    icon: "Sparkles",
+    image: "/images/operation-theatre.jpg"
   },
   {
     id: "sonography",
     title: "3D / 4D Sonography Suite",
     description: "High-definition sonography unit providing clear visual clarity for fetal scans, abdominal, and pelvic health examinations.",
-    icon: "Eye"
+    icon: "Eye",
+    image: "/images/sonography-suite.jpg"
   },
   {
     id: "laboratory",
     title: "24 x 7 Pathology Laboratory",
     description: "In-house clinical lab providing rapid diagnostic results for blood tests, fever panels, urine analysis, biochemistry, and hormone assays.",
-    icon: "FlaskConical"
+    icon: "FlaskConical",
+    image: "/images/pathology-lab.jpg"
   },
   {
     id: "pharmacy",
     title: "24 x 7 In-House Pharmacy",
     description: "Stocked with all critical emergency medications, injectables, antibiotics, and maternity prescriptions at all times.",
-    icon: "Pill"
+    icon: "Pill",
+    image: "/images/pathology-lab.jpg"
   },
   {
     id: "rooms",
     title: "Deluxe, Semi-Special & General Rooms",
     description: "Spacious, air-conditioned patient accommodations tailored to patient preferences with hygienic nursing care and family comfort.",
-    icon: "Bed"
+    icon: "Bed",
+    image: "/images/patient-room.jpg"
   },
   {
     id: "mediclaim",
     title: "Mediclaim & Cashless Insurance",
     description: "Hassle-free cashless hospitalization and reimbursement assistance across major health insurance providers and TPAs.",
-    icon: "CreditCard"
+    icon: "CreditCard",
+    image: "/images/hospital-reception.jpg"
   }
 ];
 
@@ -218,27 +231,42 @@ export const galleryImages = [
     title: "Modern Modular Operation Theatre",
     category: "Surgical Suites",
     image: "/images/operation-theatre.jpg",
-    description: "Sterile, state-of-the-art modular theatre equipped with surgical lighting and laparoscopic equipment."
+    description: "Sterile, state-of-the-art modular operating theatre equipped with surgical lighting and laparoscopic equipment."
   },
   {
     id: 3,
-    title: "Advanced 3D/4D Sonography Suite",
-    category: "Diagnostics",
-    image: "/images/sonography-suite.jpg",
-    description: "High-resolution ultrasound machine providing accurate imaging for prenatal care and health screenings."
+    title: "Dedicated Labour & Maternity Procedure Room",
+    category: "Surgical Suites",
+    image: "/images/labour-room.jpg",
+    description: "Specialized obstetric delivery and maternity procedure room equipped for normal, painless, and emergency childbirth."
   },
   {
     id: 4,
-    title: "24x7 Intensive Care Unit (ICU)",
-    category: "Critical Care",
-    image: "/images/icu-care.jpg",
-    description: "Round-the-clock doctor-supervised ICU with precision monitors and life-support systems."
+    title: "Advanced 3D/4D Sonography Suite",
+    category: "Diagnostics",
+    image: "/images/sonography-suite.jpg",
+    description: "High-resolution Samsung ultrasound machine providing accurate imaging for prenatal care and health screenings."
   },
   {
     id: 5,
-    title: "Deluxe Private Patient Room",
+    title: "24x7 Doctor-Supervised Intensive Care Unit (ICU)",
+    category: "Critical Care",
+    image: "/images/icu-care.jpg",
+    description: "Multi-bed intensive care unit equipped with cardiac monitors, ventilator support, and continuous physician oversight."
+  },
+  {
+    id: 6,
+    title: "24x7 In-House Pathology Laboratory",
+    category: "Diagnostics",
+    image: "/images/pathology-lab.jpg",
+    description: "Fully automated clinical analyzers, centrifuge, and diagnostic microscopy for instant blood, biochemistry, and fever tests."
+  },
+  {
+    id: 7,
+    title: "Deluxe Inpatient Patient Care Room",
     category: "Patient Rooms",
     image: "/images/patient-room.jpg",
-    description: "Air-conditioned private room with motorized bed, relative seating, and hospital safety features."
+    description: "Clean, air-conditioned patient accommodations with attendant seating, private bathroom, and nursing call support."
   }
 ];
+

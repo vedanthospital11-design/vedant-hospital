@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { HeartPulse, MapPin, Phone, Clock, Mail, ShieldCheck, ChevronRight } from 'lucide-react';
+import { HeartPulse, MapPin, Phone, Clock, Mail, ShieldCheck, ChevronRight, MessageCircle } from 'lucide-react';
 import { hospitalInfo } from '../data/hospitalData';
 
 export default function Footer({ onOpenAppointment }) {
@@ -13,16 +13,15 @@ export default function Footer({ onOpenAppointment }) {
           
           {/* Col 1: About Hospital */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-purple-900/80 border border-purple-500/30 flex items-center justify-center text-purple-300">
-                <HeartPulse className="w-6 h-6" />
+            <Link to="/" className="inline-block group" aria-label="Vedant Hospital">
+              <div className="bg-white p-2.5 rounded-2xl inline-flex items-center shadow-md shadow-black/20 group-hover:scale-105 transition-transform duration-200">
+                <img
+                  src="/vedant-hospital-logo.png"
+                  alt="Vedant Hospital"
+                  className="h-14 w-auto object-contain"
+                />
               </div>
-              <div>
-                <span className="font-extrabold text-xl text-white tracking-tight">VEDANT </span>
-                <span className="font-bold text-xl text-purple-400 tracking-tight">HOSPITAL</span>
-                <p className="text-xs text-slate-400 font-medium">Modasa, Aravalli</p>
-              </div>
-            </div>
+            </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed">
               Dedicated to compassionate, high-quality medical healthcare, safe motherhood, 24x7 ICU, and advanced clinical services for Modasa and surrounding communities.
@@ -133,11 +132,16 @@ export default function Footer({ onOpenAppointment }) {
               </div>
 
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-blue-400 shrink-0" />
-                <span className="text-xs text-slate-400">Appointments:</span>
+                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span className="text-xs text-slate-400">WhatsApp:</span>
                 <div className="text-xs sm:text-sm font-semibold text-white space-x-2">
-                  <a href={`tel:${hospitalInfo.contacts.appointment1}`} className="hover:text-blue-300">
-                    {hospitalInfo.contacts.appointment1Display}
+                  <a 
+                    href={hospitalInfo.whatsappUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-emerald-300 hover:text-emerald-200"
+                  >
+                    {hospitalInfo.contacts.whatsappDisplay}
                   </a>
                 </div>
               </div>
@@ -148,12 +152,15 @@ export default function Footer({ onOpenAppointment }) {
               </div>
             </div>
 
-            <button
-              onClick={onOpenAppointment}
-              className="w-full mt-2 py-2.5 px-4 bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-600 hover:to-indigo-600 text-white rounded-xl text-xs font-bold tracking-wide transition-all shadow-md"
+            <a
+              href={hospitalInfo.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full mt-2 py-3 px-4 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white rounded-xl text-xs font-bold tracking-wide transition-all shadow-md flex items-center justify-center gap-2"
             >
-              Book OPD Appointment
-            </button>
+              <MessageCircle className="w-4 h-4" />
+              <span>Chat on WhatsApp</span>
+            </a>
           </div>
 
         </div>

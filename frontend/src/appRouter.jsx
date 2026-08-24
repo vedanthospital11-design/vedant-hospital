@@ -13,13 +13,22 @@ import Facilities from './pages/Facilities';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 
-// Scroll to top helper on route change
+// Scroll to top or anchor helper on route change
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      setTimeout(() => {
+        const elem = document.querySelector(hash);
+        if (elem) {
+          elem.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
 
   return null;
 }

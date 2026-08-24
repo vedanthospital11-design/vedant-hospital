@@ -1,32 +1,62 @@
 import React from 'react';
-import { Phone, Clock, MapPin, AlertCircle } from 'lucide-react';
+import { Phone, Clock, MapPin, AlertCircle, MessageCircle } from 'lucide-react';
 import { hospitalInfo } from '../data/hospitalData';
+import { useLocation } from 'react-router-dom';
 
 export default function EmergencyBar() {
+  const location = useLocation();
+  const isHomepage = location.pathname === '/';
+
   return (
-    <div className="bg-slate-900 text-white text-xs md:text-sm py-2 px-4 border-b border-slate-800">
-      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+    <div className={`text-white text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b transition-colors ${
+      isHomepage
+        // On homepage mobile: blend into the hero image overlay (dark/glass)
+        ? 'bg-slate-950/80 backdrop-blur-sm border-slate-800/40 lg:bg-slate-950 lg:border-slate-800/80'
+        : 'bg-slate-950 border-slate-800/80'
+    }`}>
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
         
-        {/* Emergency Alert Tag */}
-        <div className="flex items-center gap-2">
+        {/* Mobile View: Compact Emergency & WhatsApp Strip */}
+        <div className="flex sm:hidden w-full items-center justify-between text-[11px]">
+          <a
+            href={`tel:${hospitalInfo.contacts.emergency}`}
+            className="flex items-center gap-1.5 font-bold text-rose-300 hover:text-white transition-colors"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse shrink-0"></span>
+            <span className="text-[10px] uppercase font-extrabold text-rose-400">24×7:</span>
+            <span>{hospitalInfo.contacts.emergencyDisplay}</span>
+          </a>
+
+          <a
+            href={hospitalInfo.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 font-bold text-emerald-400 hover:text-emerald-300 transition-colors"
+          >
+            <MessageCircle className="w-3 h-3 text-emerald-400 shrink-0" />
+            <span>WhatsApp</span>
+          </a>
+        </div>
+
+        {/* Desktop View: Full Emergency & Quick Info */}
+        <div className="hidden sm:flex items-center gap-2">
           <span className="inline-flex items-center gap-1.5 bg-rose-600/90 text-white px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider animate-pulse">
             <AlertCircle className="w-3.5 h-3.5" />
-            24x7 Emergency
+            24×7 Emergency
           </span>
-          <span className="hidden sm:inline text-slate-300">
-            Emergency Helpline:
+          <span className="text-slate-300 text-xs">
+            Helpline:
           </span>
           <a
             href={`tel:${hospitalInfo.contacts.emergency}`}
-            className="font-bold text-amber-300 hover:text-white transition-colors flex items-center gap-1"
+            className="font-bold text-amber-300 hover:text-white transition-colors flex items-center gap-1 text-xs sm:text-sm"
           >
             <Phone className="w-3.5 h-3.5" />
             {hospitalInfo.contacts.emergencyDisplay}
           </a>
         </div>
 
-        {/* Quick Info & Location */}
-        <div className="flex items-center gap-4 text-slate-300 text-xs">
+        <div className="hidden sm:flex items-center gap-4 text-slate-300 text-xs">
           <div className="hidden md:flex items-center gap-1.5">
             <Clock className="w-3.5 h-3.5 text-purple-300" />
             <span>OPD: 9:00 AM - 8:00 PM (Mon-Sat)</span>
@@ -36,12 +66,14 @@ export default function EmergencyBar() {
             <span>Shamlaji Road, Modasa, Aravalli</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-slate-400">Appt:</span>
+            <span className="text-slate-400">WhatsApp / Inquiries:</span>
             <a
-              href={`tel:${hospitalInfo.contacts.appointment1}`}
-              className="text-white hover:text-purple-300 transition-colors font-medium"
+              href={hospitalInfo.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-300 hover:text-emerald-200 transition-colors font-semibold"
             >
-              {hospitalInfo.contacts.appointment1Display}
+              {hospitalInfo.contacts.whatsappDisplay}
             </a>
           </div>
         </div>

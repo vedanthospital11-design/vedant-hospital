@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Eye, Sparkles, ZoomIn } from 'lucide-react';
 import { galleryImages } from '../data/hospitalData';
 import ImageModal from '../components/ImageModal';
+import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -18,7 +19,7 @@ export default function Gallery() {
       
       {/* Header */}
       <section className="bg-gradient-to-r from-purple-50 via-blue-50 to-slate-50 py-12 border-b border-purple-100/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+        <MotionReveal variant="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100 px-3 py-1 rounded-full border border-purple-200">
             Hospital Infrastructure
           </span>
@@ -28,14 +29,14 @@ export default function Gallery() {
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Take a virtual tour of our modern operation theatres, 3D/4D ultrasound suites, 24x7 ICU, reception lounge, and patient care rooms in Modasa.
           </p>
-        </div>
+        </MotionReveal>
       </section>
 
       {/* Gallery Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Category Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-2">
+        <MotionReveal variant="fade-up" className="flex flex-wrap items-center justify-center gap-2">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -49,10 +50,10 @@ export default function Gallery() {
               {cat}
             </button>
           ))}
-        </div>
+        </MotionReveal>
 
         {/* Images Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerGroup stagger={80} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredImages.map((img) => (
             <div
               key={img.id}
@@ -86,7 +87,7 @@ export default function Gallery() {
               </div>
             </div>
           ))}
-        </div>
+        </StaggerGroup>
 
       </section>
 
@@ -99,3 +100,4 @@ export default function Gallery() {
     </div>
   );
 }
+

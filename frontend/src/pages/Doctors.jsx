@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, Phone, Award, CheckCircle2, Stethoscope, Clock, ShieldCheck, HeartPulse, Activity } from 'lucide-react';
 import { doctorsData, hospitalInfo } from '../data/hospitalData';
+import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
 
 export default function Doctors({ onOpenAppointment }) {
   return (
@@ -8,7 +9,7 @@ export default function Doctors({ onOpenAppointment }) {
       
       {/* Header */}
       <section className="bg-gradient-to-r from-purple-50 via-blue-50 to-slate-50 py-12 border-b border-purple-100/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+        <MotionReveal variant="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100 px-3 py-1 rounded-full border border-purple-200">
             Medical Faculty
           </span>
@@ -18,7 +19,7 @@ export default function Doctors({ onOpenAppointment }) {
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Experienced medical professionals offering specialized care in Obstetrics, Gynecology, Laparoscopy, 3D/4D Sonography, General Medicine, Cardiac & Critical ICU Care.
           </p>
-        </div>
+        </MotionReveal>
       </section>
 
       {/* Detailed Doctor Profiles */}
@@ -28,8 +29,10 @@ export default function Doctors({ onOpenAppointment }) {
           const isReversed = index % 2 === 1;
 
           return (
-            <div
+            <MotionReveal
               key={doctor.id}
+              variant="fade-up"
+              delay={index * 100}
               className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-xl"
             >
               <div className={`grid grid-cols-1 lg:grid-cols-12 ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
@@ -38,8 +41,8 @@ export default function Doctors({ onOpenAppointment }) {
                 <div className={`lg:col-span-5 relative bg-slate-900 min-h-[360px] lg:min-h-[460px] ${isReversed ? 'lg:order-2' : ''}`}>
                   <img
                     src={doctor.image}
-                    alt={doctor.name}
-                    className="w-full h-full object-cover object-top"
+                    alt={doctor.altText || doctor.name}
+                    className="w-full h-full object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                   
@@ -119,31 +122,32 @@ export default function Doctors({ onOpenAppointment }) {
 
                   {/* Actions */}
                   <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
-                    <button
-                      onClick={() => onOpenAppointment(doctor.id)}
-                      className={`flex-1 py-3.5 px-6 rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 ${
+                    <a
+                      href={hospitalInfo.whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex-1 py-3.5 px-6 rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 btn-lift ${
                         isGynecologist
                           ? 'bg-[#6B2C7E] hover:bg-[#582468]'
                           : 'bg-[#1E3A5F] hover:bg-[#162A45]'
                       }`}
                     >
-                      <Calendar className="w-4 h-4" />
-                      <span>Book OPD Consultation</span>
-                    </button>
+                      <span>Consult on WhatsApp</span>
+                    </a>
 
                     <a
                       href={`tel:${hospitalInfo.contacts.appointment1}`}
-                      className="py-3.5 px-6 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 font-semibold text-sm flex items-center justify-center gap-2 transition-colors"
+                      className="py-3.5 px-6 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 font-semibold text-sm flex items-center justify-center gap-2 transition-colors btn-lift"
                     >
                       <Phone className="w-4 h-4 text-blue-600" />
-                      <span>Call for OPD</span>
+                      <span>Call OPD: {hospitalInfo.contacts.appointment1Display}</span>
                     </a>
                   </div>
 
                 </div>
 
               </div>
-            </div>
+            </MotionReveal>
           );
         })}
       </section>
@@ -151,3 +155,4 @@ export default function Doctors({ onOpenAppointment }) {
     </div>
   );
 }
+

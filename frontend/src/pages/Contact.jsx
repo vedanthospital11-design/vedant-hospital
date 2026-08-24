@@ -1,299 +1,252 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   MapPin, 
   Phone, 
   Clock, 
-  Calendar, 
-  Mail, 
-  Send, 
-  CheckCircle2, 
+  MessageCircle, 
   AlertCircle,
-  Building,
-  Navigation
+  Navigation,
+  ExternalLink,
+  ShieldCheck
 } from 'lucide-react';
 import { hospitalInfo } from '../data/hospitalData';
+import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
 
-export default function Contact({ onOpenAppointment }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSent(true);
-  };
-
+export default function Contact() {
   return (
     <div className="space-y-16 py-8 sm:py-12">
       
       {/* Header */}
       <section className="bg-gradient-to-r from-purple-50 via-blue-50 to-slate-50 py-12 border-b border-purple-100/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+        <MotionReveal variant="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100 px-3 py-1 rounded-full border border-purple-200">
-            Reach Out to Us
+            Contact Vedant Hospital
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Contact & Hospital Location in Modasa
+            Connect Directly with Vedant Hospital
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-            Conveniently located on Shamlaji Road above Bank of Baroda. 24x7 emergency admissions, consultations, and ambulance assistance.
+            Reach out directly to our hospital team on WhatsApp for appointment inquiries and consultation details, or call our 24x7 emergency department for urgent medical admissions in Modasa.
           </p>
-        </div>
+        </MotionReveal>
       </section>
 
-      {/* Main Grid: Contact Cards & Form */}
+      {/* Main Direct Action Cards */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <StaggerGroup stagger={120} className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          {/* Left Column: Contact Cards */}
-          <div className="lg:col-span-5 space-y-6">
-            
-            {/* 24x7 Emergency Highlight Card */}
-            <div className="bg-rose-50 border-2 border-rose-200 rounded-3xl p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center">
-                  <AlertCircle className="w-6 h-6 animate-pulse" />
-                </div>
-                <div>
-                  <h3 className="font-extrabold text-lg text-rose-950">24x7 Emergency Helpline</h3>
-                  <p className="text-xs text-rose-800 font-medium">Immediate response for trauma & labor</p>
-                </div>
+          {/* Primary Action: WhatsApp Direct Chat */}
+          <div className="bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+              <MessageCircle className="w-36 h-36" />
+            </div>
+
+            <div className="space-y-4 relative z-10">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-700/60 text-emerald-200 text-xs font-bold border border-emerald-500/30">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Primary Contact Channel</span>
               </div>
+
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  Chat on WhatsApp
+                </h2>
+                <p className="text-emerald-100 text-sm mt-2 leading-relaxed">
+                  Fastest way to inquire about doctor OPD schedules, pregnancy care, surgery details, and book consultations.
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <p className="text-xs uppercase tracking-wider text-emerald-200 font-semibold">WhatsApp Number</p>
+                <p className="text-2xl sm:text-3xl font-black text-white tracking-tight mt-0.5">
+                  {hospitalInfo.contacts.whatsappDisplay}
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-8 relative z-10">
+              <a
+                href={hospitalInfo.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 px-6 rounded-2xl bg-white text-emerald-900 hover:bg-emerald-50 font-extrabold text-base transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2.5 group/btn btn-lift"
+              >
+                <MessageCircle className="w-5 h-5 text-emerald-700 group-hover/btn:scale-110 transition-transform" />
+                <span>Open WhatsApp Chat Now</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Emergency 24x7 Action Card */}
+          <div className="bg-gradient-to-br from-rose-900 via-rose-800 to-red-950 rounded-3xl p-8 sm:p-10 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+              <AlertCircle className="w-36 h-36" />
+            </div>
+
+            <div className="space-y-4 relative z-10">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-700/60 text-rose-200 text-xs font-bold border border-rose-500/30">
+                <span className="w-2 h-2 rounded-full bg-rose-300 animate-ping"></span>
+                <span>24x7 Emergency Helpline</span>
+              </div>
+
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  Medical & ICU Emergency
+                </h2>
+                <p className="text-rose-100 text-sm mt-2 leading-relaxed">
+                  Immediate triage and emergency admissions for acute medical emergencies, labor/delivery, cardiac events, and trauma care.
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <p className="text-xs uppercase tracking-wider text-rose-200 font-semibold">24x7 Helpline</p>
+                <a
+                  href={`tel:${hospitalInfo.contacts.emergency}`}
+                  className="text-2xl sm:text-3xl font-black text-amber-300 hover:underline tracking-tight mt-0.5 block"
+                >
+                  {hospitalInfo.contacts.emergencyDisplay}
+                </a>
+              </div>
+            </div>
+
+            <div className="pt-8 relative z-10">
               <a
                 href={`tel:${hospitalInfo.contacts.emergency}`}
-                className="block text-2xl sm:text-3xl font-extrabold text-rose-700 hover:text-rose-900 transition-colors py-1"
+                className="w-full py-4 px-6 rounded-2xl bg-white text-rose-900 hover:bg-rose-50 font-extrabold text-base transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2.5 group/btn btn-lift"
               >
-                {hospitalInfo.contacts.emergencyDisplay}
+                <Phone className="w-5 h-5 text-rose-700 group-hover/btn:scale-110 transition-transform" />
+                <span>Call Emergency ({hospitalInfo.contacts.emergencyDisplay})</span>
               </a>
-              <p className="text-xs text-rose-700 mt-1">
-                Doctor supervised ICU & Obstetric emergency admissions 24 hours a day.
-              </p>
             </div>
-
-            {/* Appointment Numbers Card */}
-            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-md space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#1E3A5F] flex items-center justify-center">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-extrabold text-base text-slate-900">OPD Appointment Numbers</h3>
-                  <p className="text-xs text-slate-500">Consultant OPD pre-booking</p>
-                </div>
-              </div>
-
-              <div className="space-y-2 pt-1">
-                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <span className="text-xs font-bold text-slate-600">Line 1:</span>
-                  <a
-                    href={`tel:${hospitalInfo.contacts.appointment1}`}
-                    className="text-sm font-bold text-purple-800 hover:underline"
-                  >
-                    {hospitalInfo.contacts.appointment1Display}
-                  </a>
-                </div>
-
-                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <span className="text-xs font-bold text-slate-600">Line 2:</span>
-                  <a
-                    href={`tel:${hospitalInfo.contacts.appointment2}`}
-                    className="text-sm font-bold text-purple-800 hover:underline"
-                  >
-                    {hospitalInfo.contacts.appointment2Display}
-                  </a>
-                </div>
-              </div>
-
-              <button
-                onClick={() => onOpenAppointment()}
-                className="w-full py-3 bg-[#6B2C7E] hover:bg-[#582468] text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-sm flex items-center justify-center gap-2"
-              >
-                <Calendar className="w-4 h-4" />
-                <span>Book Appointment Online</span>
-              </button>
-            </div>
-
-            {/* Address Card */}
-            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-md space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#6B2C7E] flex items-center justify-center">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-extrabold text-base text-slate-900">Hospital Address</h3>
-                  <p className="text-xs text-slate-500">Modasa, Aravalli District</p>
-                </div>
-              </div>
-
-              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pl-1">
-                {hospitalInfo.address}
-              </p>
-
-              <div className="pt-2 flex items-center gap-2 text-xs text-slate-500">
-                <Clock className="w-4 h-4 text-purple-700 shrink-0" />
-                <span>OPD: 9:00 AM - 8:00 PM (Monday to Saturday)</span>
-              </div>
-            </div>
-
           </div>
 
-          {/* Right Column: Inquiry Message Form */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl">
-            
-            <div className="mb-6 space-y-1">
-              <h2 className="text-2xl font-extrabold text-slate-900">Send an Inquiry or Message</h2>
-              <p className="text-xs sm:text-sm text-slate-500">
-                Have a question about treatments, doctor availability, or insurance? Fill out the form below.
-              </p>
-            </div>
-
-            {sent ? (
-              <div className="text-center py-12 space-y-4">
-                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-10 h-10" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900">Message Sent Successfully!</h3>
-                <p className="text-sm text-slate-600 max-w-sm mx-auto">
-                  Thank you, <strong className="text-slate-800">{formData.name}</strong>. Our hospital reception team will get in touch with you shortly.
-                </p>
-                <button
-                  onClick={() => {
-                    setSent(false);
-                    setFormData({ name: '', phone: '', subject: '', message: '' });
-                  }}
-                  className="px-6 py-2.5 bg-[#6B2C7E] text-white font-bold text-xs rounded-xl"
-                >
-                  Send Another Message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Your Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Anand Patel"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Mobile Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="e.g. 9876543210"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Subject / Concern
-                  </label>
-                  <select
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600 bg-white"
-                  >
-                    <option value="">General Consultation Inquiry</option>
-                    <option value="Maternity & Pregnancy Care">Maternity & Pregnancy Care (Dr. Happy Patel)</option>
-                    <option value="Gynecology / Laparoscopy / Sonography">Gynecology / Laparoscopy / Sonography</option>
-                    <option value="ICU / Emergency Admission">ICU / Emergency Admission</option>
-                    <option value="Cardiac / Diabetes Care">Cardiac / Diabetes Care (Dr. Paras Patel)</option>
-                    <option value="Mediclaim / Insurance Cashless">Mediclaim / Insurance Cashless Query</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Your Message / Health Query *
-                  </label>
-                  <textarea
-                    required
-                    rows="4"
-                    placeholder="Write your health inquiry, questions regarding doctor consultation timings, or hospital admission..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-3.5 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-600 resize-none"
-                  ></textarea>
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    className="w-full py-3.5 bg-gradient-to-r from-[#6B2C7E] to-[#1E3A5F] hover:from-[#582468] hover:to-[#162A45] text-white font-bold text-sm rounded-xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2"
-                  >
-                    <Send className="w-4 h-4" />
-                    <span>Submit Inquiry</span>
-                  </button>
-                </div>
-              </form>
-            )}
-
-          </div>
-
-        </div>
+        </StaggerGroup>
       </section>
 
-      {/* Map / Location Guide Card */}
+      {/* Hospital Location & Timings Details */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-lg p-6 sm:p-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-slate-100 gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-purple-100 text-[#6B2C7E] flex items-center justify-center">
-                <Navigation className="w-5 h-5" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          {/* Address & Timings Card */}
+          <MotionReveal variant="fade-right" className="lg:col-span-5 bg-white rounded-3xl p-8 border border-slate-200 shadow-lg space-y-6 flex flex-col justify-between">
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-purple-100 text-[#6B2C7E] flex items-center justify-center shrink-0">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-extrabold text-slate-900">Hospital Address</h3>
+                  <p className="text-xs text-slate-500 font-medium">Modasa, Dist. Aravalli, Gujarat</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-extrabold text-lg text-slate-900">How to Reach Vedant Hospital</h3>
-                <p className="text-xs text-slate-500">Deep Area, Shamlaji Road, Modasa, Aravalli</p>
+
+              <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-2">
+                <p className="text-sm font-semibold text-slate-800 leading-relaxed">
+                  {hospitalInfo.address}
+                </p>
+                <div className="flex items-center gap-2 text-xs text-purple-700 font-bold pt-1">
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>3rd Floor, Gajanand Complex (Lift Available)</span>
+                </div>
+              </div>
+
+              <div className="space-y-3 pt-2">
+                <div className="flex items-start gap-3 text-xs sm:text-sm">
+                  <Clock className="w-5 h-5 text-purple-700 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-800">OPD Consultation Timings:</strong>
+                    <p className="text-slate-600 mt-0.5">Monday to Saturday: 09:00 AM – 08:00 PM</p>
+                    <p className="text-slate-600">Sunday: 09:00 AM – 01:00 PM</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 text-xs sm:text-sm">
+                  <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-800">ICU & Emergency Care:</strong>
+                    <p className="text-slate-600 mt-0.5">24 Hours / 7 Days a Week</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Vedant Hospital Gajanand Complex Bank of Baroda Shamlaji Road Modasa')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-purple-50 hover:bg-purple-100 text-[#6B2C7E] font-bold text-xs rounded-xl border border-purple-200 transition-colors flex items-center gap-1.5"
-            >
-              <span>Open in Google Maps</span>
-            </a>
-          </div>
+            <div className="pt-6 border-t border-slate-100">
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Vedant Hospital Gajanand Complex Bank of Baroda Shamlaji Road Modasa')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3.5 px-4 bg-purple-50 hover:bg-purple-100 text-[#6B2C7E] font-bold text-sm rounded-xl border border-purple-200 transition-colors flex items-center justify-center gap-2 btn-lift"
+              >
+                <span>Get Directions on Google Maps</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </MotionReveal>
 
-          <div className="pt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
-            <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-              <p className="font-bold text-slate-800 mb-1">Landmark</p>
-              <p className="text-slate-600">Above Bank of Baroda, Gajanand Complex (3rd Floor), Deep Area.</p>
+          {/* Landmarks & Accessibility Guide */}
+          <MotionReveal variant="fade-left" delay={100} className="lg:col-span-7 bg-white rounded-3xl p-8 border border-slate-200 shadow-lg space-y-6 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#1E3A5F] flex items-center justify-center shrink-0">
+                  <Navigation className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-extrabold text-slate-900">How to Reach & Hospital Guide</h3>
+                  <p className="text-xs text-slate-500 font-medium">Important landmark and accessibility information</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-1">
+                  <h4 className="font-bold text-sm text-slate-900">Prominent Landmark</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Located on main Shamlaji Road, Deep Area, directly above Bank of Baroda in Gajanand Complex.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-1">
+                  <h4 className="font-bold text-sm text-slate-900">Elevator & Accessibility</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Dedicated wide elevator lift access directly to the 3rd floor, with wheelchair and stretcher access.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-1">
+                  <h4 className="font-bold text-sm text-slate-900">Emergency & Ambulance</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Designated parking space for ambulances and swift transfer facilities to ICU and Labour Room.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-1">
+                  <h4 className="font-bold text-sm text-slate-900">In-House Pharmacy & Lab</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    24x7 pathology laboratory and pharmacy available inside the hospital premises for instant tests and medicines.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-              <p className="font-bold text-slate-800 mb-1">Accessibility</p>
-              <p className="text-slate-600">Convenient elevator lift access to the 3rd floor with stretcher friendly entrance.</p>
+            <div className="p-4 rounded-2xl bg-purple-50/70 border border-purple-100 flex items-center justify-between gap-4">
+              <div className="text-xs text-slate-700">
+                <p className="font-bold text-[#6B2C7E]">Need assistance right now?</p>
+                <p className="text-slate-500">Our reception is active on WhatsApp during working hours.</p>
+              </div>
+              <a
+                href={hospitalInfo.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-[#6B2C7E] hover:bg-[#582468] text-white text-xs font-bold rounded-xl transition-all shrink-0 shadow-xs btn-lift"
+              >
+                Chat on WhatsApp
+              </a>
             </div>
+          </MotionReveal>
 
-            <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-              <p className="font-bold text-slate-800 mb-1">Emergency Arrivals</p>
-              <p className="text-slate-600">24x7 immediate triage on arrival. Ambulance parking space available.</p>
-            </div>
-          </div>
         </div>
       </section>
 
     </div>
   );
 }
+

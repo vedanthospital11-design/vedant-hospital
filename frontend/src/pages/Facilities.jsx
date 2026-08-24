@@ -13,6 +13,7 @@ import {
   Phone
 } from 'lucide-react';
 import { facilitiesData, hospitalInfo } from '../data/hospitalData';
+import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
 
 export default function Facilities({ onOpenAppointment }) {
   return (
@@ -20,7 +21,7 @@ export default function Facilities({ onOpenAppointment }) {
       
       {/* Header */}
       <section className="bg-gradient-to-r from-purple-50 via-blue-50 to-slate-50 py-12 border-b border-purple-100/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+        <MotionReveal variant="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100 px-3 py-1 rounded-full border border-purple-200">
             Hospital Infrastructure
           </span>
@@ -30,16 +31,17 @@ export default function Facilities({ onOpenAppointment }) {
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Vedant Hospital offers fully integrated healthcare infrastructure under one roof in Modasa, ensuring safety, hygiene, and rapid clinical intervention.
           </p>
-        </div>
+        </MotionReveal>
       </section>
 
       {/* Facilities Cards Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerGroup stagger={80} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {facilitiesData.map((facility) => (
             <div
               key={facility.id}
-              className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+              id={facility.id}
+              className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 scroll-mt-28"
             >
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-purple-100 text-[#6B2C7E] group-hover:bg-[#6B2C7E] group-hover:text-white transition-all flex items-center justify-center mb-6 shadow-inner">
@@ -70,15 +72,15 @@ export default function Facilities({ onOpenAppointment }) {
               </div>
             </div>
           ))}
-        </div>
+        </StaggerGroup>
       </section>
 
       {/* Hospital Rooms & Accommodations Section */}
-      <section className="bg-slate-50 py-16 border-y border-slate-200/70">
+      <section id="rooms-section" className="bg-slate-50 py-16 border-y border-slate-200/70 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 space-y-6">
+            <MotionReveal variant="fade-right" className="lg:col-span-6 space-y-6">
               <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-100 px-3 py-1 rounded-full">
                 Patient Comfort & Hygiene
               </span>
@@ -103,17 +105,17 @@ export default function Facilities({ onOpenAppointment }) {
                   <span><strong>General Ward:</strong> Spacious, clean, well-ventilated general wards with round-the-clock nursing supervision.</span>
                 </div>
               </div>
-            </div>
+            </MotionReveal>
 
-            <div className="lg:col-span-6">
+            <MotionReveal variant="fade-left" delay={100} className="lg:col-span-6">
               <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <img
                   src="/images/patient-room.jpg"
                   alt="Deluxe Patient Room at Vedant Hospital"
-                  className="w-full h-80 sm:h-96 object-cover"
+                  className="w-full h-80 sm:h-96 object-cover animate-ken-burns"
                 />
               </div>
-            </div>
+            </MotionReveal>
           </div>
 
         </div>
@@ -121,7 +123,7 @@ export default function Facilities({ onOpenAppointment }) {
 
       {/* Mediclaim & Cashless Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-[#1E3A5F] to-[#6B2C7E] rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+        <MotionReveal variant="scale-in" className="bg-gradient-to-r from-[#1E3A5F] to-[#6B2C7E] rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-2 text-center md:text-left">
             <h3 className="text-2xl sm:text-3xl font-extrabold">Mediclaim & Cashless Hospitalization</h3>
             <p className="text-purple-100 text-sm max-w-xl">
@@ -129,15 +131,26 @@ export default function Facilities({ onOpenAppointment }) {
             </p>
           </div>
 
-          <a
-            href={`tel:${hospitalInfo.contacts.emergency}`}
-            className="px-6 py-3.5 bg-white text-[#1E3A5F] hover:bg-blue-50 font-bold rounded-xl text-sm transition-all shadow-md shrink-0"
-          >
-            Inquire Insurance Desk: {hospitalInfo.contacts.emergencyDisplay}
-          </a>
-        </div>
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <a
+              href={hospitalInfo.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-600 font-bold rounded-xl text-sm transition-all shadow-md text-white btn-lift"
+            >
+              WhatsApp Insurance Desk
+            </a>
+            <a
+              href={`tel:${hospitalInfo.contacts.emergency}`}
+              className="px-5 py-3.5 bg-white text-[#1E3A5F] hover:bg-blue-50 font-bold rounded-xl text-sm transition-all shadow-md btn-lift"
+            >
+              Emergency: {hospitalInfo.contacts.emergencyDisplay}
+            </a>
+          </div>
+        </MotionReveal>
       </section>
 
     </div>
   );
 }
+

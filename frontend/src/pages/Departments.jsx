@@ -11,6 +11,7 @@ import {
   Stethoscope 
 } from 'lucide-react';
 import { departmentsData, hospitalInfo } from '../data/hospitalData';
+import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
 
 export default function Departments({ onOpenAppointment }) {
   return (
@@ -18,7 +19,7 @@ export default function Departments({ onOpenAppointment }) {
       
       {/* Header */}
       <section className="bg-gradient-to-r from-purple-50 via-blue-50 to-slate-50 py-12 border-b border-purple-100/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+        <MotionReveal variant="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100 px-3 py-1 rounded-full border border-purple-200">
             Specialized Medical Divisions
           </span>
@@ -28,18 +29,20 @@ export default function Departments({ onOpenAppointment }) {
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             From modern maternity and painless childbirth to 24x7 doctor-supervised ICU and cardiac care, explore our hospital services in Modasa.
           </p>
-        </div>
+        </MotionReveal>
       </section>
 
       {/* Departments Detailed List */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        {departmentsData.map((dept) => {
+        {departmentsData.map((dept, index) => {
           const isGynecology = dept.id === 'gynecology';
           
           return (
-            <div
+            <MotionReveal
               key={dept.id}
               id={dept.id}
+              variant="fade-up"
+              delay={index * 100}
               className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl space-y-8"
             >
               
@@ -74,22 +77,23 @@ export default function Departments({ onOpenAppointment }) {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <button
-                    onClick={() => onOpenAppointment(isGynecology ? 'dr-happy-patel' : 'dr-paras-patel')}
-                    className={`py-3 px-5 rounded-xl text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2 ${
+                  <a
+                    href={hospitalInfo.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`py-3 px-5 rounded-xl text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 btn-lift flex items-center justify-center gap-2 ${
                       isGynecology ? 'bg-[#6B2C7E] hover:bg-[#582468]' : 'bg-[#1E3A5F] hover:bg-[#162A45]'
                     }`}
                   >
-                    <Calendar className="w-4 h-4" />
-                    <span>Book OPD Appointment</span>
-                  </button>
+                    <span>Contact OPD on WhatsApp</span>
+                  </a>
 
                   <a
                     href={`tel:${hospitalInfo.contacts.emergency}`}
-                    className="py-3 px-4 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5"
+                    className="py-3 px-4 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 btn-lift"
                   >
                     <Phone className="w-4 h-4 text-rose-600" />
-                    <span>24x7 Helpline</span>
+                    <span>24x7 Emergency: {hospitalInfo.contacts.emergencyDisplay}</span>
                   </a>
                 </div>
               </div>
@@ -101,7 +105,7 @@ export default function Departments({ onOpenAppointment }) {
                   Clinical Treatments & Diagnostic Capabilities
                 </h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <StaggerGroup stagger={80} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {dept.services.map((srv, idx) => (
                     <div
                       key={idx}
@@ -125,10 +129,10 @@ export default function Departments({ onOpenAppointment }) {
                       </div>
                     </div>
                   ))}
-                </div>
+                </StaggerGroup>
               </div>
 
-            </div>
+            </MotionReveal>
           );
         })}
       </section>
@@ -136,3 +140,4 @@ export default function Departments({ onOpenAppointment }) {
     </div>
   );
 }
+

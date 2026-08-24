@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Calendar, Phone, Award, CheckCircle2, Stethoscope, Clock, ShieldCheck, HeartPulse, Activity } from 'lucide-react';
 import { doctorsData, hospitalInfo } from '../data/hospitalData';
 import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
 
 export default function Doctors({ onOpenAppointment }) {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const elementId = location.hash.replace('#', '');
+      const element = document.getElementById(elementId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <div className="space-y-16 py-8 sm:py-12">
       
@@ -29,12 +44,12 @@ export default function Doctors({ onOpenAppointment }) {
           const isReversed = index % 2 === 1;
 
           return (
-            <MotionReveal
-              key={doctor.id}
-              variant="fade-up"
-              delay={index * 100}
-              className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-xl"
-            >
+            <div key={doctor.id} id={doctor.id} className="scroll-mt-28">
+              <MotionReveal
+                variant="fade-up"
+                delay={index * 100}
+                className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-xl"
+              >
               <div className={`grid grid-cols-1 lg:grid-cols-12 ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
                 
                 {/* Doctor Portrait Col */}
@@ -148,8 +163,9 @@ export default function Doctors({ onOpenAppointment }) {
 
               </div>
             </MotionReveal>
-          );
-        })}
+          </div>
+        );
+      })}
       </section>
 
     </div>

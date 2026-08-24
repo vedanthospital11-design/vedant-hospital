@@ -1,8 +1,9 @@
 import React from 'react';
-import { Award, CheckCircle2, Calendar, Phone, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Award, Stethoscope, Phone, MessageCircle, ArrowRight } from 'lucide-react';
 import { hospitalInfo } from '../data/hospitalData';
 
-export default function DoctorCard({ doctor, onBookAppointment }) {
+export default function DoctorCard({ doctor }) {
   const isGynecologist = doctor.department.includes('Obstetrics');
 
   return (
@@ -15,7 +16,7 @@ export default function DoctorCard({ doctor, onBookAppointment }) {
           alt={doctor.altText || doctor.name}
           className="w-full h-full object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent"></div>
         
         {/* Department Badge */}
         <div className="absolute top-4 left-4">
@@ -34,64 +35,77 @@ export default function DoctorCard({ doctor, onBookAppointment }) {
         </div>
       </div>
 
-      {/* Content Area with Flex 1 and mt-auto for CTA alignment */}
-      <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between space-y-6">
+      {/* Concise, Scannable Content Area */}
+      <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-5">
         
-        {/* Top Content (Credentials + Clinical Focus) */}
-        <div className="space-y-5 flex-1 flex flex-col">
-          {/* Credentials & Clinical Experience */}
+        <div className="space-y-4 flex-1 flex flex-col">
+          
+          {/* Key Credentials (3 concise points) */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2.5 flex items-center gap-1.5">
-              <Award className="w-4 h-4 text-purple-700" />
-              Credentials & Clinical Experience
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
+              <Award className="w-3.5 h-3.5 text-purple-700" />
+              Key Credentials
             </h4>
-            <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700">
-              {doctor.experience.map((exp, idx) => (
+            <ul className="space-y-1 text-xs sm:text-sm text-slate-700">
+              {(doctor.keyCredentials || doctor.experience.slice(0, 3)).map((cred, idx) => (
                 <li key={idx} className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-purple-600 shrink-0 mt-1.5"></span>
-                  <span className="leading-snug">{exp}</span>
+                  <span className="leading-snug">{cred}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Key Clinical Focus & Treatments */}
-          <div className="flex-1">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2.5 flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-blue-700" />
-              Clinical Focus & Treatments
+          {/* Key Specialties (3-4 concise items) */}
+          <div>
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
+              <Stethoscope className="w-3.5 h-3.5 text-blue-700" />
+              Key Specialties
             </h4>
-            <div className="flex flex-wrap gap-1.5">
-              {doctor.specialties.map((spec, idx) => (
-                <span
-                  key={idx}
-                  className="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-50 border border-slate-200 text-slate-700 hover:bg-purple-50/50 hover:border-purple-200 transition-colors"
-                >
-                  {spec}
-                </span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1.5 text-xs sm:text-sm text-slate-700">
+              {(doctor.keySpecialties || doctor.specialties.slice(0, 4)).map((spec, idx) => (
+                <div key={idx} className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                  <span className="leading-snug">{spec}</span>
+                </div>
               ))}
             </div>
           </div>
+
+          {/* View Full Profile Link */}
+          <div className="pt-1">
+            <Link
+              to={`/doctors#${doctor.id}`}
+              className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold transition-colors group/link ${
+                isGynecologist ? 'text-[#6B2C7E] hover:text-[#582468]' : 'text-[#1E3A5F] hover:text-[#162A45]'
+              }`}
+            >
+              <span>View Full Profile</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-1" />
+            </Link>
+          </div>
+
         </div>
 
-        {/* Action Buttons Row - Perfectly pinned to bottom across both cards */}
-        <div className="mt-auto pt-5 border-t border-slate-100 flex flex-col sm:flex-row gap-2.5 shrink-0">
+        {/* Compact, Premium Action Buttons */}
+        <div className="mt-auto pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-2.5 shrink-0">
           <a
             href={hospitalInfo.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex-1 py-3 px-4 rounded-xl text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-sm active:scale-95 btn-lift ${
+            className={`flex-1 py-2.5 px-4 rounded-xl text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-sm active:scale-95 btn-lift ${
               isGynecologist
                 ? 'bg-[#6B2C7E] hover:bg-[#582468]'
                 : 'bg-[#1E3A5F] hover:bg-[#162A45]'
             }`}
           >
-            <span>Consult {doctor.name.split(' ')[1]} on WhatsApp</span>
+            <MessageCircle className="w-3.5 h-3.5" />
+            <span>Consult on WhatsApp</span>
           </a>
 
           <a
             href={`tel:${hospitalInfo.contacts.appointment1}`}
-            className="py-3 px-4 rounded-xl border border-slate-200 text-slate-700 hover:text-slate-900 hover:bg-slate-50 font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-colors shrink-0 btn-lift"
+            className="py-2.5 px-4 rounded-xl border border-slate-200 text-slate-700 hover:text-slate-900 hover:bg-slate-50 font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-colors shrink-0 btn-lift"
           >
             <Phone className="w-3.5 h-3.5 text-blue-600" />
             <span>Call OPD</span>
@@ -102,4 +116,3 @@ export default function DoctorCard({ doctor, onBookAppointment }) {
     </div>
   );
 }
-

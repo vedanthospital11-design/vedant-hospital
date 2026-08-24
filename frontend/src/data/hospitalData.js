@@ -30,6 +30,17 @@ export const doctorsData = [
     department: "Obstetrics & Gynecology",
     altText: "Dr. Happy Patel - Obstetrics and Gynecology Specialist",
     image: "/images/dr-happy-patel.jpg",
+    keyCredentials: [
+      "Ex. Resident Doctor, SVP Hospital / Shardaben Hospital",
+      "Fellowship in Advanced Sonography (Mumbai)",
+      "Fellowship in Laparoscopy, Jaslok Hospital (Mumbai)"
+    ],
+    keySpecialties: [
+      "Normal & Painless Delivery",
+      "3D / 4D Ultrasound & Fetal Sonography",
+      "Laparoscopic Surgery",
+      "Infertility Care"
+    ],
     experience: [
       "Ex. Resident Doctor, SVP Hospital / Shardaben Hospital",
       "Fellowship in Advance Sonography (Mumbai)",
@@ -55,6 +66,17 @@ export const doctorsData = [
     department: "General Medicine & Critical Care",
     altText: "Dr. Paras Patel - General Medicine and Critical Care Specialist",
     image: "/images/dr-paras-patel.jpg",
+    keyCredentials: [
+      "Consultant Diabetologist & Cardiac Physician",
+      "Pulse Hospital & ICU Association",
+      "Critical Care & Emergency Medicine"
+    ],
+    keySpecialties: [
+      "24×7 Critical Care",
+      "Cardiac & Hypertension Care",
+      "Diabetes & Thyroid Care",
+      "Emergency Medicine"
+    ],
     experience: [
       "Consultant Diabetologist & Cardiac Physician",
       "Pulse Hospital & ICU Association",

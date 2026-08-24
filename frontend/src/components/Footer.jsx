@@ -61,12 +61,6 @@ export default function Footer({ onOpenAppointment }) {
                 </Link>
               </li>
               <li>
-                <Link to="/departments" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-                  Clinical Departments
-                </Link>
-              </li>
-              <li>
                 <Link to="/facilities" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
                   Hospital Facilities & ICU
@@ -87,11 +81,11 @@ export default function Footer({ onOpenAppointment }) {
             </ul>
           </div>
 
-          {/* Col 3: Key Departments & Specialists */}
+          {/* Col 3: Specialist Doctors */}
           <div>
             <h4 className="text-white font-semibold text-base mb-4 tracking-wide flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-              Departments & Doctors
+              Specialist Doctors
             </h4>
             <div className="space-y-3.5 text-sm">
               <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">

@@ -11,7 +11,7 @@ import {
   ArrowRight, 
   Sparkles
 } from 'lucide-react';
-import { hospitalInfo, doctorsData, departmentsData, facilitiesData, galleryImages } from '../data/hospitalData';
+import { hospitalInfo, doctorsData, facilitiesData, galleryImages } from '../data/hospitalData';
 import DoctorCard from '../components/DoctorCard';
 import ImageModal from '../components/ImageModal';
 import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
@@ -451,70 +451,6 @@ export default function Home({ onOpenAppointment }) {
             />
           ))}
         </StaggerGroup>
-      </section>
-
-      {/* ============================================================
-          MEDICAL DEPARTMENTS
-      ============================================================ */}
-      <section className="bg-slate-100/60 py-12 sm:py-20 border-y border-slate-200/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <MotionReveal variant="fade-up" className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-              Clinical Spectrum
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Our Medical Departments
-            </h2>
-            <p className="text-xs sm:text-base text-slate-600">
-              Specialized departments equipped with modular surgical suites, HD sonography, and intensive care.
-            </p>
-          </MotionReveal>
-
-          <StaggerGroup stagger={150} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {departmentsData.map((dept) => {
-              const isJambu = dept.colorTheme === 'jambu';
-              const realDeptImage = isJambu ? '/images/labour-room.jpg' : '/images/icu-care.jpg';
-              return (
-                <div key={dept.id} className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group">
-                  <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
-                    <img src={realDeptImage} alt={dept.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
-                    <div className="absolute top-4 left-4">
-                      <span className={`text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full text-white backdrop-blur-md ${isJambu ? 'bg-[#6B2C7E]/95' : 'bg-[#1E3A5F]/95'}`}>
-                        {dept.titleGujarati}
-                      </span>
-                    </div>
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <h3 className="text-xl sm:text-2xl font-extrabold">{dept.title}</h3>
-                      <p className="text-xs text-purple-200">Lead: <strong>{dept.headDoctor}</strong> ({dept.qualifications})</p>
-                    </div>
-                  </div>
-                  <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
-                    <div className="space-y-4">
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{dept.summary}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {dept.services.slice(0, 4).map((service, idx) => (
-                          <span key={idx} className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-50 border border-slate-200 text-slate-700">
-                            {service.title}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="pt-4 border-t border-slate-100">
-                      <Link
-                        to={dept.id === 'gynecology' ? '/departments#gynecology' : '/departments#medicine'}
-                        className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold transition-colors ${isJambu ? 'text-[#6B2C7E] hover:text-[#582468]' : 'text-[#1E3A5F] hover:text-[#162A45]'}`}
-                      >
-                        <span>Explore All {dept.title} Services</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </StaggerGroup>
-        </div>
       </section>
 
       {/* ============================================================

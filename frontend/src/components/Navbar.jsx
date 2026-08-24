@@ -11,7 +11,6 @@ import {
   Activity, 
   Sparkles, 
   ArrowRight,
-  Stethoscope,
   Building2,
   ShieldAlert
 } from 'lucide-react';
@@ -21,7 +20,6 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
   const [mobileAboutExpanded, setMobileAboutExpanded] = useState(false);
-  const [mobileDeptsExpanded, setMobileDeptsExpanded] = useState(false);
   const [mobileFacsExpanded, setMobileFacsExpanded] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -70,11 +68,10 @@ export default function Navbar() {
     }, 180);
   };
 
-  // Active check: "About Us" is active if on /about, /departments, or /facilities
+  // Active check: "About Us" is active if on /about or /facilities
   const isAboutActive = () => {
     return (
       location.pathname.startsWith('/about') ||
-      location.pathname.startsWith('/departments') ||
       location.pathname.startsWith('/facilities')
     );
   };
@@ -85,13 +82,13 @@ export default function Navbar() {
     return false;
   };
 
-  // 3 Category Cards for the Compact Mega Menu
+  // 2 Category Cards for the Balanced Mega Menu
   const categoryCards = [
     {
       badge: "ABOUT US",
       badgeClass: "text-[#6B2C7E] bg-purple-50 border-purple-200/70",
       title: "About Vedant Hospital",
-      description: "Learn about Vedant Hospital, our story, doctors and approach to compassionate healthcare.",
+      description: "Learn about Vedant Hospital, our medical team, leadership story, and compassionate care philosophy.",
       icon: HeartPulse,
       iconBg: "bg-purple-100 text-[#6B2C7E] group-hover:bg-[#6B2C7E] group-hover:text-white",
       link: "/about",
@@ -100,22 +97,10 @@ export default function Navbar() {
       ctaClass: "text-[#6B2C7E] group-hover:text-[#582468]"
     },
     {
-      badge: "DEPARTMENTS",
-      badgeClass: "text-[#1E3A5F] bg-blue-50 border-blue-200/70",
-      title: "Medical Departments & Specialists",
-      description: "Explore our medical specialties and the doctors providing specialized care.",
-      icon: Stethoscope,
-      iconBg: "bg-blue-100 text-[#1E3A5F] group-hover:bg-[#1E3A5F] group-hover:text-white",
-      link: "/departments",
-      cta: "View Departments",
-      borderHover: "hover:border-blue-300 hover:shadow-blue-900/10",
-      ctaClass: "text-[#1E3A5F] group-hover:text-[#162A45]"
-    },
-    {
       badge: "FACILITIES",
       badgeClass: "text-slate-800 bg-slate-100 border-slate-200",
       title: "Hospital Infrastructure & Amenities",
-      description: "Explore the hospital's emergency, ICU, diagnostic and surgical facilities.",
+      description: "Explore the hospital's emergency, 24x7 ICU, diagnostic sonography, OT, in-house lab, and amenities.",
       icon: Sparkles,
       iconBg: "bg-indigo-100 text-indigo-700 group-hover:bg-indigo-700 group-hover:text-white",
       link: "/facilities",
@@ -182,7 +167,7 @@ export default function Navbar() {
               Home
             </Link>
 
-            {/* About Us (Compact 3-Category Mega-Menu) */}
+            {/* About Us (Balanced 2-Category Mega-Menu) */}
             <div
               className="relative"
               onMouseEnter={handleMouseEnter}
@@ -201,9 +186,9 @@ export default function Navbar() {
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${aboutMenuOpen ? 'rotate-180 text-[#6B2C7E]' : 'text-slate-400'}`} />
               </button>
 
-              {/* Compact 3-Card Category Mega Menu */}
+              {/* Balanced 2-Card Category Mega Menu */}
               {aboutMenuOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[840px] max-w-[95vw] animate-in fade-in-0 slide-in-from-top-2 duration-200 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[660px] max-w-[95vw] animate-in fade-in-0 slide-in-from-top-2 duration-200 z-50">
                   <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 p-6">
                     
                     {/* Header Slogan */}
@@ -216,8 +201,8 @@ export default function Navbar() {
                       </span>
                     </div>
 
-                    {/* 3 Large Category Cards */}
-                    <div className="grid grid-cols-3 gap-4">
+                    {/* 2 Balanced Category Cards */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {categoryCards.map((card, idx) => {
                         const Icon = card.icon;
                         return (
@@ -371,49 +356,13 @@ export default function Navbar() {
                     <ArrowRight className="w-3 h-3 text-slate-400" />
                   </Link>
 
-                  {/* Category 2: Departments (Expandable) */}
-                  <div className="rounded-xl border border-slate-100 bg-slate-50/50 overflow-hidden">
-                    <button
-                      onClick={() => setMobileDeptsExpanded(!mobileDeptsExpanded)}
-                      className="w-full flex items-center justify-between px-3 py-2 text-xs font-bold text-slate-800 hover:bg-slate-100 cursor-pointer"
-                    >
-                      <span>Departments</span>
-                      <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${mobileDeptsExpanded ? 'rotate-180 text-[#6B2C7E]' : ''}`} />
-                    </button>
-                    {mobileDeptsExpanded && (
-                      <div className="px-3 pb-2 pt-1 space-y-1 bg-white border-t border-slate-100">
-                        <Link
-                          to="/departments#gynecology"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-[#6B2C7E] hover:bg-purple-50"
-                        >
-                          • Obstetrics & Gynecology
-                        </Link>
-                        <Link
-                          to="/departments#medicine"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:text-[#6B2C7E] hover:bg-purple-50"
-                        >
-                          • General Medicine & Critical Care
-                        </Link>
-                        <Link
-                          to="/departments"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#1E3A5F] hover:bg-blue-50"
-                        >
-                          View All Departments →
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Category 3: Facilities (Expandable) */}
+                  {/* Category 2: Facilities (Expandable) */}
                   <div className="rounded-xl border border-slate-100 bg-slate-50/50 overflow-hidden">
                     <button
                       onClick={() => setMobileFacsExpanded(!mobileFacsExpanded)}
                       className="w-full flex items-center justify-between px-3 py-2 text-xs font-bold text-slate-800 hover:bg-slate-100 cursor-pointer"
                     >
-                      <span>Facilities</span>
+                      <span>Hospital Facilities</span>
                       <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${mobileFacsExpanded ? 'rotate-180 text-[#6B2C7E]' : ''}`} />
                     </button>
                     {mobileFacsExpanded && (

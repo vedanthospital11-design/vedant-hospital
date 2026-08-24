@@ -8,7 +8,6 @@ import AppointmentModal from './components/AppointmentModal';
 import Home from './pages/Home';
 import About from './pages/About';
 import Doctors from './pages/Doctors';
-import Departments from './pages/Departments';
 import Facilities from './pages/Facilities';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
@@ -72,7 +71,6 @@ export default function AppRouter() {
           <Route path="/" element={<Home onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/about" element={<About onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/doctors" element={<Doctors onOpenAppointment={handleOpenAppointment} />} />
-          <Route path="/departments" element={<Departments onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/facilities" element={<Facilities onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact onOpenAppointment={handleOpenAppointment} />} />

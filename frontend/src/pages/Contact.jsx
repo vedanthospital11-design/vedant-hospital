@@ -26,7 +26,7 @@ export default function Contact() {
             Connect Directly with Vedant Hospital
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-            Reach out directly to our hospital team on WhatsApp for appointment inquiries and consultation details, or call our 24x7 emergency department for urgent medical admissions in Modasa.
+            Reach out directly to our hospital team on WhatsApp for appointment inquiries and consultation details, or call our 24x7 emergency team for urgent medical admissions in Modasa.
           </p>
         </MotionReveal>
       </section>

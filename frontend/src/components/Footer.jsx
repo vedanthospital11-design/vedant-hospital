@@ -3,6 +3,26 @@ import { Link } from 'react-router-dom';
 import { HeartPulse, MapPin, Phone, Clock, Mail, ShieldCheck, ChevronRight, MessageCircle } from 'lucide-react';
 import { hospitalInfo } from '../data/hospitalData';
 
+function InstagramIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
+
 export default function Footer({ onOpenAppointment }) {
   return (
     <footer className="bg-slate-950 text-slate-300 pt-16 pb-8 border-t border-slate-800">
@@ -154,6 +174,21 @@ export default function Footer({ onOpenAppointment }) {
                     {hospitalInfo.contacts.whatsappDisplay}
                   </a>
                 </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <InstagramIcon className="w-4 h-4 text-pink-400 shrink-0" />
+                <span className="text-xs text-slate-400">Instagram:</span>
+                <a 
+                  href={hospitalInfo.instagramUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label="Follow Vedant Hospital Modasa on Instagram"
+                  title="Follow Vedant Hospital Modasa on Instagram"
+                  className="text-xs sm:text-sm font-semibold text-pink-300 hover:text-pink-200 transition-colors"
+                >
+                  {hospitalInfo.instagramDisplay}
+                </a>
               </div>
 
               <div className="flex items-center gap-3 pt-1">

@@ -5,6 +5,8 @@ export const hospitalInfo = {
   taglineGujarati: "માતૃત્વસ્પર્શ એવમ્ શમનમ્",
   address: "3rd Floor, Gajanand Complex, Above Bank of Baroda, Deep Area, Shamlaji Road, Modasa, Dist. Aravalli, Gujarat",
   whatsappUrl: "https://wa.me/916352590491?text=Hello%20Vedant%20Hospital,%20I%20would%20like%20to%20enquire%20about%20an%20appointment.",
+  instagramUrl: "https://www.instagram.com/vedanthospital_modasa?stkn=MXAzc29vOG8ydDJuOQ==",
+  instagramDisplay: "@vedanthospital_modasa",
   contacts: {
     emergency: "8160810013",
     emergencyDisplay: "+91 81608 10013",

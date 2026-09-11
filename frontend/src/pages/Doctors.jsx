@@ -24,7 +24,7 @@ export default function Doctors({ onOpenAppointment }) {
             Our Consultant Doctors &amp; Specialists
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Consultant physicians providing compassionate maternity, advanced 3D/4D sonography, stitchless laparoscopy, and 24×7 critical ICU care in Modasa.
+            Consultant physicians providing compassionate maternity, advanced 3D/4D sonography, stitchless laparoscopy, and 24×7 critical ICU care in Modasa. <strong>દરેક જીવન માટે વિશેષ કાળજી.</strong>
           </p>
         </MotionReveal>
       </section>

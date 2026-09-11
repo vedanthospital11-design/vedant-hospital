@@ -37,6 +37,10 @@ export default function About({ onOpenAppointment }) {
               A Modern Healthcare Sanctuary for Modasa & Aravalli
             </h2>
 
+            <p className="text-xs sm:text-sm font-semibold text-[#6B2C7E]">
+              મોડાસા અને અરવલ્લી વિસ્તારના પરિવારો માટે વિશ્વાસપાત્ર આરોગ્યસેવા.
+            </p>
+
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               <strong>Vedant Hospital</strong> was established with the noble vision to offer comprehensive, high-quality, and ethical healthcare services in Modasa. Led by <strong className="text-[#6B2C7E]">Dr. Happy Patel</strong> (Consultant Obstetrician & Gynecologist) and <strong className="text-[#1E3A5F]">Dr. Paras Patel</strong> (M.D. Physician, Consultant Diabetologist & Cardiac Physician), our hospital integrates clinical expertise with patient-centric care.
             </p>
@@ -52,7 +56,7 @@ export default function About({ onOpenAppointment }) {
               </div>
               <div className="flex items-center gap-2 text-slate-700">
                 <CheckCircle2 className="w-4 h-4 text-purple-700 shrink-0" />
-                <span>Modern Modular Operation Theatre</span>
+                <span>Modern Modular OT</span>
               </div>
               <div className="flex items-center gap-2 text-slate-700">
                 <CheckCircle2 className="w-4 h-4 text-purple-700 shrink-0" />
@@ -108,6 +112,7 @@ export default function About({ onOpenAppointment }) {
                   <HeartPulse className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-extrabold text-slate-800">Safe Motherhood</h3>
+                <p className="text-xs font-semibold text-[#6B2C7E]">સુરક્ષિત માતૃત્વ માટે સ્નેહભરી અને નિષ્ણાત કાળજી.</p>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   "સુરક્ષિત માતૃત્વ સ્વસ્થ પરિવાર... સુખી જીવન..." Ensuring every expecting mother and newborn receives the safest, most comforting obstetric and neonatal medical attention.
                 </p>
@@ -120,6 +125,7 @@ export default function About({ onOpenAppointment }) {
                   <Activity className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-extrabold text-slate-800">Rapid Critical Care</h3>
+                <p className="text-xs font-semibold text-[#1E3A5F]">કટોકટીની સ્થિતિમાં ઝડપી અને નિષ્ણાત સારવાર.</p>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Providing 24x7 doctor-supervised ICU services, prompt cardiac resuscitation, diabetic crisis intervention, and acute poisoning/snake bite antidote administration.
                 </p>
@@ -154,29 +160,47 @@ export default function About({ onOpenAppointment }) {
           </h2>
         </MotionReveal>
 
-        <StaggerGroup stagger={150} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <StaggerGroup stagger={150} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {doctorsData.map((doctor) => (
-            <div key={doctor.id} className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md flex flex-col sm:flex-row gap-6 items-center sm:items-start hover:shadow-xl transition-shadow">
+            <div key={doctor.id} className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md flex flex-col sm:flex-row gap-6 items-start hover:shadow-xl transition-shadow">
               <img
                 src={doctor.image}
                 alt={doctor.altText || doctor.name}
                 className="w-32 h-32 rounded-2xl object-cover object-[center_30%] border-2 border-purple-200 shrink-0"
               />
-              <div className="space-y-3 text-center sm:text-left">
-                <div>
-                  <h3 className="text-xl font-extrabold text-slate-900">{doctor.name}</h3>
-                  <p className="text-xs font-bold text-purple-700">{doctor.qualifications}</p>
-                  <p className="text-xs text-slate-500">{doctor.designation}</p>
+              <div className="flex flex-col justify-between flex-1 space-y-3 text-center sm:text-left min-h-[160px]">
+                <div className="space-y-3 flex-1">
+                  <div>
+                    <h3 className="text-xl font-extrabold text-slate-900">{doctor.name}</h3>
+                    <p className="text-xs font-bold text-purple-700">{doctor.qualifications}</p>
+                    <p className="text-xs text-slate-500">{doctor.designation}</p>
+                  </div>
+
+                  {/* Compact structured description */}
+                  <div className="space-y-2 text-left">
+                    <p className="text-xs sm:text-sm font-semibold text-[#6B2C7E] leading-snug">
+                      {doctor.cardIntro}
+                    </p>
+                    <ul className="space-y-1">
+                      {(doctor.cardHighlights || []).map((point, idx) => (
+                        <li key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                          <span className="font-medium">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-[11px] text-slate-500 leading-snug">
+                      {doctor.cardSupport}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {doctor.about}
-                </p>
+
                 <div className="pt-2 flex flex-wrap items-center gap-2.5">
                   <Link
                     to={`/doctors/${doctor.slug || doctor.id.replace('dr-', '')}`}
                     className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#6B2C7E] hover:bg-[#582468] text-white text-xs font-bold rounded-xl transition-colors shadow-xs btn-lift"
                   >
-                    <span>View Profile</span>
+                    <span>View Full Profile</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                   <a
@@ -185,7 +209,7 @@ export default function About({ onOpenAppointment }) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold rounded-xl transition-colors"
                   >
-                    <span>WhatsApp</span>
+                    <span>Consult on WhatsApp</span>
                   </a>
                 </div>
               </div>
@@ -197,9 +221,14 @@ export default function About({ onOpenAppointment }) {
       {/* CTA Strip */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <MotionReveal variant="scale-in" className="bg-gradient-to-r from-[#1E3A5F] to-[#6B2C7E] rounded-3xl p-8 sm:p-12 text-white text-center space-y-6">
-          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
-            Contact Vedant Hospital
-          </h2>
+          <div className="space-y-2">
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
+              Contact Vedant Hospital
+            </h2>
+            <p className="text-purple-200 text-xs sm:text-sm font-semibold">
+              તમારા પરિવારના સ્વાસ્થ્ય અને સુરક્ષા માટે સમર્પિત
+            </p>
+          </div>
           <p className="text-purple-100 text-sm sm:text-base max-w-xl mx-auto">
             Connect directly with our hospital reception and doctors on WhatsApp or visit us on Shamlaji Road, Modasa.
           </p>
@@ -210,7 +239,7 @@ export default function About({ onOpenAppointment }) {
               rel="noopener noreferrer"
               className="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl transition-all shadow-md flex items-center gap-2 btn-lift"
             >
-              <span>Chat on WhatsApp: {hospitalInfo.contacts.whatsappDisplay}</span>
+              <span>Chat on WhatsApp</span>
             </a>
             <Link
               to="/contact"

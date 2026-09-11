@@ -31,6 +31,9 @@ export default function Facilities({ onOpenAppointment }) {
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Vedant Hospital offers fully integrated healthcare infrastructure under one roof in Modasa, ensuring safety, hygiene, and rapid clinical intervention.
           </p>
+          <p className="text-xs sm:text-sm font-semibold text-[#6B2C7E]">
+            આધુનિક સારવાર, 24×7 ઇમરજન્સી અને શ્રેષ્ઠ સુવિધાઓ
+          </p>
         </MotionReveal>
       </section>
 
@@ -55,9 +58,14 @@ export default function Facilities({ onOpenAppointment }) {
                   {facility.id === 'mediclaim' && <CreditCard className="w-7 h-7" />}
                 </div>
 
-                <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-[#6B2C7E] transition-colors mb-3">
+                <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-[#6B2C7E] transition-colors mb-1">
                   {facility.title}
                 </h3>
+                {facility.subTitleGujarati && (
+                  <p className="text-xs font-semibold text-[#6B2C7E] mb-2.5">
+                    {facility.subTitleGujarati}
+                  </p>
+                )}
 
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {facility.description}
@@ -82,13 +90,16 @@ export default function Facilities({ onOpenAppointment }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <MotionReveal variant="fade-right" className="lg:col-span-6 space-y-6">
               <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-100 px-3 py-1 rounded-full">
-                Patient Comfort & Hygiene
+                Patient Comfort &amp; Hygiene
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900">
-                Deluxe, Semi-Special & General Inpatient Rooms
+                Deluxe, Semi-Special &amp; General Inpatient Rooms
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                 We understand that recovery requires peace of mind and comfort. Vedant Hospital provides hygienic, air-conditioned patient accommodations with dedicated nursing call systems and seating for family attendants.
+              </p>
+              <p className="text-xs sm:text-sm font-semibold text-[#1E3A5F]">
+                દર્દી અને પરિવારની સુવિધા માટે શાંત, સ્વચ્છ અને અનુકૂળ વાતાવરણ.
               </p>
 
               <div className="space-y-3 text-xs sm:text-sm text-slate-700">
@@ -126,6 +137,7 @@ export default function Facilities({ onOpenAppointment }) {
         <MotionReveal variant="scale-in" className="bg-gradient-to-r from-[#1E3A5F] to-[#6B2C7E] rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-2 text-center md:text-left">
             <h3 className="text-2xl sm:text-3xl font-extrabold">Mediclaim & Cashless Hospitalization</h3>
+            <p className="text-purple-200 text-xs font-semibold">સરળ અને કેશલેસ મેડિક્લેમ સુવિધા</p>
             <p className="text-purple-100 text-sm max-w-xl">
               We facilitate hassle-free cashless claims and reimbursement paperwork for all major health insurance providers and Third Party Administrators (TPAs).
             </p>

@@ -83,6 +83,11 @@ export default function DoctorCard({ doctor }) {
               <span>View Full Profile</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-1" />
             </Link>
+            {isGynecologist && (
+              <p className="text-[11px] text-slate-500 mt-1.5 leading-snug">
+                મહિલાઓના સ્વાસ્થ્ય અને સુરક્ષિત માતૃત્વ માટે વિશેષ કાળજી.
+              </p>
+            )}
           </div>
 
         </div>

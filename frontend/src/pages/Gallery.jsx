@@ -29,6 +29,9 @@ export default function Gallery() {
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Take a virtual tour of our modern operation theatres, 3D/4D ultrasound suites, 24x7 ICU, reception lounge, and patient care rooms in Modasa.
           </p>
+          <p className="text-xs sm:text-sm font-semibold text-[#6B2C7E]">
+            અદ્યતન સારવાર અને શ્રેષ્ઠ હોસ્પિટલ સુવિધાઓની ઝાંખી
+          </p>
         </MotionReveal>
       </section>
 
@@ -81,6 +84,9 @@ export default function Gallery() {
               </div>
 
               <div className="p-5 bg-white">
+                {img.subTitleGujarati && (
+                  <p className="text-xs font-semibold text-[#6B2C7E] mb-1.5">{img.subTitleGujarati}</p>
+                )}
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {img.description}
                 </p>

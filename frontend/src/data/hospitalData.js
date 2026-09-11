@@ -57,7 +57,10 @@ export const doctorsData = [
       "Uterine & Ovarian Cancer Screening & Care",
       "Adolescent & Menopausal Healthcare"
     ],
-    about: "Dr. Happy Patel is a distinguished Obstetrician and Gynecologist trained at premier medical institutes including Jaslok Hospital Mumbai and SVP Hospital. Specializing in advanced sonography, stitchless laparoscopy, and painless child delivery."
+    cardIntro: "ડૉ. હેપ્પી પટેલ મહિલાઓના સ્વાસ્થ્ય અને સુરક્ષિત માતૃત્વ માટે વિશેષ કાળજી આપે છે.",
+    cardHighlights: ["Advanced Sonography", "Stitchless Laparoscopy", "Painless Child Delivery"],
+    cardSupport: "માતા અને બાળકની સુરક્ષા સાથે વ્યક્તિગત Medical Care.",
+    about: "ડૉ. હેપ્પી પટેલ એક પ્રતિષ્ઠિત Obstetrician & Gynecologist છે, જેમણે Jaslok Hospital, Mumbai અને SVP Hospital જેવી પ્રતિષ્ઠિત Medical Institutesમાંથી તાલીમ મેળવી છે.\n\nતેઓ Advanced Sonography, Stitchless Laparoscopy અને Painless Child Delivery જેવી આધુનિક સારવાર પદ્ધતિઓમાં વિશેષ નિષ્ણાત છે. માતા અને બાળકની સુરક્ષા સાથે શ્રેષ્ઠ Medical Care અને વ્યક્તિગત સારવાર આપવાનો તેમનો મુખ્ય ઉદ્દેશ છે."
   },
   {
     id: "dr-paras-patel",
@@ -96,7 +99,10 @@ export const doctorsData = [
       "Neurology: Paralysis (Stroke), Brain Hemorrhage, Seizures & Brain Fever",
       "Infectious Fevers: Malaria, Dengue, Typhoid, Chikungunya"
     ],
-    about: "Dr. Paras Patel is an experienced M.D. Physician and Consultant Diabetologist & Cardiac Physician dedicated to providing rapid critical care, cardiology consultations, diabetic management, and inpatient ICU monitoring in Modasa."
+    cardIntro: "ડૉ. પારસ પટેલ Critical Care, Diabetes અને Cardiac Health માટે નિષ્ણાત સારવાર આપે છે.",
+    cardHighlights: ["24×7 Critical Care", "Cardiac & Hypertension Care", "Diabetes Management"],
+    cardSupport: "તાત્કાલિક જરૂરિયાતથી સતત દેખરેખ સુધી વિશ્વસનીય Medical Care.",
+    about: "ડૉ. પારસ પટેલ એક અનુભવી M.D. Physician અને Consultant Diabetologist & Cardiac Physician છે, જેમને Critical Care અને Emergency Medicine ક્ષેત્રમાં વિશેષ અનુભવ છે. તેઓ Modasaમાં દર્દીઓને ઝડપી અને વિશ્વસનીય Medical Care, Cardiac Care અને Diabetes Management માટે સમર્પિત છે.\n\nતેઓ 24×7 Critical Care, Cardiology Consultation, Diabetes Management અને Emergency Medicine જેવી વિશેષ સારવારમાં નિષ્ણાત છે. દર્દીની તાત્કાલિક જરૂરિયાત, સતત દેખરેખ અને વ્યક્તિગત સારવાર સાથે શ્રેષ્ઠ Medical Care આપવાનો તેમનો મુખ્ય ઉદ્દેશ છે."
   }
 ];
 
@@ -104,6 +110,7 @@ export const facilitiesData = [
   {
     id: "emergency",
     title: "24 x 7 Emergency Treatment",
+    subTitleGujarati: "તાત્કાલિક સારવાર માટે 24×7 સુવિધા",
     description: "Equipped to handle medical and obstetric emergencies round-the-clock with on-duty medical staff and rapid response setup.",
     icon: "ShieldAlert",
     image: "/images/hospital-reception.jpg"
@@ -111,6 +118,7 @@ export const facilitiesData = [
   {
     id: "icu",
     title: "24 x 7 Doctor-Supervised ICU",
+    subTitleGujarati: "ડોક્ટરની સતત દેખરેખ હેઠળ ICU સેવા",
     description: "Fully equipped Intensive Care Unit featuring advanced multi-channel cardiac monitors, ventilators, and dedicated critical care support.",
     icon: "Activity",
     image: "/images/icu-care.jpg"
@@ -118,6 +126,7 @@ export const facilitiesData = [
   {
     id: "ot",
     title: "Modern Modular OT & Labour Room",
+    subTitleGujarati: "આધુનિક અને સ્વચ્છ OT તથા લેબર રૂમ",
     description: "HEPA-filtered sterile modular surgical theatres designed for laparoscopic, gynecological, and general surgical procedures.",
     icon: "Sparkles",
     image: "/images/operation-theatre.jpg"
@@ -125,6 +134,7 @@ export const facilitiesData = [
   {
     id: "sonography",
     title: "3D / 4D Sonography Suite",
+    subTitleGujarati: "માતા અને બાળક માટે અદ્યતન સોનોગ્રાફી સુવિધા",
     description: "High-definition sonography unit providing clear visual clarity for fetal scans, abdominal, and pelvic health examinations.",
     icon: "Eye",
     image: "/images/sonography-suite.jpg"
@@ -132,6 +142,7 @@ export const facilitiesData = [
   {
     id: "laboratory",
     title: "24 x 7 Pathology Laboratory",
+    subTitleGujarati: "ઝડપી અને વિશ્વસનીય રિપોર્ટ્સ માટે આધુનિક લેબ",
     description: "In-house clinical lab providing rapid diagnostic results for blood tests, fever panels, urine analysis, biochemistry, and hormone assays.",
     icon: "FlaskConical",
     image: "/images/pathology-lab.jpg"
@@ -139,6 +150,7 @@ export const facilitiesData = [
   {
     id: "pharmacy",
     title: "24 x 7 In-House Pharmacy",
+    subTitleGujarati: "તમામ જરૂરી દવાઓ 24 કલાક ઉપલબ્ધ",
     description: "Stocked with all critical emergency medications, injectables, antibiotics, and maternity prescriptions at all times.",
     icon: "Pill",
     image: "/images/pathology-lab.jpg"
@@ -146,6 +158,7 @@ export const facilitiesData = [
   {
     id: "rooms",
     title: "Deluxe, Semi-Special & General Rooms",
+    subTitleGujarati: "સુવિધાયુક્ત અને શાંત આવાસ વ્યવસ્થા",
     description: "Spacious, air-conditioned patient accommodations tailored to patient preferences with hygienic nursing care and family comfort.",
     icon: "Bed",
     image: "/images/patient-room.jpg"
@@ -153,6 +166,7 @@ export const facilitiesData = [
   {
     id: "mediclaim",
     title: "Mediclaim & Cashless Insurance",
+    subTitleGujarati: "સરળ અને કેશલેસ મેડિક્લેમ સુવિધા",
     description: "Hassle-free cashless hospitalization and reimbursement assistance across major health insurance providers and TPAs.",
     icon: "CreditCard",
     image: "/images/hospital-reception.jpg"
@@ -165,6 +179,7 @@ export const galleryImages = [
     title: "Hospital Reception & Waiting Lounge",
     category: "Lobby & Reception",
     image: "/images/hospital-reception.jpg",
+    subTitleGujarati: "આરામદાયક અને સ્વાગતસભર વાતાવરણ",
     description: "Warm, aesthetic, and welcoming reception area designed for patient comfort and seamless admissions."
   },
   {
@@ -172,6 +187,7 @@ export const galleryImages = [
     title: "Modern Modular Operation Theatre",
     category: "Surgical Suites",
     image: "/images/operation-theatre.jpg",
+    subTitleGujarati: "આધુનિક અને સંપૂર્ણ સ્વચ્છ ઓપરેશન થિયેટર",
     description: "Sterile, state-of-the-art modular operating theatre equipped with surgical lighting and laparoscopic equipment."
   },
   {
@@ -179,6 +195,7 @@ export const galleryImages = [
     title: "Dedicated Labour & Maternity Procedure Room",
     category: "Surgical Suites",
     image: "/images/labour-room.jpg",
+    subTitleGujarati: "સુરક્ષિત પ્રસૂતિ અને માતૃત્વ સંભાળ માટે વિશેષ રૂમ",
     description: "Specialized obstetric delivery and maternity procedure room equipped for normal, painless, and emergency childbirth."
   },
   {
@@ -186,6 +203,7 @@ export const galleryImages = [
     title: "Advanced 3D/4D Sonography Suite",
     category: "Diagnostics",
     image: "/images/sonography-suite.jpg",
+    subTitleGujarati: "માતા અને બાળક માટે અદ્યતન સોનોગ્રાફી સુવિધા",
     description: "High-resolution Samsung ultrasound machine providing accurate imaging for prenatal care and health screenings."
   },
   {
@@ -193,6 +211,7 @@ export const galleryImages = [
     title: "24x7 Doctor-Supervised Intensive Care Unit (ICU)",
     category: "Critical Care",
     image: "/images/icu-care.jpg",
+    subTitleGujarati: "ડોક્ટરની સતત દેખરેખ હેઠળ ICU સેવા",
     description: "Multi-bed intensive care unit equipped with cardiac monitors, ventilator support, and continuous physician oversight."
   },
   {
@@ -200,6 +219,7 @@ export const galleryImages = [
     title: "24x7 In-House Pathology Laboratory",
     category: "Diagnostics",
     image: "/images/pathology-lab.jpg",
+    subTitleGujarati: "ઝડપી અને વિશ્વસનીય રિપોર્ટ્સ માટે આધુનિક લેબ",
     description: "Fully automated clinical analyzers, centrifuge, and diagnostic microscopy for instant blood, biochemistry, and fever tests."
   },
   {
@@ -207,6 +227,7 @@ export const galleryImages = [
     title: "Deluxe Inpatient Patient Care Room",
     category: "Patient Rooms",
     image: "/images/patient-room.jpg",
+    subTitleGujarati: "દર્દી અને પરિવાર માટે સ્વચ્છ, AC રૂમ",
     description: "Clean, air-conditioned patient accommodations with attendant seating, private bathroom, and nursing call support."
   }
 ];

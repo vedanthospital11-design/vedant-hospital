@@ -34,9 +34,16 @@ export default function FacilityCard({ facility }) {
         </div>
 
         {/* Title */}
-        <h3 className="font-extrabold text-lg text-slate-800 group-hover:text-[#6B2C7E] transition-colors mb-2.5 leading-snug">
+        <h3 className="font-extrabold text-lg text-slate-800 group-hover:text-[#6B2C7E] transition-colors mb-1 leading-snug">
           {facility.title}
         </h3>
+
+        {/* Gujarati Subtitle */}
+        {facility.subTitleGujarati && (
+          <p className="text-xs font-semibold text-[#6B2C7E] mb-2">
+            {facility.subTitleGujarati}
+          </p>
+        )}
 
         {/* Description */}
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">

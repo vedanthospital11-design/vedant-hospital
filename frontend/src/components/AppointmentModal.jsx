@@ -60,6 +60,7 @@ export default function AppointmentModal({ isOpen, onClose, preselectedDoctorId 
                 <CheckCircle className="w-10 h-10" />
               </div>
               <h4 className="text-xl font-bold text-slate-800">Appointment Request Received!</h4>
+              <p className="text-xs font-semibold text-[#6B2C7E]">તમારી એપોઇન્ટમેન્ટ વિનંતી સફળતાપૂર્વક નોંધાઈ છે.</p>
               <p className="text-sm text-slate-600 max-w-xs mx-auto leading-relaxed">
                 Thank you, <strong className="text-slate-800">{formData.patientName}</strong>. Your appointment request with <strong className="text-[#6B2C7E]">{selectedDoctor.name}</strong> for <strong className="text-slate-800">{formData.date}</strong> has been registered.
               </p>
@@ -214,7 +215,7 @@ export default function AppointmentModal({ isOpen, onClose, preselectedDoctorId 
               <div className="flex items-start gap-2 p-2.5 bg-amber-50 rounded-xl border border-amber-200/70 text-[11px] text-amber-900">
                 <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                 <span>
-                  For urgent emergency or critical care, please directly call our 24x7 helpline: <a href={`tel:${hospitalInfo.contacts.emergency}`} className="font-bold underline text-amber-900">{hospitalInfo.contacts.emergencyDisplay}</a>.
+                  For urgent emergency or critical care, please call our 24x7 helpline directly: <a href={`tel:${hospitalInfo.contacts.emergency}`} className="font-bold underline text-amber-900">{hospitalInfo.contacts.emergencyDisplay}</a>.
                 </span>
               </div>
 

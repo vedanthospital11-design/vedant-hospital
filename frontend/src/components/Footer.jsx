@@ -27,6 +27,10 @@ export default function Footer({ onOpenAppointment }) {
               Dedicated to compassionate, high-quality medical healthcare, safe motherhood, 24x7 ICU, and advanced clinical services for Modasa and surrounding communities.
             </p>
 
+            <p className="text-xs text-purple-300/90 font-medium">
+              તમારા પરિવારના સ્વાસ્થ્ય અને સુરક્ષા માટે સમર્પિત.
+            </p>
+
             <div className="pt-2">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-purple-950/60 border border-purple-800/40 text-purple-300 text-xs font-semibold">
                 <ShieldCheck className="w-4 h-4 text-purple-400" />
@@ -63,7 +67,7 @@ export default function Footer({ onOpenAppointment }) {
               <li>
                 <Link to="/facilities" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-                  Hospital Facilities & ICU
+                  Hospital Facilities &amp; ICU
                 </Link>
               </li>
               <li>
@@ -75,7 +79,7 @@ export default function Footer({ onOpenAppointment }) {
               <li>
                 <Link to="/contact" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-                  Contact & Location
+                  Contact &amp; Location
                 </Link>
               </li>
             </ul>
@@ -97,7 +101,7 @@ export default function Footer({ onOpenAppointment }) {
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-400 transition-colors" />
                 </div>
                 <p className="text-xs text-purple-300 font-medium">M.B.D.G.O, DNB</p>
-                <p className="text-xs text-slate-400 mt-1">Obstetrics & Gynecologist, Laparoscopic Surgeon</p>
+                <p className="text-xs text-slate-400 mt-1">Obstetrics &amp; Gynecologist, Laparoscopic Surgeon</p>
               </Link>
 
               <Link
@@ -109,7 +113,7 @@ export default function Footer({ onOpenAppointment }) {
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-blue-400 transition-colors" />
                 </div>
                 <p className="text-xs text-blue-300 font-medium">M.D. Physician</p>
-                <p className="text-xs text-slate-400 mt-1">Consultant Diabetologist & Cardiac Physician</p>
+                <p className="text-xs text-slate-400 mt-1">Consultant Diabetologist &amp; Cardiac Physician</p>
               </Link>
             </div>
           </div>
@@ -165,7 +169,7 @@ export default function Footer({ onOpenAppointment }) {
               className="w-full mt-2 py-3 px-4 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white rounded-xl text-xs font-bold tracking-wide transition-all shadow-md flex items-center justify-center gap-2"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>Chat on WhatsApp</span>
+              <span>Contact Us on WhatsApp</span>
             </a>
           </div>
 
@@ -175,7 +179,7 @@ export default function Footer({ onOpenAppointment }) {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center sm:text-left">
           <p>© {new Date().getFullYear()} Vedant Hospital, Modasa. All rights reserved.</p>
           <div className="flex items-center gap-4 text-slate-400">
-            <span>24x7 Emergency & ICU Care</span>
+            <span>24x7 Emergency &amp; ICU Care</span>
             <span>•</span>
             <span>Cashless Mediclaim Accepted</span>
           </div>

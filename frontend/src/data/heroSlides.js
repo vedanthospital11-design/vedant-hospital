@@ -1,0 +1,88 @@
+import { hospitalInfo } from './hospitalData';
+
+export const HERO_SLIDES = [
+  {
+    id: 'maternity',
+    image: '/images/hero-maternity-dr-happy.jpg',
+    objectPosition: '78% 30%',
+    eyebrow: "VEDANT HOSPITAL • WOMEN'S CARE",
+    headline: 'Care for Every Mother',
+    subHeadline: 'માતા અને શિશુ માટે સ્નેહભરી, સુરક્ષિત અને અદ્યતન સારવાર',
+    description: 'Compassionate maternity care focused on safety, comfort and every important moment.',
+    ctaText: 'Book an Appointment',
+    ctaLink: hospitalInfo?.whatsappUrl || 'https://wa.me/919979753737',
+    ctaAction: 'appointment',
+    doctor: 'Dr. Happy Patel',
+    accent: '#E9D5FF', // soft lavender accent
+  },
+  {
+    id: 'sonography',
+    image: '/images/hero-sonography-dr-happy.jpg',
+    objectPosition: '75% 25%',
+    eyebrow: 'ADVANCED DIAGNOSTICS',
+    headline: 'Clearer Answers. Greater Confidence.',
+    subHeadline: 'ગર્ભાવસ્થા અને ચોક્કસ નિદાન માટે અદ્યતન 3D/4D સોનોગ્રાફી',
+    description: 'Advanced 3D/4D sonography with experienced medical guidance for confident pregnancy care.',
+    ctaText: 'Explore Our Services',
+    ctaLink: '#facilities',
+    ctaAction: 'scroll',
+    doctor: 'Dr. Happy Patel',
+    accent: '#93C5FD', // soft sky blue accent
+  },
+  {
+    id: 'childbirth',
+    image: '/images/hero-childbirth-dr-happy.jpg',
+    objectPosition: '80% 30%',
+    eyebrow: 'MATERNITY CARE',
+    headline: 'A Calmer Journey to Motherhood',
+    subHeadline: 'પેઇનલેસ ડિલિવરી અને માતૃત્વની સુખદ યાત્રા',
+    description: 'Thoughtful maternity care designed around comfort, safety and compassionate support.',
+    ctaText: 'Meet Dr. Happy Patel',
+    ctaLink: '/doctors/happy-patel',
+    ctaAction: 'link',
+    doctor: 'Dr. Happy Patel',
+    accent: '#FBCFE8', // soft pink rose accent
+  },
+  {
+    id: 'medicine',
+    image: '/images/hero-medicine-dr-paras.jpg',
+    objectPosition: '75% 35%',
+    eyebrow: 'GENERAL MEDICINE',
+    headline: 'Expert Care, Close to You',
+    subHeadline: 'ઝડપી, સચોટ અને વ્યક્તિગત મેડિકલ સારવાર',
+    description: 'Personalized medical care with experienced consultation and thoughtful attention to every patient.',
+    ctaText: 'Meet Dr. Paras Patel',
+    ctaLink: '/doctors/paras-patel',
+    ctaAction: 'link',
+    doctor: 'Dr. Paras Patel',
+    accent: '#A7F3D0', // soft emerald accent
+  },
+  {
+    id: 'icu',
+    image: '/images/hero-icu-dr-paras.jpg',
+    objectPosition: '82% 35%',
+    eyebrow: '24×7 DOCTOR-SUPERVISED CARE',
+    headline: 'Care That Never Sleeps',
+    subHeadline: 'કટોકટી અને ગંભીર પરિસ્થિતિમાં ૨૪ કલાક નિષ્ણાત દેખરેખ',
+    description: '24×7 doctor-supervised ICU and general medical care when you need it most.',
+    ctaText: '24×7 Emergency',
+    ctaLink: `tel:${hospitalInfo?.contacts?.emergency || '919979753737'}`,
+    ctaAction: 'emergency',
+    doctor: 'Dr. Paras Patel',
+    accent: '#FDE68A', // soft amber accent
+  },
+  {
+    id: 'leadership',
+    image: '/images/hero-team-leadership.jpg',
+    objectPosition: '76% 25%',
+    eyebrow: 'VEDANT HOSPITAL • MODASA',
+    headline: 'Trusted Care. Right Here.',
+    subHeadline: 'મોડાસામાં વિશ્વસનીય અને અત્યાધુનિક હોસ્પિટલ સેવાઓ',
+    description: 'Comprehensive healthcare led by experienced doctors, with compassion at every step.',
+    ctaText: 'Contact Vedant Hospital',
+    ctaLink: '/contact',
+    ctaAction: 'link',
+    doctor: 'Dr. Happy Patel & Dr. Paras Patel',
+    accent: '#FED7AA', // warm peach accent
+  },
+];

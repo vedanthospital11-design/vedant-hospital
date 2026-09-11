@@ -28,6 +28,9 @@ export default function Contact() {
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Reach out directly to our hospital team on WhatsApp for appointment inquiries and consultation details, or call our 24x7 emergency team for urgent medical admissions in Modasa.
           </p>
+          <p className="text-xs sm:text-sm font-semibold text-[#6B2C7E]">
+            કોઈપણ પૂછપરછ કે ઇમરજન્સી માટે 24 કલાક અમારો સંપર્ક કરી શકો છો.
+          </p>
         </MotionReveal>
       </section>
 
@@ -91,7 +94,7 @@ export default function Contact() {
 
               <div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-                  Medical & ICU Emergency
+                  Medical &amp; ICU Emergency
                 </h2>
                 <p className="text-rose-100 text-sm mt-2 leading-relaxed">
                   Immediate triage and emergency admissions for acute medical emergencies, labor/delivery, cardiac events, and trauma care.
@@ -136,7 +139,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-xl font-extrabold text-slate-900">Hospital Address</h3>
-                  <p className="text-xs text-slate-500 font-medium">Modasa, Dist. Aravalli, Gujarat</p>
+                  <p className="text-xs text-[#6B2C7E] font-bold">Modasa, Aravalli</p>
                 </div>
               </div>
 
@@ -164,7 +167,7 @@ export default function Contact() {
                   <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-slate-800">ICU & Emergency Care:</strong>
-                    <p className="text-slate-600 mt-0.5">24 Hours / 7 Days a Week</p>
+                    <p className="text-slate-600 mt-0.5">24 Hours / 7 Days a Week (Always Open)</p>
                   </div>
                 </div>
               </div>
@@ -191,7 +194,7 @@ export default function Contact() {
                   <Navigation className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-extrabold text-slate-900">How to Reach & Hospital Guide</h3>
+                  <h3 className="text-xl font-extrabold text-slate-900">How to Reach &amp; Hospital Guide</h3>
                   <p className="text-xs text-slate-500 font-medium">Important landmark and accessibility information</p>
                 </div>
               </div>
@@ -205,21 +208,21 @@ export default function Contact() {
                 </div>
 
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-1">
-                  <h4 className="font-bold text-sm text-slate-900">Elevator & Accessibility</h4>
+                  <h4 className="font-bold text-sm text-slate-900">Elevator &amp; Accessibility</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Dedicated wide elevator lift access directly to the 3rd floor, with wheelchair and stretcher access.
                   </p>
                 </div>
 
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-1">
-                  <h4 className="font-bold text-sm text-slate-900">Emergency & Ambulance</h4>
+                  <h4 className="font-bold text-sm text-slate-900">Emergency &amp; Ambulance</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Designated parking space for ambulances and swift transfer facilities to ICU and Labour Room.
                   </p>
                 </div>
 
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-1">
-                  <h4 className="font-bold text-sm text-slate-900">In-House Pharmacy & Lab</h4>
+                  <h4 className="font-bold text-sm text-slate-900">In-House Pharmacy &amp; Lab</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     24x7 pathology laboratory and pharmacy available inside the hospital premises for instant tests and medicines.
                   </p>

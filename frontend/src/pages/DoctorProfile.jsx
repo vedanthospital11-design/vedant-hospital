@@ -150,7 +150,7 @@ export default function DoctorProfile({ specifiedSlug }) {
                   }`}
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Consult {doctor.name.split(' ')[1]} on WhatsApp</span>
+                  <span>Consult on WhatsApp</span>
                 </a>
 
                 <a
@@ -158,7 +158,7 @@ export default function DoctorProfile({ specifiedSlug }) {
                   className="py-3.5 px-6 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 font-semibold text-sm flex items-center justify-center gap-2 transition-colors btn-lift"
                 >
                   <Phone className="w-4 h-4 text-blue-600" />
-                  <span>Call OPD: {hospitalInfo.contacts.appointment1Display}</span>
+                  <span>Call OPD · {hospitalInfo.contacts.appointment1Display}</span>
                 </a>
               </div>
 
@@ -179,6 +179,7 @@ export default function DoctorProfile({ specifiedSlug }) {
               <Award className="w-6 h-6 text-[#6B2C7E]" />
               Clinical Training & Experience
             </h2>
+            <p className="text-xs font-semibold text-[#6B2C7E] mt-1">અદ્યતન સારવાર અને નિષ્ણાત તબીબી અનુભવ સાથે દર્દીકેન્દ્રિત સેવા.</p>
           </div>
 
           <StaggerGroup stagger={100} className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -208,6 +209,7 @@ export default function DoctorProfile({ specifiedSlug }) {
               <Stethoscope className="w-6 h-6 text-blue-700" />
               Key Treatments & Clinical Procedures
             </h2>
+            <p className="text-xs font-semibold text-[#1E3A5F] mt-1">એકીકૃત અભિગમ દ્વારા દર્દીને શ્રેષ્ઠ અને સંપૂર્ણ સારવાર પૂરી પાડવામાં સક્ષમ.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
@@ -237,6 +239,7 @@ export default function DoctorProfile({ specifiedSlug }) {
             <h3 className="text-xl sm:text-2xl font-extrabold">
               Need Consultation with {doctor.name}?
             </h3>
+            <p className="text-xs font-semibold text-purple-200">સલાહ અને સારવાર માટે સીધો સંપર્ક કરો</p>
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
               Visit our modern hospital campus on Malpur Road, Modasa or connect directly with our desk for appointments.
             </p>

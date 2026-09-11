@@ -117,6 +117,58 @@
   transform: translateY(0);
 }
 
+/* ====================================================
+   HERO CINEMATIC SLIDESHOW
+   ==================================================== */
+
+/* Slow cinematic zoom in for active slide image */
+@keyframes heroZoomIn {
+  0%   { transform: scale(1.0); }
+  100% { transform: scale(1.08); }
+}
+.hero-slide-img-active {
+  animation: heroZoomIn 7s ease-out forwards;
+  will-change: transform;
+}
+
+/* Crossfade: slide in */
+@keyframes heroFadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+/* Crossfade: slide out */
+@keyframes heroFadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Slide content text animate-in */
+@keyframes heroTextUp {
+  0%   { opacity: 0; transform: translateY(22px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.hero-text-enter {
+  animation: heroTextUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-text-enter-delay-1 {
+  animation: heroTextUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+.hero-text-enter-delay-2 {
+  animation: heroTextUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
+}
+.hero-text-enter-delay-3 {
+  animation: heroTextUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
+}
+
+/* Progress bar animation */
+@keyframes heroProgress {
+  0%   { width: 0%; }
+  100% { width: 100%; }
+}
+.hero-progress-bar {
+  animation: heroProgress 5.5s linear forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;

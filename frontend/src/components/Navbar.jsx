@@ -192,17 +192,17 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-300 ${
-          isScrolled ? 'h-14 sm:h-16' : 'h-16 sm:h-20'
+          isScrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
         }`}>
           
           {/* 1. Logo + Hospital Name — mobile brand identity */}
-          <Link to="/" className="flex items-center gap-2.5 py-1 group shrink-0 min-w-0" aria-label="Vedant Hospital">
+          <Link to="/" className="flex items-center gap-2 py-0.5 group shrink-0 min-w-0" aria-label="Vedant Hospital">
             {/* Official logo mark */}
             <img
               src="/vedant-hospital-logo.png"
               alt="Vedant Hospital"
               className={`w-auto object-contain shrink-0 transition-all duration-300 group-hover:scale-[1.02] ${
-                isScrolled ? 'h-11 sm:h-12 lg:h-14' : 'h-13 sm:h-14 lg:h-16'
+                isScrolled ? 'h-8 sm:h-9 lg:h-10' : 'h-9 sm:h-10 lg:h-12'
               }`}
             />
 
@@ -229,7 +229,7 @@ export default function Navbar() {
             {/* Home */}
             <Link
               to="/"
-              className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 isNavActive('/') && location.pathname === '/'
                   ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
                   : 'text-slate-600 hover:text-[#6B2C7E] hover:bg-purple-50/50'
@@ -249,7 +249,7 @@ export default function Navbar() {
                   setDoctorsMenuOpen(false);
                   setAboutMenuOpen(!aboutMenuOpen);
                 }}
-                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${
                   isAboutActive() || aboutMenuOpen
                     ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
                     : 'text-slate-600 hover:text-[#6B2C7E] hover:bg-purple-50/50'
@@ -331,7 +331,7 @@ export default function Navbar() {
                   setAboutMenuOpen(false);
                   setDoctorsMenuOpen(!doctorsMenuOpen);
                 }}
-                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${
                   isDoctorsActive() || doctorsMenuOpen
                     ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
                     : 'text-slate-600 hover:text-[#6B2C7E] hover:bg-purple-50/50'
@@ -432,7 +432,7 @@ export default function Navbar() {
             {/* Photo Gallery */}
             <Link
               to="/gallery"
-              className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 isNavActive('/gallery')
                   ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
                   : 'text-slate-600 hover:text-[#6B2C7E] hover:bg-purple-50/50'
@@ -444,7 +444,7 @@ export default function Navbar() {
             {/* Contact Us */}
             <Link
               to="/contact"
-              className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 isNavActive('/contact')
                   ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
                   : 'text-slate-600 hover:text-[#6B2C7E] hover:bg-purple-50/50'
@@ -461,7 +461,7 @@ export default function Navbar() {
               href={hospitalInfo.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 shadow-sm shadow-emerald-900/20 hover:shadow-md transition-all duration-200 active:scale-95 group/wa"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 shadow-xs shadow-emerald-900/20 hover:shadow-sm transition-all duration-200 active:scale-95 group/wa"
             >
               <MessageCircle className="w-4 h-4 group-hover/wa:scale-110 transition-transform" />
               <span>Contact Us</span>
@@ -694,10 +694,10 @@ export default function Navbar() {
 
             <div className="grid grid-cols-2 gap-2 pt-1">
               <a
-                href={`tel:${hospitalInfo.emergencyPhone}`}
+                href={`tel:${hospitalInfo.contacts.emergency}`}
                 className="py-2.5 px-3 rounded-xl text-center font-bold text-xs bg-rose-50 text-rose-700 border border-rose-200"
               >
-                Emergency 24x7
+                24×7 Emergency
               </a>
               <a
                 href={`tel:${hospitalInfo.contacts.appointment1}`}

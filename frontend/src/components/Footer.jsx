@@ -197,15 +197,28 @@ export default function Footer({ onOpenAppointment }) {
               </div>
             </div>
 
-            <a
-              href={hospitalInfo.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full mt-2 py-3 px-4 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white rounded-xl text-xs font-bold tracking-wide transition-all shadow-md flex items-center justify-center gap-2"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>Contact Us on WhatsApp</span>
-            </a>
+            <div className="space-y-2 pt-2">
+              <a
+                href={hospitalInfo.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white rounded-xl text-xs font-bold tracking-wide transition-all shadow-md flex items-center justify-center gap-2"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>Contact Us on WhatsApp</span>
+              </a>
+
+              <a
+                href={hospitalInfo.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Vedant Hospital Modasa on Instagram"
+                className="w-full py-2.5 px-4 bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:from-purple-700 hover:via-pink-700 hover:to-rose-600 text-white rounded-xl text-xs font-bold tracking-wide transition-all shadow-md flex items-center justify-center gap-2"
+              >
+                <InstagramIcon className="w-4 h-4" />
+                <span>Follow Us on Instagram</span>
+              </a>
+            </div>
           </div>
 
         </div>

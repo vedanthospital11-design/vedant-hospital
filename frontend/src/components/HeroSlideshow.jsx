@@ -149,12 +149,13 @@ export default function HeroSlideshow({ onOpenAppointment }) {
             alt={s.headline}
             loading={i === 0 ? 'eager' : 'lazy'}
             fetchPriority={i === 0 ? 'high' : 'auto'}
-            className={i === current ? 'hero-slide-img-active' : ''}
+            className={`hero-slide-img ${i === current ? 'hero-slide-img-active' : ''}`}
             style={{
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              objectPosition: s.objectPosition || '75% center',
+              '--mobile-pos': s.mobileObjectPosition || s.objectPosition || '75% center',
+              '--desktop-pos': s.objectPosition || '75% center',
               display: 'block',
             }}
           />

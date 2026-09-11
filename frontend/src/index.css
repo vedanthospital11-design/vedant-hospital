@@ -126,6 +126,17 @@
   0%   { transform: scale(1.0); }
   100% { transform: scale(1.08); }
 }
+.hero-slide-img {
+  object-position: var(--mobile-pos, 75% center);
+  transform-origin: var(--mobile-pos, 75% center);
+}
+@media (min-width: 768px) {
+  .hero-slide-img {
+    object-position: var(--desktop-pos, 75% center);
+    transform-origin: var(--desktop-pos, 75% center);
+  }
+}
+
 .hero-slide-img-active {
   animation: heroZoomIn 7s ease-out forwards;
   will-change: transform;

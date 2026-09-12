@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Eye, Sparkles, ZoomIn } from 'lucide-react';
 import { galleryImages } from '../data/hospitalData';
 import { getHospitalSchema, getBreadcrumbSchema } from '../data/schemaData';

@@ -83,7 +83,7 @@ export default function Gallery() {
               <div className="relative aspect-16/10 overflow-hidden bg-slate-900">
                 <img
                   src={img.image}
-                  alt={`${img.title} - Vedant Hospital Modasa`}
+                  alt={img.alt || `${img.title} - Vedant Hospital Modasa`}
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

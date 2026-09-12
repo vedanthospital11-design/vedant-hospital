@@ -21,7 +21,7 @@ export default function ImageModal({ image, onClose }) {
         <div className="aspect-16/9 overflow-hidden bg-black flex items-center justify-center">
           <img
             src={image.image}
-            alt={image.title}
+            alt={image.alt || image.title}
             className="w-full h-full object-cover max-h-[75vh]"
           />
         </div>

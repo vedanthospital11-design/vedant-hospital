@@ -276,7 +276,8 @@ export const galleryImages = [
     id: 7,
     title: "Deluxe Inpatient Patient Care Room",
     category: "Patient Rooms",
-    image: "/images/patient-room.jpg",
+    image: "/images/deluxe-patient-room.png",
+    alt: "Vedant Hospital Modasa inpatient patient room",
     subTitleGujarati: "દર્દી અને પરિવાર માટે સ્વચ્છ, AC રૂમ",
     description: "Clean, air-conditioned patient accommodations with attendant seating, private bathroom, and nursing call support."
   }

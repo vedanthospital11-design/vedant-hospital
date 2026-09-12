@@ -29,29 +29,31 @@ export default function Footer({ onOpenAppointment }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-slate-800">
           
           {/* Col 1: About Hospital */}
-          <div className="space-y-4">
+          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <Link to="/" className="inline-block group" aria-label="Vedant Hospital">
               <div className="bg-white p-2.5 rounded-2xl inline-flex items-center shadow-md shadow-black/20 group-hover:scale-105 transition-transform duration-200">
                 <img
                   src="/vedant-hospital-logo.png"
-                  alt="Vedant Hospital"
+                  alt="Vedant Hospital Modasa Logo"
+                  width="180"
+                  height="56"
                   className="h-14 w-auto object-contain"
                 />
               </div>
             </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed">
-              Dedicated to compassionate, high-quality medical healthcare, safe motherhood, 24x7 ICU, and advanced clinical services for Modasa and surrounding communities.
+              Dedicated to compassionate, high-quality medical healthcare, safe motherhood, 24x7 ICU, and advanced clinical services in Modasa and Aravalli.
             </p>
 
             <p className="text-xs text-purple-300/90 font-medium">
               તમારા પરિવારના સ્વાસ્થ્ય અને સુરક્ષા માટે સમર્પિત.
             </p>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-purple-950/60 border border-purple-800/40 text-purple-300 text-xs font-semibold">
                 <ShieldCheck className="w-4 h-4 text-purple-400" />
                 <span>માતૃત્વસ્પર્શ એવમ્ શમનમ્</span>
@@ -61,11 +63,11 @@ export default function Footer({ onOpenAppointment }) {
 
           {/* Col 2: Quick Links */}
           <div>
-            <h4 className="text-white font-semibold text-base mb-4 tracking-wide flex items-center gap-2">
+            <h4 className="text-white font-semibold text-sm mb-4 tracking-wide flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-purple-500"></span>
-              Quick Navigation
+              Quick Links
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2 text-xs sm:text-sm">
               <li>
                 <Link to="/" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
@@ -75,19 +77,25 @@ export default function Footer({ onOpenAppointment }) {
               <li>
                 <Link to="/about" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-                  About Hospital
-                </Link>
-              </li>
-              <li>
-                <Link to="/doctors" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
-                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-                  Our Specialist Doctors
+                  About Vedant Hospital
                 </Link>
               </li>
               <li>
                 <Link to="/facilities" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-                  Hospital Facilities &amp; ICU
+                  Hospital Facilities
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                  Medical Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/doctors" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                  Our Doctors
                 </Link>
               </li>
               <li>
@@ -99,7 +107,7 @@ export default function Footer({ onOpenAppointment }) {
               <li>
                 <Link to="/contact" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-                  Contact &amp; Location
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -107,11 +115,11 @@ export default function Footer({ onOpenAppointment }) {
 
           {/* Col 3: Specialist Doctors */}
           <div>
-            <h4 className="text-white font-semibold text-base mb-4 tracking-wide flex items-center gap-2">
+            <h4 className="text-white font-semibold text-sm mb-4 tracking-wide flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-blue-500"></span>
               Specialist Doctors
             </h4>
-            <div className="space-y-3 text-sm">
+            <div className="space-y-3 text-xs sm:text-sm">
               <Link
                 to="/doctors/happy-patel"
                 className="block p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 hover:bg-slate-900 transition-all group"
@@ -121,7 +129,7 @@ export default function Footer({ onOpenAppointment }) {
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-400 transition-colors" />
                 </div>
                 <p className="text-xs text-purple-300 font-medium">M.B.D.G.O, DNB</p>
-                <p className="text-xs text-slate-400 mt-1">Obstetrics &amp; Gynecologist, Laparoscopic Surgeon</p>
+                <p className="text-[11px] text-slate-400 mt-1">Obstetrician &amp; Gynecologist, Laparoscopic Surgeon</p>
               </Link>
 
               <Link
@@ -133,9 +141,61 @@ export default function Footer({ onOpenAppointment }) {
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-blue-400 transition-colors" />
                 </div>
                 <p className="text-xs text-blue-300 font-medium">M.D. Physician</p>
-                <p className="text-xs text-slate-400 mt-1">Consultant Diabetologist &amp; Cardiac Physician</p>
+                <p className="text-[11px] text-slate-400 mt-1">Consultant Diabetologist &amp; Cardiac Physician</p>
               </Link>
             </div>
+          </div>
+
+          {/* Col 4: Medical Services Links */}
+          <div>
+            <h4 className="text-white font-semibold text-sm mb-4 tracking-wide flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              Medical Services
+            </h4>
+            <ul className="space-y-2 text-xs sm:text-sm">
+              <li>
+                <Link to="/services#maternity" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                  Obstetrics &amp; Gynecology
+                </Link>
+              </li>
+              <li>
+                <Link to="/services#maternity" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                  Painless Child Delivery
+                </Link>
+              </li>
+              <li>
+                <Link to="/services#sonography" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                  3D / 4D Ultrasound
+                </Link>
+              </li>
+              <li>
+                <Link to="/services#laparoscopy" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                  Stitchless Laparoscopy
+                </Link>
+              </li>
+              <li>
+                <Link to="/services#cardiac-diabetes" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                  Diabetes &amp; Cardiac Care
+                </Link>
+              </li>
+              <li>
+                <Link to="/services#icu" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                  24×7 ICU &amp; Critical Care
+                </Link>
+              </li>
+              <li>
+                <Link to="/services#general-medicine" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                  General Medicine
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Col 4: Contact & Hospital Address */}

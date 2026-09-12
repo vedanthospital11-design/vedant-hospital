@@ -247,7 +247,7 @@ export default function HeroSlideshow({ onOpenAppointment }) {
         </div>
 
         {/* Main Headline: reduced by ~25-30% (52-64px desktop, 42-50px tablet, 30-38px mobile) */}
-        <h1
+        <h2
           key={`h1-${animKey}`}
           className="hero-text-enter-delay-1"
           style={{
@@ -262,7 +262,7 @@ export default function HeroSlideshow({ onOpenAppointment }) {
           }}
         >
           {slide.headline}
-        </h1>
+        </h2>
 
         {/* Gujarati Sub-headline: 20-26px desktop, noticeably smaller supporting line */}
         <p

@@ -12,16 +12,31 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { hospitalInfo, doctorsData, facilitiesData, galleryImages } from '../data/hospitalData';
+import { getHospitalSchema, getWebSiteSchema } from '../data/schemaData';
 import DoctorCard from '../components/DoctorCard';
 import ImageModal from '../components/ImageModal';
 import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
 import HeroSlideshow from '../components/HeroSlideshow';
+import SEO from '../components/SEO';
 
 export default function Home({ onOpenAppointment }) {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  const homeSchema = [getHospitalSchema(), getWebSiteSchema()];
+
   return (
     <div className="overflow-x-hidden">
+      <SEO
+        title="Vedant Hospital | Obstetrics, Gynecology & Medical Care in Modasa"
+        description="Vedant Hospital in Modasa provides specialized Obstetrics & Gynecology care by Dr. Happy Patel and General Medicine & 24×7 ICU by Dr. Paras Patel. Trusted maternity and emergency care."
+        canonical="/"
+        schema={homeSchema}
+      />
+
+      {/* Semantic Primary H1 for Search Engines & Accessibility */}
+      <h1 className="sr-only">
+        Vedant Hospital | Obstetrics, Gynecology &amp; Medical Care in Modasa
+      </h1>
 
       {/* ============================================================
           CINEMATIC HERO SLIDESHOW — 6 Real Doctor Photography Slides
@@ -102,6 +117,98 @@ export default function Home({ onOpenAppointment }) {
             <span>View All Hospital Facilities</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
+        </div>
+      </section>
+
+      {/* ============================================================
+          CLINICAL MEDICAL SERVICES
+      ============================================================ */}
+      <section className="bg-gradient-to-b from-purple-50/50 via-white to-slate-50/70 py-12 sm:py-20 border-y border-purple-100/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <MotionReveal variant="fade-up" className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 space-y-2">
+            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100 px-3 py-1 rounded-full border border-purple-200">
+              Clinical Care &amp; Specialties
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Medical Services at Vedant Hospital
+            </h2>
+            <p className="text-xs sm:text-base text-slate-600">
+              Specialized maternity, advanced diagnostic ultrasound, stitchless surgery, and 24×7 critical ICU care in Modasa.
+            </p>
+          </MotionReveal>
+
+          <StaggerGroup stagger={100} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                title: "Obstetrics & Gynecology",
+                doctor: "Dr. Happy Patel",
+                link: "/services#maternity",
+                desc: "Compassionate pregnancy care, normal and painless delivery, and high-risk pregnancy management."
+              },
+              {
+                title: "3D / 4D Ultrasound Sonography",
+                doctor: "Dr. Happy Patel",
+                link: "/services#sonography",
+                desc: "High-definition fetal scanning and precision pelvic diagnostic sonography."
+              },
+              {
+                title: "Stitchless Laparoscopy",
+                doctor: "Dr. Happy Patel",
+                link: "/services#laparoscopy",
+                desc: "Minimally invasive gynecological surgeries with faster recovery and brief hospital stay."
+              },
+              {
+                title: "24×7 Doctor-Supervised ICU",
+                doctor: "Dr. Paras Patel",
+                link: "/services#icu",
+                desc: "Continuous critical care monitoring, ventilators, and emergency resuscitation."
+              },
+              {
+                title: "Cardiac Care & Diabetes",
+                doctor: "Dr. Paras Patel",
+                link: "/services#cardiac-diabetes",
+                desc: "Dedicated clinical consultation for hypertension, heart disease, diabetes, and thyroid care."
+              },
+              {
+                title: "General Medicine & Fevers",
+                doctor: "Dr. Paras Patel",
+                link: "/services#general-medicine",
+                desc: "Diagnostic treatment and inpatient admissions for infectious fevers and multi-system illness."
+              }
+            ].map((srv, idx) => (
+              <Link
+                key={idx}
+                to={srv.link}
+                className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-md hover:border-purple-300 transition-all flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex items-center justify-between text-xs text-purple-700 font-bold mb-1.5">
+                    <span>{srv.doctor}</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <h3 className="font-extrabold text-base text-slate-900 group-hover:text-[#6B2C7E] transition-colors">
+                    {srv.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+                    {srv.desc}
+                  </p>
+                </div>
+                <div className="pt-3 mt-3 border-t border-slate-100 text-[11px] font-bold text-[#6B2C7E]">
+                  Learn More →
+                </div>
+              </Link>
+            ))}
+          </StaggerGroup>
+
+          <div className="text-center pt-8">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#6B2C7E] hover:bg-[#582468] text-white font-bold text-xs sm:text-sm shadow-md transition-all btn-lift"
+            >
+              <span>Explore All Clinical Services &amp; Specialties</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

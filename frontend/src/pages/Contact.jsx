@@ -1,21 +1,41 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   MapPin, 
   Phone, 
   Clock, 
   MessageCircle, 
-  AlertCircle,
-  Navigation,
-  ExternalLink,
-  ShieldCheck
+  AlertCircle, 
+  Navigation, 
+  ExternalLink, 
+  ShieldCheck,
+  Users,
+  Stethoscope,
+  Building2
 } from 'lucide-react';
 import { hospitalInfo } from '../data/hospitalData';
+import { getHospitalSchema, getBreadcrumbSchema } from '../data/schemaData';
 import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
+import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Contact() {
+  const contactSchema = [
+    getHospitalSchema(),
+    getBreadcrumbSchema([{ name: 'Contact Us', url: '/contact' }])
+  ];
+
   return (
-    <div className="space-y-16 py-8 sm:py-12">
-      
+    <div className="space-y-12 sm:space-y-16 py-6 sm:py-10">
+      <SEO
+        title="Contact Vedant Hospital | Location, Phone & Appointment"
+        description="Contact Vedant Hospital on Shamlaji Road, Modasa. 24×7 Emergency Helpline: +91 81608 10013, WhatsApp: +91 63525 90491. OPD timings and Google Maps directions."
+        canonical="/contact"
+        schema={contactSchema}
+      />
+
+      <Breadcrumbs items={[{ name: 'Contact Us', url: '/contact' }]} />
+
       {/* Header */}
       <section className="bg-gradient-to-r from-purple-50 via-blue-50 to-slate-50 py-12 border-b border-purple-100/60">
         <MotionReveal variant="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
@@ -23,7 +43,7 @@ export default function Contact() {
             Contact Vedant Hospital
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Connect Directly with Vedant Hospital
+            Contact Vedant Hospital | Appointments &amp; Location in Modasa
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Reach out directly to our hospital team on WhatsApp for appointment inquiries and consultation details, or call our 24x7 emergency team for urgent medical admissions in Modasa.

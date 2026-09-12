@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   ShieldAlert, 
   Activity, 
@@ -10,14 +11,31 @@ import {
   CreditCard,
   CheckCircle2,
   Calendar,
-  Phone
+  Phone,
+  ArrowRight
 } from 'lucide-react';
 import { facilitiesData, hospitalInfo } from '../data/hospitalData';
+import { getHospitalSchema, getBreadcrumbSchema } from '../data/schemaData';
 import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
+import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Facilities({ onOpenAppointment }) {
+  const facilitiesSchema = [
+    getHospitalSchema(),
+    getBreadcrumbSchema([{ name: 'Hospital Facilities', url: '/facilities' }])
+  ];
+
   return (
-    <div className="space-y-16 py-8 sm:py-12">
+    <div className="space-y-12 sm:space-y-16 py-6 sm:py-10">
+      <SEO
+        title="Vedant Hospital Facilities | Hospital Infrastructure & Amenities"
+        description="Explore Vedant Hospital's facilities, medical infrastructure, ICU, diagnostic services, operating facilities and patient amenities in Modasa."
+        canonical="/facilities"
+        schema={facilitiesSchema}
+      />
+
+      <Breadcrumbs items={[{ name: 'Hospital Facilities', url: '/facilities' }]} />
       
       {/* Header */}
       <section className="bg-gradient-to-r from-purple-50 via-blue-50 to-slate-50 py-12 border-b border-purple-100/60">
@@ -26,7 +44,7 @@ export default function Facilities({ onOpenAppointment }) {
             Hospital Infrastructure
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Facilities, Diagnostic Services & Inpatient Care
+            Vedant Hospital Facilities &amp; Medical Infrastructure
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Vedant Hospital offers fully integrated healthcare infrastructure under one roof in Modasa, ensuring safety, hygiene, and rapid clinical intervention.

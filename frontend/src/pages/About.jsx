@@ -2,12 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { HeartPulse, ShieldCheck, CheckCircle2, Award, Clock, Users, Building, Activity, Calendar, ArrowRight } from 'lucide-react';
 import { hospitalInfo, doctorsData } from '../data/hospitalData';
+import { getHospitalSchema, getBreadcrumbSchema } from '../data/schemaData';
 import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
+import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function About({ onOpenAppointment }) {
+  const aboutSchema = [
+    getHospitalSchema(),
+    getBreadcrumbSchema([{ name: 'About Vedant Hospital', url: '/about' }])
+  ];
+
   return (
-    <div className="space-y-16 py-8 sm:py-12">
-      
+    <div className="space-y-12 sm:space-y-16 py-6 sm:py-10">
+      <SEO
+        title="About Vedant Hospital | Healthcare & Medical Care in Modasa"
+        description="Learn about Vedant Hospital, our medical team, facilities and commitment to providing trusted healthcare and specialized medical care in Modasa, led by Dr. Happy Patel and Dr. Paras Patel."
+        canonical="/about"
+        schema={aboutSchema}
+      />
+
+      <Breadcrumbs items={[{ name: 'About Vedant Hospital', url: '/about' }]} />
+
       {/* Page Header */}
       <section className="bg-gradient-to-r from-purple-50 via-blue-50 to-slate-50 py-12 border-b border-purple-100/60">
         <MotionReveal variant="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
@@ -15,7 +31,7 @@ export default function About({ onOpenAppointment }) {
             About Vedant Hospital
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Committed to Compassionate Healthcare & Motherhood in Modasa
+            About Vedant Hospital | Compassionate Healthcare &amp; Motherhood in Modasa
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Providing high-standard obstetrics, gynecology, critical care, and general medicine services with state-of-the-art medical technology.

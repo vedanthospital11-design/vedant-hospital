@@ -2,18 +2,30 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Award, ShieldCheck, HeartPulse, Activity, Sparkles, MessageCircle, Phone, ArrowRight } from 'lucide-react';
 import { doctorsData, hospitalInfo } from '../data/hospitalData';
+import { getHospitalSchema, getBreadcrumbSchema, getPhysicianSchema } from '../data/schemaData';
 import DoctorCard from '../components/DoctorCard';
 import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
+import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Doctors({ onOpenAppointment }) {
-  useEffect(() => {
-    document.title = "Our Doctors | Vedant Hospital Modasa";
-    window.scrollTo(0, 0);
-  }, []);
+  const doctorsSchema = [
+    getHospitalSchema(),
+    getBreadcrumbSchema([{ name: 'Our Doctors', url: '/doctors' }]),
+    ...doctorsData.map(getPhysicianSchema).filter(Boolean)
+  ];
 
   return (
-    <div className="space-y-12 sm:space-y-16 py-8 sm:py-12">
-      
+    <div className="space-y-12 sm:space-y-16 py-6 sm:py-10">
+      <SEO
+        title="Our Doctors | Vedant Hospital Modasa"
+        description="Meet the specialist doctors at Vedant Hospital, including Dr. Happy Patel and Dr. Paras Patel, providing specialized medical care in Modasa."
+        canonical="/doctors"
+        schema={doctorsSchema}
+      />
+
+      <Breadcrumbs items={[{ name: 'Our Doctors', url: '/doctors' }]} />
+
       {/* 1. Header */}
       <section className="bg-gradient-to-r from-purple-50 via-blue-50 to-slate-50 py-12 border-b border-purple-100/60">
         <MotionReveal variant="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">

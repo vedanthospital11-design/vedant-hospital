@@ -429,6 +429,18 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* Medical Services */}
+            <Link
+              to="/services"
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                isNavActive('/services')
+                  ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
+                  : 'text-slate-600 hover:text-[#6B2C7E] hover:bg-purple-50/50'
+              }`}
+            >
+              Services
+            </Link>
+
             {/* Photo Gallery */}
             <Link
               to="/gallery"
@@ -652,7 +664,20 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* 4. Photo Gallery */}
+            {/* 4. Medical Services */}
+            <Link
+              to="/services"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                isNavActive('/services')
+                  ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
+                  : 'text-slate-700 hover:bg-slate-50'
+              }`}
+            >
+              <span>Medical Services</span>
+            </Link>
+
+            {/* 5. Photo Gallery */}
             <Link
               to="/gallery"
               onClick={() => setMobileMenuOpen(false)}

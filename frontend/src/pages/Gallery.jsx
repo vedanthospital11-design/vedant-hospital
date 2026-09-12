@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Eye, Sparkles, ZoomIn } from 'lucide-react';
 import { galleryImages } from '../data/hospitalData';
+import { getHospitalSchema, getBreadcrumbSchema } from '../data/schemaData';
 import ImageModal from '../components/ImageModal';
 import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
+import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -14,17 +17,30 @@ export default function Gallery() {
     ? galleryImages
     : galleryImages.filter(img => img.category === activeCategory);
 
+  const gallerySchema = [
+    getHospitalSchema(),
+    getBreadcrumbSchema([{ name: 'Photo Gallery', url: '/gallery' }])
+  ];
+
   return (
-    <div className="space-y-16 py-8 sm:py-12">
-      
+    <div className="space-y-12 sm:space-y-16 py-6 sm:py-10">
+      <SEO
+        title="Vedant Hospital Photo Gallery | Hospital & Facilities in Modasa"
+        description="View photos of Vedant Hospital in Modasa: modern modular operation theatre, 3D/4D sonography suite, 24×7 ICU, reception lounge, and inpatient rooms."
+        canonical="/gallery"
+        schema={gallerySchema}
+      />
+
+      <Breadcrumbs items={[{ name: 'Photo Gallery', url: '/gallery' }]} />
+
       {/* Header */}
       <section className="bg-gradient-to-r from-purple-50 via-blue-50 to-slate-50 py-12 border-b border-purple-100/60">
         <MotionReveal variant="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100 px-3 py-1 rounded-full border border-purple-200">
-            Hospital Infrastructure
+            Hospital Infrastructure &amp; Campus Tour
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Vedant Hospital Photo Gallery
+            Vedant Hospital Photo Gallery &amp; Facility Tour
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Take a virtual tour of our modern operation theatres, 3D/4D ultrasound suites, 24x7 ICU, reception lounge, and patient care rooms in Modasa.
@@ -66,7 +82,8 @@ export default function Gallery() {
               <div className="relative aspect-16/10 overflow-hidden bg-slate-900">
                 <img
                   src={img.image}
-                  alt={img.title}
+                  alt={`${img.title} - Vedant Hospital Modasa`}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
@@ -94,6 +111,28 @@ export default function Gallery() {
             </div>
           ))}
         </StaggerGroup>
+
+        {/* Cross-link Navigation Strip */}
+        <div className="pt-6 text-center flex flex-wrap items-center justify-center gap-3">
+          <Link
+            to="/facilities"
+            className="px-5 py-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-[#6B2C7E] font-bold text-xs sm:text-sm border border-purple-200 transition-colors"
+          >
+            Explore Hospital Facilities →
+          </Link>
+          <Link
+            to="/services"
+            className="px-5 py-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#1E3A5F] font-bold text-xs sm:text-sm border border-blue-200 transition-colors"
+          >
+            View Clinical Services →
+          </Link>
+          <Link
+            to="/doctors"
+            className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs sm:text-sm transition-colors"
+          >
+            Meet Our Doctors →
+          </Link>
+        </div>
 
       </section>
 

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage / Primary Branded Entity -->
+  <url>
+    <loc>https://vedanthospital.com/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About Vedant Hospital -->
+  <url>
+    <loc>https://vedanthospital.com/about</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hospital Facilities & Infrastructure -->
+  <url>
+    <loc>https://vedanthospital.com/facilities</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Medical Services & Specialties Hub -->
+  <url>
+    <loc>https://vedanthospital.com/services</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Our Specialist Doctors Hub -->
+  <url>
+    <loc>https://vedanthospital.com/doctors</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Dr. Happy Patel - Obstetrician & Gynecologist Profile -->
+  <url>
+    <loc>https://vedanthospital.com/doctors/happy-patel</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Dr. Paras Patel - General Medicine & ICU Physician Profile -->
+  <url>
+    <loc>https://vedanthospital.com/doctors/paras-patel</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Real Photo Gallery & Campus Tour -->
+  <url>
+    <loc>https://vedanthospital.com/gallery</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact Us & Appointments -->
+  <url>
+    <loc>https://vedanthospital.com/contact</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

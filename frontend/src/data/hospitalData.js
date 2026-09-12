@@ -1,9 +1,21 @@
 export const hospitalInfo = {
   name: "Vedant Hospital",
   locationName: "Modasa, Aravalli",
+  websiteUrl: "https://vedanthospital.com",
   motto: "Safe Motherhood & Compassionate Healing",
   taglineGujarati: "માતૃત્વસ્પર્શ એવમ્ શમનમ્",
   address: "3rd Floor, Gajanand Complex, Above Bank of Baroda, Deep Area, Shamlaji Road, Modasa, Dist. Aravalli, Gujarat",
+  postalAddress: {
+    streetAddress: "3rd Floor, Gajanand Complex, Above Bank of Baroda, Deep Area, Shamlaji Road",
+    addressLocality: "Modasa",
+    addressRegion: "Gujarat",
+    postalCode: "383315",
+    addressCountry: "IN"
+  },
+  geo: {
+    latitude: "23.4633",
+    longitude: "73.3006"
+  },
   whatsappUrl: "https://wa.me/916352590491?text=Hello%20Vedant%20Hospital,%20I%20would%20like%20to%20enquire%20about%20an%20appointment.",
   instagramUrl: "https://www.instagram.com/vedanthospital_modasa?stkn=MXAzc29vOG8ydDJuOQ==",
   instagramDisplay: "@vedanthospital_modasa",
@@ -62,7 +74,25 @@ export const doctorsData = [
     cardIntro: "ડૉ. હેપ્પી પટેલ મહિલાઓના સ્વાસ્થ્ય અને સુરક્ષિત માતૃત્વ માટે વિશેષ કાળજી આપે છે.",
     cardHighlights: ["Advanced Sonography", "Stitchless Laparoscopy", "Painless Child Delivery"],
     cardSupport: "માતા અને બાળકની સુરક્ષા સાથે વ્યક્તિગત Medical Care.",
-    about: "ડૉ. હેપ્પી પટેલ એક પ્રતિષ્ઠિત Obstetrician & Gynecologist છે, જેમણે Jaslok Hospital, Mumbai અને SVP Hospital જેવી પ્રતિષ્ઠિત Medical Institutesમાંથી તાલીમ મેળવી છે.\n\nતેઓ Advanced Sonography, Stitchless Laparoscopy અને Painless Child Delivery જેવી આધુનિક સારવાર પદ્ધતિઓમાં વિશેષ નિષ્ણાત છે. માતા અને બાળકની સુરક્ષા સાથે શ્રેષ્ઠ Medical Care અને વ્યક્તિગત સારવાર આપવાનો તેમનો મુખ્ય ઉદ્દેશ છે."
+    about: "ડૉ. હેપ્પી પટેલ એક પ્રતિષ્ઠિત Obstetrician & Gynecologist છે, જેમણે Jaslok Hospital, Mumbai અને SVP Hospital જેવી પ્રતિષ્ઠિત Medical Institutesમાંથી તાલીમ મેળવી છે.\n\nતેઓ Advanced Sonography, Stitchless Laparoscopy અને Painless Child Delivery જેવી આધુનિક સારવાર પદ્ધતિઓમાં વિશેષ નિષ્ણાત છે. માતા અને બાળકની સુરક્ષા સાથે શ્રેષ્ઠ Medical Care અને વ્યક્તિગત સારવાર આપવાનો તેમનો મુખ્ય ઉદ્દેશ છે.",
+    professionalProfile: {
+      intro: "ડૉ. હેપ્પી પટેલ એક પ્રતિષ્ઠિત Obstetrician & Gynecologist છે. માતા અને બાળકની સુરક્ષા સાથે શ્રેષ્ઠ Medical Care અને વ્યક્તિગત સારવાર આપવાનો તેમનો મુખ્ય ઉદ્દેશ છે.",
+      trainingCard: {
+        title: "Medical Training",
+        primary: "Jaslok Hospital, Mumbai & SVP Hospital",
+        secondary: "પ્રતિષ્ઠિત Institutesમાંથી ઉચ્ચ તાલીમ"
+      },
+      expertiseCard: {
+        title: "Clinical Focus",
+        primary: "Advanced Care & Safe Motherhood",
+        secondary: "વ્યક્તિગત સારવાર અને વિશેષ કાળજી"
+      },
+      expertisePills: [
+        { label: "Advanced Sonography", icon: "waves" },
+        { label: "Stitchless Laparoscopy", icon: "sparkles" },
+        { label: "Painless Child Delivery", icon: "baby" }
+      ]
+    }
   },
   {
     id: "dr-paras-patel",
@@ -104,7 +134,25 @@ export const doctorsData = [
     cardIntro: "ડૉ. પારસ પટેલ Critical Care, Diabetes અને Cardiac Health માટે નિષ્ણાત સારવાર આપે છે.",
     cardHighlights: ["24×7 Critical Care", "Cardiac & Hypertension Care", "Diabetes Management"],
     cardSupport: "તાત્કાલિક જરૂરિયાતથી સતત દેખરેખ સુધી વિશ્વસનીય Medical Care.",
-    about: "ડૉ. પારસ પટેલ એક અનુભવી M.D. Physician અને Consultant Diabetologist & Cardiac Physician છે, જેમને Critical Care અને Emergency Medicine ક્ષેત્રમાં વિશેષ અનુભવ છે. તેઓ Modasaમાં દર્દીઓને ઝડપી અને વિશ્વસનીય Medical Care, Cardiac Care અને Diabetes Management માટે સમર્પિત છે.\n\nતેઓ 24×7 Critical Care, Cardiology Consultation, Diabetes Management અને Emergency Medicine જેવી વિશેષ સારવારમાં નિષ્ણાત છે. દર્દીની તાત્કાલિક જરૂરિયાત, સતત દેખરેખ અને વ્યક્તિગત સારવાર સાથે શ્રેષ્ઠ Medical Care આપવાનો તેમનો મુખ્ય ઉદ્દેશ છે."
+    about: "ડૉ. પારસ પટેલ એક અનુભવી M.D. Physician અને Consultant Diabetologist & Cardiac Physician છે, જેમને Critical Care અને Emergency Medicine ક્ષેત્રમાં વિશેષ અનુભવ છે. તેઓ Modasaમાં દર્દીઓને ઝડપી અને વિશ્વસનીય Medical Care, Cardiac Care અને Diabetes Management માટે સમર્પિત છે.\n\nતેઓ 24×7 Critical Care, Cardiology Consultation, Diabetes Management અને Emergency Medicine જેવી વિશેષ સારવારમાં નિષ્ણાત છે. દર્દીની તાત્કાલિક જરૂરિયાત, સતત દેખરેખ અને વ્યક્તિગત સારવાર સાથે શ્રેષ્ઠ Medical Care આપવાનો તેમનો મુખ્ય ઉદ્દેશ છે.",
+    professionalProfile: {
+      intro: "ડૉ. પારસ પટેલ એક અનુભવી M.D. Physician અને Consultant Diabetologist & Cardiac Physician છે, જેઓ દર્દીઓને ઝડપી, વિશ્વસનીય Medical Care અને સતત દેખરેખ આપવા માટે સમર્પિત છે.",
+      trainingCard: {
+        title: "Clinical Experience",
+        primary: "M.D. Physician · Pulse Hospital & ICU",
+        secondary: "Critical Care & Emergency Medicine"
+      },
+      expertiseCard: {
+        title: "Specialist Care",
+        primary: "Cardiac Care & Diabetes Management",
+        secondary: "તાત્કાલિક અને સતત દેખરેખ"
+      },
+      expertisePills: [
+        { label: "24×7 Critical Care", icon: "activity" },
+        { label: "Cardiac & Hypertension Care", icon: "heart-pulse" },
+        { label: "Diabetes Management", icon: "shield-check" }
+      ]
+    }
   }
 ];
 

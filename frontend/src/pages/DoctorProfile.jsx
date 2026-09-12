@@ -12,10 +12,17 @@ import {
   HeartPulse, 
   Activity, 
   ShieldCheck, 
-  MapPin 
+  MapPin,
+  GraduationCap,
+  Building2,
+  Baby,
+  Waves,
+  Sparkles
 } from 'lucide-react';
 import { doctorsData, hospitalInfo } from '../data/hospitalData';
+import { getHospitalSchema, getBreadcrumbSchema, getPhysicianSchema } from '../data/schemaData';
 import MotionReveal, { StaggerGroup } from '../components/MotionReveal';
+import SEO from '../components/SEO';
 
 export default function DoctorProfile({ specifiedSlug }) {
   const { doctorSlug } = useParams();
@@ -27,18 +34,8 @@ export default function DoctorProfile({ specifiedSlug }) {
   );
 
   useEffect(() => {
-    if (doctor) {
-      document.title = `${doctor.name} | Vedant Hospital Modasa`;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute(
-          'content',
-          `${doctor.name} (${doctor.qualifications}) - ${doctor.designation} at Vedant Hospital, Modasa. ${doctor.about}`
-        );
-      }
-      window.scrollTo(0, 0);
-    }
-  }, [doctor]);
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!doctor) {
     return <Navigate to="/doctors" replace />;
@@ -46,20 +43,106 @@ export default function DoctorProfile({ specifiedSlug }) {
 
   const isGynecologist = doctor.department.includes('Obstetrics');
 
+  const profile = doctor.professionalProfile || {
+    intro: doctor.about ? doctor.about.split('\n\n')[0] : doctor.cardIntro,
+    trainingCard: {
+      title: "Medical Training",
+      primary: doctor.keyCredentials?.[0] || "Advanced Medical Training",
+      secondary: "પ્રતિષ્ઠિત Institutesમાંથી તાલીમ"
+    },
+    expertiseCard: {
+      title: "Clinical Focus",
+      primary: doctor.department,
+      secondary: "વ્યક્તિગત સારવાર અને વિશેષ કાળજી"
+    },
+    expertisePills: (doctor.cardHighlights || []).map((h) => ({
+      label: h,
+      icon: 'sparkles'
+    }))
+  };
+
+  const getPillIcon = (iconName) => {
+    const iconClass = `w-3.5 h-3.5 shrink-0 ${isGynecologist ? 'text-[#6B2C7E]' : 'text-[#1E3A5F]'}`;
+    switch (iconName) {
+      case 'waves':
+        return <Waves className={iconClass} />;
+      case 'sparkles':
+        return <Sparkles className={iconClass} />;
+      case 'baby':
+        return <Baby className={iconClass} />;
+      case 'activity':
+        return <Activity className={iconClass} />;
+      case 'heart-pulse':
+        return <HeartPulse className={iconClass} />;
+      case 'shield-check':
+        return <ShieldCheck className={iconClass} />;
+      case 'building':
+        return <Building2 className={iconClass} />;
+      default:
+        return <CheckCircle2 className={iconClass} />;
+    }
+  };
+
+  const pageTitle = isGynecologist
+    ? `Dr. Happy Patel | Obstetrician & Gynecologist | Vedant Hospital`
+    : `Dr. Paras Patel | General Medicine & ICU | Vedant Hospital`;
+
+  const pageDescription = isGynecologist
+    ? `Dr. Happy Patel (M.B.D.G.O, DNB) is a Consultant Obstetrician & Gynecologist at Vedant Hospital, Modasa. Specialist in Sonography, Laparoscopy & Maternity Care.`
+    : `Dr. Paras Patel (M.D. Physician) is a Consultant Diabetologist & Cardiac Physician at Vedant Hospital, Modasa, specializing in 24×7 Critical Care & Emergency Medicine.`;
+
+  const doctorSchema = [
+    getHospitalSchema(),
+    getBreadcrumbSchema([
+      { name: 'Our Doctors', url: '/doctors' },
+      { name: doctor.name, url: `/doctors/${doctor.slug}` }
+    ]),
+    getPhysicianSchema(doctor)
+  ].filter(Boolean);
+
   return (
     <div className="py-6 sm:py-10 space-y-10 sm:space-y-14">
+      <SEO
+        title={pageTitle}
+        description={pageDescription}
+        canonical={`/doctors/${doctor.slug}`}
+        ogImage={doctor.image}
+        ogType="profile"
+        schema={doctorSchema}
+      />
       
       {/* 1. Breadcrumbs & Back Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
           
-          {/* Breadcrumb path */}
-          <nav className="flex items-center gap-1.5 text-slate-500 font-medium" aria-label="Breadcrumb">
-            <Link to="/" className="hover:text-[#6B2C7E] transition-colors">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <Link to="/doctors" className="hover:text-[#6B2C7E] transition-colors">Our Doctors</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="font-bold text-slate-900">{doctor.name}</span>
+          {/* Breadcrumb path with Schema microdata */}
+          <nav aria-label="Breadcrumb">
+            <ol
+              className="flex items-center gap-1.5 text-slate-500 font-medium"
+              itemScope
+              itemType="https://schema.org/BreadcrumbList"
+            >
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <Link to="/" className="hover:text-[#6B2C7E] transition-colors" itemProp="item">
+                  <span itemProp="name">Home</span>
+                </Link>
+                <meta itemProp="position" content="1" />
+              </li>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <Link to="/doctors" className="hover:text-[#6B2C7E] transition-colors" itemProp="item">
+                  <span itemProp="name">Our Doctors</span>
+                </Link>
+                <meta itemProp="position" content="2" />
+              </li>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <span className="font-bold text-slate-900" aria-current="page" itemProp="name">
+                  {doctor.name}
+                </span>
+                <meta itemProp="position" content="3" />
+              </li>
+            </ol>
           </nav>
 
           {/* Back link */}
@@ -122,13 +205,107 @@ export default function DoctorProfile({ specifiedSlug }) {
               </div>
 
               {/* Professional Background */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">
-                  Professional Background
-                </h3>
-                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                  {doctor.about}
-                </p>
+              <div className={`p-4 sm:p-5 rounded-2xl border transition-all duration-300 space-y-3.5 ${
+                isGynecologist
+                  ? 'bg-gradient-to-br from-[#FAF7FC] via-white to-[#F6EEFA] border-purple-100/90 shadow-[0_2px_12px_rgba(107,44,126,0.04)]'
+                  : 'bg-gradient-to-br from-[#F4F8FC] via-white to-[#EDF4FA] border-blue-100/90 shadow-[0_2px_12px_rgba(30,58,95,0.04)]'
+              }`}>
+                {/* Header */}
+                <div className="flex items-center gap-2">
+                  <div className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 ${
+                    isGynecologist ? 'bg-purple-100/80 text-[#6B2C7E]' : 'bg-blue-100/80 text-[#1E3A5F]'
+                  }`}>
+                    <Stethoscope className="w-3 h-3" />
+                  </div>
+                  <h3 className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider ${
+                    isGynecologist ? 'text-[#6B2C7E]' : 'text-[#1E3A5F]'
+                  }`}>
+                    Professional Background
+                  </h3>
+                </div>
+
+                {/* Vertical Accent with Gujarati Intro */}
+                <div className="relative pl-3.5 sm:pl-4">
+                  <div className={`absolute left-0 top-0.5 bottom-0.5 w-[2.5px] rounded-full ${
+                    isGynecologist ? 'bg-[#6B2C7E]' : 'bg-[#1E3A5F]'
+                  }`} />
+                  <p className="text-xs sm:text-[13px] text-slate-700 font-medium leading-relaxed">
+                    {profile.intro}
+                  </p>
+                </div>
+
+                {/* Structured Training & Clinical Focus Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {/* Training Card */}
+                  <div className={`p-2.5 sm:p-3 rounded-xl bg-white/95 border transition-all duration-200 flex items-start gap-2.5 group shadow-[0_1px_3px_rgba(0,0,0,0.02)] ${
+                    isGynecologist 
+                      ? 'border-purple-100/80 hover:border-purple-200 hover:shadow-xs' 
+                      : 'border-blue-100/80 hover:border-blue-200 hover:shadow-xs'
+                  }`}>
+                    <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform ${
+                      isGynecologist ? 'bg-purple-50 text-[#6B2C7E]' : 'bg-blue-50 text-[#1E3A5F]'
+                    }`}>
+                      <GraduationCap className="w-4 h-4" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        {profile.trainingCard.title}
+                      </span>
+                      <span className="block text-xs font-bold text-slate-800 leading-snug" title={profile.trainingCard.primary}>
+                        {profile.trainingCard.primary}
+                      </span>
+                      <span className="block text-[11px] text-slate-500 leading-tight mt-0.5">
+                        {profile.trainingCard.secondary}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Clinical Focus Card */}
+                  <div className={`p-2.5 sm:p-3 rounded-xl bg-white/95 border transition-all duration-200 flex items-start gap-2.5 group shadow-[0_1px_3px_rgba(0,0,0,0.02)] ${
+                    isGynecologist 
+                      ? 'border-purple-100/80 hover:border-purple-200 hover:shadow-xs' 
+                      : 'border-blue-100/80 hover:border-blue-200 hover:shadow-xs'
+                  }`}>
+                    <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform ${
+                      isGynecologist ? 'bg-purple-50 text-[#6B2C7E]' : 'bg-blue-50 text-[#1E3A5F]'
+                    }`}>
+                      <ShieldCheck className="w-4 h-4" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        {profile.expertiseCard.title}
+                      </span>
+                      <span className="block text-xs font-bold text-slate-800 leading-snug" title={profile.expertiseCard.primary}>
+                        {profile.expertiseCard.primary}
+                      </span>
+                      <span className="block text-[11px] text-slate-500 leading-tight mt-0.5">
+                        {profile.expertiseCard.secondary}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Key Expertise Pills */}
+                <div className={`pt-2.5 border-t flex flex-wrap items-center gap-1.5 sm:gap-2 ${
+                  isGynecologist ? 'border-purple-100/70' : 'border-blue-100/70'
+                }`}>
+                  <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-0.5 shrink-0">
+                    Key Focus:
+                  </span>
+                  {profile.expertisePills.map((pill, idx) => (
+                    <span
+                      key={idx}
+                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-semibold bg-white/95 border shadow-[0_1px_2px_rgba(0,0,0,0.02)] transition-all duration-200 cursor-default ${
+                        isGynecologist
+                          ? 'border-purple-100/90 text-slate-700 hover:text-[#6B2C7E] hover:border-purple-200 hover:bg-purple-50/50 hover:shadow-xs'
+                          : 'border-blue-100/90 text-slate-700 hover:text-[#1E3A5F] hover:border-blue-200 hover:bg-blue-50/50 hover:shadow-xs'
+                      }`}
+                    >
+                      {getPillIcon(pill.icon)}
+                      <span>{pill.label}</span>
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* OPD Schedule Box */}

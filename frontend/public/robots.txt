@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Canonical XML Sitemap for Vedant Hospital
+Sitemap: https://vedanthospital.com/sitemap.xml

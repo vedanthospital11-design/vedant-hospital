@@ -10,8 +10,10 @@ import About from './pages/About';
 import Doctors from './pages/Doctors';
 import DoctorProfile from './pages/DoctorProfile';
 import Facilities from './pages/Facilities';
+import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 // Scroll to top or anchor helper on route change
 function ScrollToTop() {
@@ -76,9 +78,10 @@ export default function AppRouter() {
           <Route path="/doctors/paras-patel" element={<DoctorProfile specifiedSlug="paras-patel" />} />
           <Route path="/doctors/:doctorSlug" element={<DoctorProfile />} />
           <Route path="/facilities" element={<Facilities onOpenAppointment={handleOpenAppointment} />} />
+          <Route path="/services" element={<Services onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact onOpenAppointment={handleOpenAppointment} />} />
-          <Route path="*" element={<Home onOpenAppointment={handleOpenAppointment} />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
 

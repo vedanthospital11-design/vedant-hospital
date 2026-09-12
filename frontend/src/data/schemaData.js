@@ -133,7 +133,9 @@ export function getPhysicianSchema(doctor) {
     '@id': `${BASE_URL}/doctors/${doctor.slug}#physician`,
     name: doctor.name,
     honorificPrefix: 'Dr.',
-    jobTitle: doctor.designation,
+    jobTitle: isGynecologist
+      ? 'Consultant Obstetrician & Gynecologist'
+      : 'Consultant Physician – General Medicine & ICU',
     description: doctor.about ? doctor.about.replace(/\n+/g, ' ') : undefined,
     image: `${BASE_URL}${doctor.image}`,
     url: `${BASE_URL}/doctors/${doctor.slug}`,
@@ -155,9 +157,7 @@ export function getPhysicianSchema(doctor) {
           { '@type': 'EducationalOrganization', name: 'Jaslok Hospital, Mumbai' },
           { '@type': 'EducationalOrganization', name: 'SVP Hospital, Ahmedabad' }
         ]
-      : [
-          { '@type': 'MedicalOrganization', name: 'Pulse Hospital & ICU' }
-        ],
+      : undefined,
     knowsAbout: doctor.specialties || []
   };
 }

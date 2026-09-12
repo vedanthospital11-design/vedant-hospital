@@ -29,7 +29,7 @@ export default function Facilities({ onOpenAppointment }) {
   return (
     <div className="space-y-12 sm:space-y-16 py-6 sm:py-10">
       <SEO
-        title="Vedant Hospital Facilities | Hospital Infrastructure & Amenities"
+        title="Vedant Hospital Facilities | ICU, Emergency & Hospital Services"
         description="Explore Vedant Hospital's facilities, medical infrastructure and patient-care amenities in Modasa, Aravalli."
         canonical="/facilities"
         schema={facilitiesSchema}
@@ -44,7 +44,7 @@ export default function Facilities({ onOpenAppointment }) {
             Hospital Infrastructure
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Vedant Hospital Facilities | Hospital Infrastructure &amp; Amenities
+            Vedant Hospital Facilities | ICU, Emergency &amp; Hospital Services
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Vedant Hospital offers fully integrated healthcare infrastructure under one roof in Modasa, ensuring safety, hygiene, and rapid clinical intervention.

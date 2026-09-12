@@ -6,10 +6,10 @@ import { BASE_URL } from '../data/schemaData';
  * Manages Title, Meta Description, Canonical, Robots, Open Graph, Twitter Cards, and Schema.org JSON-LD.
  */
 export default function SEO({
-  title = 'Vedant Hospital | Obstetrics, Gynecology & Medical Care in Modasa',
-  description = 'Vedant Hospital in Modasa provides specialized Obstetrics & Gynecology care by Dr. Happy Patel and General Medicine & 24×7 ICU by Dr. Paras Patel. Trusted maternity and emergency care.',
+  title = 'Vedant Hospital Modasa | Maternity, Gynecology & General Medicine',
+  description = 'Vedant Hospital, Modasa – Multi-speciality hospital offering 24x7 Emergency, Maternity, Gynecology and General Medicine services. Our specialist doctors: Dr. Happy Patel (M.B.D.G.O, DNB – Obstetrician & Gynecologist) and Dr. Paras Patel (M.D. Physician – General Medicine & ICU).',
   canonical = '/',
-  ogImage = '/vedant-hospital-logo.png',
+  ogImage = '/og-preview.jpg',
   ogType = 'website',
   schema = null,
   noindex = false
@@ -55,6 +55,10 @@ export default function SEO({
     updateMeta('property', 'og:description', description);
     updateMeta('property', 'og:url', fullCanonical);
     updateMeta('property', 'og:image', fullOgImage);
+    updateMeta('property', 'og:image:secure_url', fullOgImage);
+    updateMeta('property', 'og:image:width', '1200');
+    updateMeta('property', 'og:image:height', '630');
+    updateMeta('property', 'og:image:alt', title);
     updateMeta('property', 'og:type', ogType);
     updateMeta('property', 'og:site_name', 'Vedant Hospital');
     updateMeta('property', 'og:locale', 'en_IN');
@@ -64,6 +68,7 @@ export default function SEO({
     updateMeta('name', 'twitter:title', title);
     updateMeta('name', 'twitter:description', description);
     updateMeta('name', 'twitter:image', fullOgImage);
+    updateMeta('name', 'twitter:image:alt', title);
 
     // 6. Schema.org JSON-LD Script Injection
     const scriptId = 'vedant-schema-jsonld';

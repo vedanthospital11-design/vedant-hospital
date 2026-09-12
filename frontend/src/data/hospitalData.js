@@ -99,7 +99,7 @@ export const doctorsData = [
     slug: "dr-paras-patel",
     name: "Dr. Paras Patel",
     qualifications: "M.D. Physician",
-    designation: "Consultant Diabetologist & Cardiac Physician",
+    designation: "Consultant Physician – General Medicine & ICU",
     department: "General Medicine & Critical Care",
     altText: "Dr. Paras Patel - General Medicine and Critical Care Specialist",
     image: "/images/dr-paras-patel.jpg",

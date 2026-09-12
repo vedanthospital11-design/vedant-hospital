@@ -245,30 +245,30 @@ export default function Services({ onOpenAppointment }) {
 
       {/* 3. Services Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <StaggerGroup stagger={120} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <StaggerGroup stagger={120} className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {filteredServices.map((service) => {
             const Icon = service.icon;
             return (
               <div
                 key={service.id}
                 id={service.id}
-                className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group scroll-mt-28"
+                className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full w-full group scroll-mt-28"
               >
-                <div className="space-y-4">
+                <div className="space-y-4 flex-1 flex flex-col">
                   {/* Top Row: Icon & Doctor Reference */}
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start justify-between gap-4 shrink-0">
                     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-inner ${service.iconBg}`}>
                       <Icon className="w-6 h-6" />
                     </div>
                     {service.doctor && (
                       <Link
                         to={`/doctors/${service.doctor.slug}`}
-                        className="flex items-center gap-2 p-1.5 pr-3 rounded-full bg-slate-50 border border-slate-200 hover:border-purple-300 transition-colors group/doc"
+                        className="flex items-center gap-2 p-1.5 pr-3 rounded-full bg-slate-50 border border-slate-200 hover:border-purple-300 transition-colors group/doc shrink-0"
                       >
                         <img
                           src={service.doctor.image}
                           alt={service.doctor.name}
-                          className="w-7 h-7 rounded-full object-cover"
+                          className="w-7 h-7 rounded-full object-cover shrink-0"
                         />
                         <div className="text-left">
                           <span className="block text-[11px] font-bold text-slate-800 group-hover/doc:text-[#6B2C7E]">
@@ -281,21 +281,21 @@ export default function Services({ onOpenAppointment }) {
 
                   {/* Title & Subtitle */}
                   <div>
-                    <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 group-hover:text-[#6B2C7E] transition-colors">
+                    <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 group-hover:text-[#6B2C7E] transition-colors min-h-[3.75rem] flex items-start">
                       {service.title}
                     </h2>
-                    <p className="text-xs sm:text-sm font-semibold text-[#6B2C7E] mt-1">
+                    <p className="text-xs sm:text-sm font-semibold text-[#6B2C7E] mt-1 min-h-[1.5rem] flex items-center">
                       {service.titleGujarati}
                     </p>
                   </div>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed min-h-[4rem]">
                     {service.description}
                   </p>
 
                   {/* Key Features List */}
-                  <div className="pt-2 space-y-2 border-t border-slate-100">
+                  <div className="pt-3 space-y-2 border-t border-slate-100 flex-1">
                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                       Key Clinical Scope:
                     </p>
@@ -308,21 +308,24 @@ export default function Services({ onOpenAppointment }) {
                       ))}
                     </ul>
                   </div>
+
+                  {/* Flexible spacer */}
+                  <div className="flex-1" />
                 </div>
 
                 {/* Bottom Footer: Facility Link & Action */}
-                <div className="pt-6 mt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                <div className="pt-6 mt-auto border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 shrink-0">
                   <Link
                     to={service.facilityLink}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#6B2C7E] transition-colors"
                   >
-                    <Building2 className="w-3.5 h-3.5 text-purple-600" />
+                    <Building2 className="w-3.5 h-3.5 text-purple-600 shrink-0" />
                     <span>Facility: {service.facilityName}</span>
                   </Link>
 
                   <button
                     onClick={() => onOpenAppointment && onOpenAppointment(service.doctor?.id)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#6B2C7E] hover:bg-[#582468] text-white text-xs font-bold transition-all shadow-xs btn-lift cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#6B2C7E] hover:bg-[#582468] text-white text-xs font-bold transition-all shadow-xs btn-lift cursor-pointer shrink-0"
                   >
                     <Calendar className="w-3.5 h-3.5" />
                     <span>Consult Doctor</span>

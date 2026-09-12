@@ -29,10 +29,10 @@ export default function Footer({ onOpenAppointment }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-slate-800">
           
           {/* Col 1: About Hospital */}
-          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
+          <div className="space-y-4 sm:col-span-2 lg:col-span-3">
             <Link to="/" className="inline-block group" aria-label="Vedant Hospital">
               <div className="bg-white p-2.5 rounded-2xl inline-flex items-center shadow-md shadow-black/20 group-hover:scale-105 transition-transform duration-200">
                 <img
@@ -62,7 +62,7 @@ export default function Footer({ onOpenAppointment }) {
           </div>
 
           {/* Col 2: Quick Links */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="text-white font-semibold text-sm mb-4 tracking-wide flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-purple-500"></span>
               Quick Links
@@ -114,7 +114,7 @@ export default function Footer({ onOpenAppointment }) {
           </div>
 
           {/* Col 3: Specialist Doctors */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="text-white font-semibold text-sm mb-4 tracking-wide flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-blue-500"></span>
               Specialist Doctors
@@ -147,7 +147,7 @@ export default function Footer({ onOpenAppointment }) {
           </div>
 
           {/* Col 4: Medical Services Links */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="text-white font-semibold text-sm mb-4 tracking-wide flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
               Medical Services
@@ -198,8 +198,8 @@ export default function Footer({ onOpenAppointment }) {
             </ul>
           </div>
 
-          {/* Col 4: Contact & Hospital Address */}
-          <div className="space-y-4">
+          {/* Col 5: Contact & Hospital Address */}
+          <div className="space-y-4 sm:col-span-2 lg:col-span-3">
             <h4 className="text-white font-semibold text-base mb-4 tracking-wide flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-rose-500"></span>
               Hospital Contact
@@ -212,48 +212,60 @@ export default function Footer({ onOpenAppointment }) {
               </span>
             </div>
 
-            <div className="space-y-2 text-sm pt-1">
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-rose-400 shrink-0" />
-                <span className="text-xs text-slate-400">24x7 Emergency:</span>
-                <a href={`tel:${hospitalInfo.contacts.emergency}`} className="text-xs sm:text-sm font-bold text-white hover:text-purple-300">
+            <div className="space-y-2.5 text-sm pt-1">
+              <div className="flex items-center gap-2.5">
+                <span className="w-5 flex items-center justify-center shrink-0">
+                  <Phone className="w-4 h-4 text-rose-400" />
+                </span>
+                <span className="text-xs text-slate-400 w-28 shrink-0">24×7 Emergency:</span>
+                <a
+                  href={`tel:${hospitalInfo.contacts.emergency}`}
+                  className="text-xs sm:text-sm font-bold text-white hover:text-purple-300 transition-colors whitespace-nowrap"
+                >
                   {hospitalInfo.contacts.emergencyDisplay}
                 </a>
               </div>
 
-              <div className="flex items-center gap-3">
-                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span className="text-xs text-slate-400">WhatsApp:</span>
-                <div className="text-xs sm:text-sm font-semibold text-white space-x-2">
-                  <a 
-                    href={hospitalInfo.whatsappUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-emerald-300 hover:text-emerald-200"
-                  >
-                    {hospitalInfo.contacts.whatsappDisplay}
-                  </a>
-                </div>
+              <div className="flex items-center gap-2.5">
+                <span className="w-5 flex items-center justify-center shrink-0">
+                  <MessageCircle className="w-4 h-4 text-emerald-400" />
+                </span>
+                <span className="text-xs text-slate-400 w-28 shrink-0">WhatsApp:</span>
+                <a 
+                  href={hospitalInfo.whatsappUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-xs sm:text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition-colors whitespace-nowrap"
+                >
+                  {hospitalInfo.contacts.whatsappDisplay}
+                </a>
               </div>
 
-              <div className="flex items-center gap-3">
-                <InstagramIcon className="w-4 h-4 text-pink-400 shrink-0" />
-                <span className="text-xs text-slate-400">Instagram:</span>
+              <div className="flex items-center gap-2.5">
+                <span className="w-5 flex items-center justify-center shrink-0">
+                  <InstagramIcon className="w-4 h-4 text-pink-400" />
+                </span>
+                <span className="text-xs text-slate-400 w-28 shrink-0">Instagram:</span>
                 <a 
                   href={hospitalInfo.instagramUrl} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   aria-label="Follow Vedant Hospital Modasa on Instagram"
                   title="Follow Vedant Hospital Modasa on Instagram"
-                  className="text-xs sm:text-sm font-semibold text-pink-300 hover:text-pink-200 transition-colors"
+                  className="text-xs sm:text-sm font-semibold text-pink-300 hover:text-pink-200 transition-colors whitespace-nowrap"
                 >
                   {hospitalInfo.instagramDisplay}
                 </a>
               </div>
 
-              <div className="flex items-center gap-3 pt-1">
-                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-                <span className="text-xs text-slate-400">OPD: Mon - Sat (9 AM - 8 PM)</span>
+              <div className="flex items-center gap-2.5 pt-1">
+                <span className="w-5 flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4 text-amber-400" />
+                </span>
+                <span className="text-xs text-slate-400 w-28 shrink-0">OPD Timings:</span>
+                <span className="text-xs text-slate-300 whitespace-nowrap">
+                  Mon - Sat (9:00 AM - 8:00 PM)
+                </span>
               </div>
             </div>
 

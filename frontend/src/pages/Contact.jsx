@@ -81,7 +81,7 @@ export default function Contact() {
 
               <div className="pt-2">
                 <p className="text-xs uppercase tracking-wider text-emerald-200 font-semibold">WhatsApp Number</p>
-                <p className="text-2xl sm:text-3xl font-black text-white tracking-tight mt-0.5">
+                <p className="text-2xl sm:text-3xl font-black text-white tracking-tight mt-0.5 whitespace-nowrap">
                   {hospitalInfo.contacts.whatsappDisplay}
                 </p>
               </div>
@@ -94,8 +94,8 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="w-full py-4 px-6 rounded-2xl bg-white text-emerald-900 hover:bg-emerald-50 font-extrabold text-base transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2.5 group/btn btn-lift"
               >
-                <MessageCircle className="w-5 h-5 text-emerald-700 group-hover/btn:scale-110 transition-transform" />
-                <span>Open WhatsApp Chat Now</span>
+                <MessageCircle className="w-5 h-5 text-emerald-700 group-hover/btn:scale-110 transition-transform shrink-0" />
+                <span className="whitespace-nowrap">Open WhatsApp Chat Now</span>
               </a>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function Contact() {
                 <p className="text-xs uppercase tracking-wider text-rose-200 font-semibold">24x7 Helpline</p>
                 <a
                   href={`tel:${hospitalInfo.contacts.emergency}`}
-                  className="text-2xl sm:text-3xl font-black text-amber-300 hover:underline tracking-tight mt-0.5 block"
+                  className="text-2xl sm:text-3xl font-black text-amber-300 hover:underline tracking-tight mt-0.5 block whitespace-nowrap"
                 >
                   {hospitalInfo.contacts.emergencyDisplay}
                 </a>
@@ -137,8 +137,8 @@ export default function Contact() {
                 href={`tel:${hospitalInfo.contacts.emergency}`}
                 className="w-full py-4 px-6 rounded-2xl bg-white text-rose-900 hover:bg-rose-50 font-extrabold text-base transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2.5 group/btn btn-lift"
               >
-                <Phone className="w-5 h-5 text-rose-700 group-hover/btn:scale-110 transition-transform" />
-                <span>Call Emergency ({hospitalInfo.contacts.emergencyDisplay})</span>
+                <Phone className="w-5 h-5 text-rose-700 group-hover/btn:scale-110 transition-transform shrink-0" />
+                <span className="whitespace-nowrap">Call Emergency ({hospitalInfo.contacts.emergencyDisplay})</span>
               </a>
             </div>
           </div>

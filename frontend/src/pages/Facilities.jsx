@@ -57,40 +57,41 @@ export default function Facilities({ onOpenAppointment }) {
 
       {/* Facilities Cards Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <StaggerGroup stagger={80} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerGroup stagger={80} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {facilitiesData.map((facility) => (
             <div
               key={facility.id}
               id={facility.id}
-              className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 scroll-mt-28"
+              className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full w-full group hover:-translate-y-1 scroll-mt-28"
             >
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-purple-100 text-[#6B2C7E] group-hover:bg-[#6B2C7E] group-hover:text-white transition-all flex items-center justify-center mb-6 shadow-inner">
-                  {facility.id === 'emergency' && <ShieldAlert className="w-7 h-7" />}
-                  {facility.id === 'icu' && <Activity className="w-7 h-7" />}
-                  {facility.id === 'ot' && <Sparkles className="w-7 h-7" />}
-                  {facility.id === 'sonography' && <Eye className="w-7 h-7" />}
-                  {facility.id === 'laboratory' && <FlaskConical className="w-7 h-7" />}
-                  {facility.id === 'pharmacy' && <Pill className="w-7 h-7" />}
-                  {facility.id === 'rooms' && <Bed className="w-7 h-7" />}
-                  {facility.id === 'mediclaim' && <CreditCard className="w-7 h-7" />}
-                </div>
-
-                <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-[#6B2C7E] transition-colors mb-1">
-                  {facility.title}
-                </h3>
-                {facility.subTitleGujarati && (
-                  <p className="text-xs font-semibold text-[#6B2C7E] mb-2.5">
-                    {facility.subTitleGujarati}
-                  </p>
-                )}
-
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {facility.description}
-                </p>
+              <div className="w-14 h-14 rounded-2xl bg-purple-100 text-[#6B2C7E] group-hover:bg-[#6B2C7E] group-hover:text-white transition-all flex items-center justify-center mb-6 shadow-inner shrink-0">
+                {facility.id === 'emergency' && <ShieldAlert className="w-7 h-7" />}
+                {facility.id === 'icu' && <Activity className="w-7 h-7" />}
+                {facility.id === 'ot' && <Sparkles className="w-7 h-7" />}
+                {facility.id === 'sonography' && <Eye className="w-7 h-7" />}
+                {facility.id === 'laboratory' && <FlaskConical className="w-7 h-7" />}
+                {facility.id === 'pharmacy' && <Pill className="w-7 h-7" />}
+                {facility.id === 'rooms' && <Bed className="w-7 h-7" />}
+                {facility.id === 'mediclaim' && <CreditCard className="w-7 h-7" />}
               </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-[#6B2C7E] transition-colors mb-1 min-h-[3.5rem] flex items-start">
+                {facility.title}
+              </h3>
+              {facility.subTitleGujarati && (
+                <p className="text-xs font-semibold text-[#6B2C7E] mb-2.5 min-h-[1.25rem] flex items-center">
+                  {facility.subTitleGujarati}
+                </p>
+              )}
+
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                {facility.description}
+              </p>
+
+              {/* Flexible spacer */}
+              <div className="flex-1 min-h-4" />
+
+              <div className="pt-6 mt-auto border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 shrink-0">
                 <span className="font-semibold text-purple-800">Vedant Quality Assured</span>
                 <span className="bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-full text-[11px]">
                   Active 24x7

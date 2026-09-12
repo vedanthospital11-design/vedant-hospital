@@ -19,18 +19,18 @@ export default function EmergencyBar() {
         <div className="flex sm:hidden w-full items-center justify-between text-[11px]">
           <a
             href={`tel:${hospitalInfo.contacts.emergency}`}
-            className="flex items-center gap-1.5 font-bold text-rose-300 hover:text-white transition-colors"
+            className="flex items-center gap-1.5 font-bold text-rose-300 hover:text-white transition-colors whitespace-nowrap"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse shrink-0"></span>
             <span className="text-[10px] uppercase font-extrabold text-rose-400">24×7:</span>
-            <span>{hospitalInfo.contacts.emergencyDisplay}</span>
+            <span className="whitespace-nowrap">{hospitalInfo.contacts.emergencyDisplay}</span>
           </a>
 
           <a
             href={hospitalInfo.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 font-bold text-emerald-400 hover:text-emerald-300 transition-colors"
+            className="flex items-center gap-1 font-bold text-emerald-400 hover:text-emerald-300 transition-colors whitespace-nowrap"
           >
             <MessageCircle className="w-3 h-3 text-emerald-400 shrink-0" />
             <span>WhatsApp</span>
@@ -39,19 +39,19 @@ export default function EmergencyBar() {
 
         {/* Desktop View: Full Emergency & Quick Info */}
         <div className="hidden sm:flex items-center gap-2">
-          <span className="inline-flex items-center gap-1 bg-rose-600/90 text-white px-2 py-0.5 rounded-full text-[10.5px] font-semibold uppercase tracking-wider animate-pulse">
+          <span className="inline-flex items-center gap-1 bg-rose-600/90 text-white px-2 py-0.5 rounded-full text-[10.5px] font-semibold uppercase tracking-wider animate-pulse shrink-0">
             <AlertCircle className="w-3 h-3" />
             24×7 Emergency
           </span>
-          <span className="text-slate-400 text-[11px]">
+          <span className="text-slate-400 text-[11px] shrink-0">
             Helpline:
           </span>
           <a
             href={`tel:${hospitalInfo.contacts.emergency}`}
-            className="font-bold text-amber-300 hover:text-white transition-colors flex items-center gap-1 text-xs"
+            className="font-bold text-amber-300 hover:text-white transition-colors flex items-center gap-1 text-xs whitespace-nowrap"
           >
-            <Phone className="w-3 h-3" />
-            {hospitalInfo.contacts.emergencyDisplay}
+            <Phone className="w-3 h-3 shrink-0" />
+            <span>{hospitalInfo.contacts.emergencyDisplay}</span>
           </a>
         </div>
 

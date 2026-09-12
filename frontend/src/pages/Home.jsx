@@ -88,23 +88,37 @@ export default function Home({ onOpenAppointment }) {
           </p>
         </MotionReveal>
 
-        <StaggerGroup stagger={80} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <StaggerGroup stagger={80} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
           {facilitiesData.slice(0, 4).map((facility) => (
-            <div key={facility.id} className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-purple-100 text-[#6B2C7E] group-hover:bg-[#6B2C7E] group-hover:text-white transition-all flex items-center justify-center mb-4">
-                  {facility.id === 'emergency' && <AlertCircle className="w-6 h-6" />}
-                  {facility.id === 'icu' && <Activity className="w-6 h-6" />}
-                  {facility.id === 'ot' && <Sparkles className="w-6 h-6" />}
-                  {facility.id === 'sonography' && <Eye className="w-6 h-6" />}
-                </div>
-                <h3 className="font-extrabold text-base text-slate-900 group-hover:text-[#6B2C7E] transition-colors mb-1">{facility.title}</h3>
-                {facility.subTitleGujarati && (
-                  <p className="text-xs font-semibold text-[#6B2C7E] mb-2">{facility.subTitleGujarati}</p>
-                )}
-                <p className="text-xs text-slate-600 leading-relaxed">{facility.description}</p>
+            <div
+              key={facility.id}
+              className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full w-full group hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-purple-100 text-[#6B2C7E] group-hover:bg-[#6B2C7E] group-hover:text-white transition-all flex items-center justify-center mb-4 shrink-0 shadow-inner">
+                {facility.id === 'emergency' && <AlertCircle className="w-6 h-6" />}
+                {facility.id === 'icu' && <Activity className="w-6 h-6" />}
+                {facility.id === 'ot' && <Sparkles className="w-6 h-6" />}
+                {facility.id === 'sonography' && <Eye className="w-6 h-6" />}
               </div>
-              <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+
+              <h3 className="font-extrabold text-base text-slate-900 group-hover:text-[#6B2C7E] transition-colors mb-1 min-h-[3rem] flex items-start">
+                {facility.title}
+              </h3>
+
+              {facility.subTitleGujarati && (
+                <p className="text-xs font-semibold text-[#6B2C7E] mb-2 min-h-[1.25rem] flex items-center">
+                  {facility.subTitleGujarati}
+                </p>
+              )}
+
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {facility.description}
+              </p>
+
+              {/* Flexible spacer to ensure footer sits on identical baseline */}
+              <div className="flex-1 min-h-4" />
+
+              <div className="pt-4 mt-auto border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium shrink-0">
                 <span>Vedant Assured</span>
                 <span className="text-emerald-700 font-bold">24×7 Active</span>
               </div>
@@ -137,7 +151,7 @@ export default function Home({ onOpenAppointment }) {
             </p>
           </MotionReveal>
 
-          <StaggerGroup stagger={100} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <StaggerGroup stagger={100} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
             {[
               {
                 title: "Obstetrics & Gynecology",
@@ -179,22 +193,24 @@ export default function Home({ onOpenAppointment }) {
               <Link
                 key={idx}
                 to={srv.link}
-                className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-md hover:border-purple-300 transition-all flex flex-col justify-between group"
+                className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-md hover:border-purple-300 transition-all flex flex-col h-full w-full justify-between group"
               >
-                <div>
-                  <div className="flex items-center justify-between text-xs text-purple-700 font-bold mb-1.5">
+                <div className="flex-1 flex flex-col">
+                  <div className="flex items-center justify-between text-xs text-purple-700 font-bold mb-1.5 shrink-0">
                     <span>{srv.doctor}</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
-                  <h3 className="font-extrabold text-base text-slate-900 group-hover:text-[#6B2C7E] transition-colors">
+                  <h3 className="font-extrabold text-base text-slate-900 group-hover:text-[#6B2C7E] transition-colors mb-2 min-h-[3rem] flex items-start">
                     {srv.title}
                   </h3>
-                  <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+                  <p className="text-xs text-slate-500 leading-relaxed">
                     {srv.desc}
                   </p>
                 </div>
-                <div className="pt-3 mt-3 border-t border-slate-100 text-[11px] font-bold text-[#6B2C7E]">
-                  Learn More →
+                
+                <div className="pt-3 mt-auto border-t border-slate-100 text-[11px] font-bold text-[#6B2C7E] flex items-center justify-between shrink-0">
+                  <span>Learn More →</span>
+                  <span className="text-[10px] text-slate-400 font-normal">Vedant Hospital</span>
                 </div>
               </Link>
             ))}

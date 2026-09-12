@@ -1,5 +1,21 @@
+# Vedant Hospital Modasa — robots.txt
+# https://www.vedanthospitalmodasa.com/
+
 User-agent: *
 Allow: /
 
-# Canonical XML Sitemap for Vedant Hospital
+# Important public pages
+Allow: /about
+Allow: /facilities
+Allow: /services
+Allow: /doctors
+Allow: /doctors/dr-happy-patel
+Allow: /doctors/dr-paras-patel
+Allow: /gallery
+Allow: /contact
+
+# Google Search Console verification
+Allow: /googledb488436cf6ac6eb.html
+
+# Canonical XML Sitemap
 Sitemap: https://www.vedanthospitalmodasa.com/sitemap.xml

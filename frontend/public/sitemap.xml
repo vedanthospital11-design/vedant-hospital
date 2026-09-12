@@ -4,10 +4,10 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Homepage / Primary Branded Entity -->
+  <!-- Homepage — Vedant Hospital Modasa -->
   <url>
     <loc>https://www.vedanthospitalmodasa.com/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,7 +15,7 @@
   <!-- About Vedant Hospital -->
   <url>
     <loc>https://www.vedanthospitalmodasa.com/about</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -23,55 +23,55 @@
   <!-- Hospital Facilities & Infrastructure -->
   <url>
     <loc>https://www.vedanthospitalmodasa.com/facilities</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Medical Services & Specialties Hub -->
+  <!-- Medical Services & Specialties -->
   <url>
     <loc>https://www.vedanthospitalmodasa.com/services</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Our Specialist Doctors Hub -->
+  <!-- Our Specialist Doctors -->
   <url>
     <loc>https://www.vedanthospitalmodasa.com/doctors</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Dr. Happy Patel - Obstetrician & Gynecologist Profile -->
+  <!-- Dr. Happy Patel — Obstetrician & Gynecologist -->
   <url>
     <loc>https://www.vedanthospitalmodasa.com/doctors/dr-happy-patel</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Dr. Paras Patel - General Medicine & ICU Physician Profile -->
+  <!-- Dr. Paras Patel — General Medicine & ICU -->
   <url>
     <loc>https://www.vedanthospitalmodasa.com/doctors/dr-paras-patel</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Real Photo Gallery & Campus Tour -->
+  <!-- Photo Gallery & Campus Tour -->
   <url>
     <loc>https://www.vedanthospitalmodasa.com/gallery</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Contact Us & Appointments -->
+  <!-- Contact & Appointments -->
   <url>
     <loc>https://www.vedanthospitalmodasa.com/contact</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

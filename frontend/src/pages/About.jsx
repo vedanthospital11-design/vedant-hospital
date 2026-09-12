@@ -16,8 +16,8 @@ export default function About({ onOpenAppointment }) {
   return (
     <div className="space-y-12 sm:space-y-16 py-6 sm:py-10">
       <SEO
-        title="About Vedant Hospital | Healthcare & Medical Care in Modasa"
-        description="Learn about Vedant Hospital, our medical team, facilities and commitment to providing trusted healthcare and specialized medical care in Modasa, led by Dr. Happy Patel and Dr. Paras Patel."
+        title="About Vedant Hospital Modasa | Our Hospital & Medical Care"
+        description="Learn about Vedant Hospital in Modasa, Aravalli, our medical team, facilities and commitment to providing trusted healthcare."
         canonical="/about"
         schema={aboutSchema}
       />
@@ -31,7 +31,7 @@ export default function About({ onOpenAppointment }) {
             About Vedant Hospital
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            About Vedant Hospital | Compassionate Healthcare &amp; Motherhood in Modasa
+            About Vedant Hospital Modasa | Our Hospital &amp; Medical Care
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Providing high-standard obstetrics, gynecology, critical care, and general medicine services with state-of-the-art medical technology.

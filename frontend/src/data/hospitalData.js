@@ -1,7 +1,7 @@
 export const hospitalInfo = {
   name: "Vedant Hospital",
   locationName: "Modasa, Aravalli",
-  websiteUrl: "https://vedanthospital.com",
+  websiteUrl: "https://www.vedanthospitalmodasa.com",
   motto: "Safe Motherhood & Compassionate Healing",
   taglineGujarati: "માતૃત્વસ્પર્શ એવમ્ શમનમ્",
   address: "3rd Floor, Gajanand Complex, Above Bank of Baroda, Deep Area, Shamlaji Road, Modasa, Dist. Aravalli, Gujarat",
@@ -38,7 +38,7 @@ export const hospitalInfo = {
 export const doctorsData = [
   {
     id: "dr-happy-patel",
-    slug: "happy-patel",
+    slug: "dr-happy-patel",
     name: "Dr. Happy Patel",
     qualifications: "M.B.D.G.O, DNB",
     designation: "Consultant Obstetrician & Gynecologist",
@@ -96,7 +96,7 @@ export const doctorsData = [
   },
   {
     id: "dr-paras-patel",
-    slug: "paras-patel",
+    slug: "dr-paras-patel",
     name: "Dr. Paras Patel",
     qualifications: "M.D. Physician",
     designation: "Consultant Diabetologist & Cardiac Physician",

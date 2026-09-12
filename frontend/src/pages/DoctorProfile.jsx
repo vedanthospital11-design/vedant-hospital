@@ -88,8 +88,8 @@ export default function DoctorProfile({ specifiedSlug }) {
     : `Dr. Paras Patel | General Medicine & ICU | Vedant Hospital`;
 
   const pageDescription = isGynecologist
-    ? `Dr. Happy Patel (M.B.D.G.O, DNB) is a Consultant Obstetrician & Gynecologist at Vedant Hospital, Modasa. Specialist in Sonography, Laparoscopy & Maternity Care.`
-    : `Dr. Paras Patel (M.D. Physician) is a Consultant Diabetologist & Cardiac Physician at Vedant Hospital, Modasa, specializing in 24×7 Critical Care & Emergency Medicine.`;
+    ? `Meet Dr. Happy Patel, Consultant Obstetrician & Gynecologist at Vedant Hospital Modasa, with expertise in women's healthcare, advanced sonography, laparoscopy and maternity care.`
+    : `Meet Dr. Paras Patel, Consultant Physician in General Medicine & ICU at Vedant Hospital Modasa, with expertise in critical care, cardiac care, diabetes and emergency medicine.`;
 
   const doctorSchema = [
     getHospitalSchema(),

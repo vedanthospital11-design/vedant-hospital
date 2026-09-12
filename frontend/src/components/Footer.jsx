@@ -121,7 +121,7 @@ export default function Footer({ onOpenAppointment }) {
             </h4>
             <div className="space-y-3 text-xs sm:text-sm">
               <Link
-                to="/doctors/happy-patel"
+                to="/doctors/dr-happy-patel"
                 className="block p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 hover:bg-slate-900 transition-all group"
               >
                 <div className="flex items-center justify-between">
@@ -133,7 +133,7 @@ export default function Footer({ onOpenAppointment }) {
               </Link>
 
               <Link
-                to="/doctors/paras-patel"
+                to="/doctors/dr-paras-patel"
                 className="block p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-900 transition-all group"
               >
                 <div className="flex items-center justify-between">

@@ -41,7 +41,7 @@ export const HERO_SLIDES = [
     subHeadline: 'પેઇનલેસ ડિલિવરી અને માતૃત્વની સુખદ યાત્રા',
     description: 'Thoughtful maternity care designed around comfort, safety and compassionate support.',
     ctaText: 'Meet Dr. Happy Patel',
-    ctaLink: '/doctors/happy-patel',
+    ctaLink: '/doctors/dr-happy-patel',
     ctaAction: 'link',
     doctor: 'Dr. Happy Patel',
     accent: '#FBCFE8', // soft pink rose accent
@@ -56,7 +56,7 @@ export const HERO_SLIDES = [
     subHeadline: 'ઝડપી, સચોટ અને વ્યક્તિગત મેડિકલ સારવાર',
     description: 'Personalized medical care with experienced consultation and thoughtful attention to every patient.',
     ctaText: 'Meet Dr. Paras Patel',
-    ctaLink: '/doctors/paras-patel',
+    ctaLink: '/doctors/dr-paras-patel',
     ctaAction: 'link',
     doctor: 'Dr. Paras Patel',
     accent: '#A7F3D0', // soft emerald accent

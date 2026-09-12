@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Outlet, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import EmergencyBar from './components/EmergencyBar';
@@ -74,8 +74,11 @@ export default function AppRouter() {
           <Route path="/" element={<Home onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/about" element={<About onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/doctors" element={<Doctors onOpenAppointment={handleOpenAppointment} />} />
-          <Route path="/doctors/happy-patel" element={<DoctorProfile specifiedSlug="happy-patel" />} />
-          <Route path="/doctors/paras-patel" element={<DoctorProfile specifiedSlug="paras-patel" />} />
+          <Route path="/doctors/dr-happy-patel" element={<DoctorProfile specifiedSlug="dr-happy-patel" />} />
+          <Route path="/doctors/dr-paras-patel" element={<DoctorProfile specifiedSlug="dr-paras-patel" />} />
+          {/* Automatic redirect from legacy slugs to canonical URLs */}
+          <Route path="/doctors/happy-patel" element={<Navigate to="/doctors/dr-happy-patel" replace />} />
+          <Route path="/doctors/paras-patel" element={<Navigate to="/doctors/dr-paras-patel" replace />} />
           <Route path="/doctors/:doctorSlug" element={<DoctorProfile />} />
           <Route path="/facilities" element={<Facilities onOpenAppointment={handleOpenAppointment} />} />
           <Route path="/services" element={<Services onOpenAppointment={handleOpenAppointment} />} />

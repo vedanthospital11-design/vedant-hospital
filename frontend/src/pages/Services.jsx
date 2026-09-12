@@ -206,7 +206,7 @@ export default function Services({ onOpenAppointment }) {
             Clinical Departments &amp; Services
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Clinical Medical Services &amp; Specialties
+            Medical Services | Vedant Hospital Modasa
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Integrated obstetrics, gynecology, critical care, and general medicine services at Vedant Hospital in Modasa. Dedicated to patient safety, ethical healthcare, and compassionate treatment.

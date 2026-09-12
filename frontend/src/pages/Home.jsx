@@ -27,15 +27,15 @@ export default function Home({ onOpenAppointment }) {
   return (
     <div className="overflow-x-hidden">
       <SEO
-        title="Vedant Hospital | Obstetrics, Gynecology & Medical Care in Modasa"
-        description="Vedant Hospital in Modasa provides specialized Obstetrics & Gynecology care by Dr. Happy Patel and General Medicine & 24×7 ICU by Dr. Paras Patel. Trusted maternity and emergency care."
+        title="Vedant Hospital Modasa | Healthcare & Medical Care in Aravalli"
+        description="Vedant Hospital in Modasa, Aravalli, Gujarat provides trusted medical care with specialist doctors, Obstetrics & Gynecology services, emergency care and modern hospital facilities."
         canonical="/"
         schema={homeSchema}
       />
 
       {/* Semantic Primary H1 for Search Engines & Accessibility */}
       <h1 className="sr-only">
-        Vedant Hospital | Obstetrics, Gynecology &amp; Medical Care in Modasa
+        Vedant Hospital Modasa | Healthcare &amp; Medical Care in Aravalli
       </h1>
 
       {/* ============================================================

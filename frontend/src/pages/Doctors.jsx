@@ -19,7 +19,7 @@ export default function Doctors({ onOpenAppointment }) {
     <div className="space-y-12 sm:space-y-16 py-6 sm:py-10">
       <SEO
         title="Our Doctors | Vedant Hospital Modasa"
-        description="Meet the specialist doctors at Vedant Hospital, including Dr. Happy Patel and Dr. Paras Patel, providing specialized medical care in Modasa."
+        description="Meet the doctors at Vedant Hospital Modasa, including Dr. Happy Patel and Dr. Paras Patel and their respective medical specialties."
         canonical="/doctors"
         schema={doctorsSchema}
       />
@@ -33,7 +33,7 @@ export default function Doctors({ onOpenAppointment }) {
             Medical Faculty Directory
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Our Consultant Doctors &amp; Specialists
+            Our Doctors | Vedant Hospital Modasa
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Consultant physicians providing compassionate maternity, advanced 3D/4D sonography, stitchless laparoscopy, and 24×7 critical ICU care in Modasa. <strong>દરેક જીવન માટે વિશેષ કાળજી.</strong>

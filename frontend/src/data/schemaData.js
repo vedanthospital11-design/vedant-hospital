@@ -1,6 +1,6 @@
 import { hospitalInfo, doctorsData } from './hospitalData';
 
-export const BASE_URL = hospitalInfo.websiteUrl || 'https://vedanthospital.com';
+export const BASE_URL = hospitalInfo.websiteUrl || 'https://www.vedanthospitalmodasa.com';
 
 /**
  * Returns structured data for the Hospital entity (Schema.org / Hospital + MedicalOrganization)

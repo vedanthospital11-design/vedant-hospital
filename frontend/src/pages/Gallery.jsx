@@ -25,8 +25,8 @@ export default function Gallery() {
   return (
     <div className="space-y-12 sm:space-y-16 py-6 sm:py-10">
       <SEO
-        title="Vedant Hospital Photo Gallery | Hospital & Facilities in Modasa"
-        description="View photos of Vedant Hospital in Modasa: modern modular operation theatre, 3D/4D sonography suite, 24×7 ICU, reception lounge, and inpatient rooms."
+        title="Vedant Hospital Photo Gallery | Modasa"
+        description="View photos of Vedant Hospital Modasa, including the hospital, facilities, doctors and healthcare environment."
         canonical="/gallery"
         schema={gallerySchema}
       />
@@ -40,7 +40,7 @@ export default function Gallery() {
             Hospital Infrastructure &amp; Campus Tour
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Vedant Hospital Photo Gallery &amp; Facility Tour
+            Vedant Hospital Photo Gallery | Modasa
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Take a virtual tour of our modern operation theatres, 3D/4D ultrasound suites, 24x7 ICU, reception lounge, and patient care rooms in Modasa.

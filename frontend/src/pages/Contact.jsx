@@ -28,8 +28,8 @@ export default function Contact() {
   return (
     <div className="space-y-12 sm:space-y-16 py-6 sm:py-10">
       <SEO
-        title="Contact Vedant Hospital | Location, Phone & Appointment"
-        description="Contact Vedant Hospital on Shamlaji Road, Modasa. 24×7 Emergency Helpline: +91 81608 10013, WhatsApp: +91 63525 90491. OPD timings and Google Maps directions."
+        title="Contact Vedant Hospital Modasa | Location & Appointment"
+        description="Contact Vedant Hospital in Modasa, Aravalli, Gujarat for appointments, medical inquiries and hospital information."
         canonical="/contact"
         schema={contactSchema}
       />
@@ -43,7 +43,7 @@ export default function Contact() {
             Contact Vedant Hospital
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Contact Vedant Hospital | Appointments &amp; Location in Modasa
+            Contact Vedant Hospital Modasa | Location &amp; Appointment
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
             Reach out directly to our hospital team on WhatsApp for appointment inquiries and consultation details, or call our 24x7 emergency team for urgent medical admissions in Modasa.

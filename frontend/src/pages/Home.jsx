@@ -272,13 +272,17 @@ export default function Home({ onOpenAppointment }) {
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-center gap-3">
                         <div
-                          className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-inner transition-transform group-hover:scale-105 ${
+                          className={`w-14 h-14 rounded-2xl bg-white p-2 flex items-center justify-center shrink-0 shadow-sm border transition-all duration-300 group-hover:scale-105 ${
                             isPulse 
-                              ? 'bg-teal-600 text-white' 
-                              : 'bg-[#6B2C7E] text-white'
+                              ? 'border-teal-200/90 shadow-teal-900/5' 
+                              : 'border-purple-200/90 shadow-purple-900/5'
                           }`}
                         >
-                          {isPulse ? <Activity className="w-6 h-6" /> : <HeartPulse className="w-6 h-6" />}
+                          <img
+                            src={hospital.emblem || hospital.logo}
+                            alt={`${hospital.name} Logo`}
+                            className="w-full h-full object-contain"
+                          />
                         </div>
                         <div>
                           <span

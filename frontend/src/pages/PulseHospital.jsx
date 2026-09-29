@@ -91,16 +91,21 @@ export default function PulseHospital({ onOpenAppointment }) {
             </div>
 
             {/* Hospital Name & Tagline */}
-            <div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-                Pulse Hospital &amp; I.C.U.
-              </h1>
-              <p className="text-xl sm:text-2xl font-bold text-teal-300 mt-2 font-serif italic">
-                “Caring for Life”
-              </p>
-              <p className="text-sm sm:text-base font-semibold text-emerald-200/90 mt-1">
-                સર્વાંગી અને તાત્કાલિક આરોગ્યસેવા
-              </p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2.5 shrink-0 shadow-xl border border-teal-400/40 flex items-center justify-center">
+                <img src="/pulse-hospital-logo.png" alt="Pulse Hospital & I.C.U. Logo" className="w-full h-full object-contain" />
+              </div>
+              <div>
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+                  Pulse Hospital &amp; I.C.U.
+                </h1>
+                <p className="text-xl sm:text-2xl font-bold text-teal-300 mt-1 font-serif italic">
+                  “Caring for Life”
+                </p>
+                <p className="text-sm sm:text-base font-semibold text-emerald-200/90 mt-1">
+                  સર્વાંગી અને તાત્કાલિક આરોગ્યસેવા
+                </p>
+              </div>
             </div>
 
             {/* Prominent Emergency Headline Banner */}

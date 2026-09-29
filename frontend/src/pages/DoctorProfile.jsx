@@ -48,7 +48,7 @@ export default function DoctorProfile({ specifiedSlug }) {
     trainingCard: {
       title: "Medical Training",
       primary: doctor.keyCredentials?.[0] || "Advanced Medical Training",
-      secondary: "પ્રતિષ્ઠિત Institutesમાંથી તાલીમ"
+      secondary: "પ્રતિષ્ઠિત સંસ્થાઓમાંથી તબીબી તાલીમ"
     },
     expertiseCard: {
       title: "Clinical Focus",
@@ -251,10 +251,20 @@ export default function DoctorProfile({ specifiedSlug }) {
                       <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
                         {profile.trainingCard.title}
                       </span>
-                      <span className="block text-xs font-bold text-slate-800 leading-snug" title={profile.trainingCard.primary}>
-                        {profile.trainingCard.primary}
-                      </span>
-                      <span className="block text-[11px] text-slate-500 leading-tight mt-0.5">
+                      {Array.isArray(profile.trainingCard.primary) ? (
+                        <div className="space-y-1 my-1">
+                          {profile.trainingCard.primary.map((inst, i) => (
+                            <span key={i} className="block text-xs font-bold text-slate-800 leading-snug break-words">
+                              {inst}
+                            </span>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="block text-xs font-bold text-slate-800 leading-snug break-words" title={profile.trainingCard.primary}>
+                          {profile.trainingCard.primary}
+                        </span>
+                      )}
+                      <span className="block text-[11px] text-slate-500 leading-tight mt-1">
                         {profile.trainingCard.secondary}
                       </span>
                     </div>
@@ -363,10 +373,10 @@ export default function DoctorProfile({ specifiedSlug }) {
             {doctor.experience.map((exp, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-3 p-4 rounded-2xl bg-slate-50/80 border border-slate-200/70 hover:bg-purple-50/40 transition-colors"
+                className="flex items-start gap-3 p-4 rounded-2xl bg-slate-50/80 border border-slate-200/70 hover:bg-purple-50/40 transition-colors min-w-0"
               >
                 <CheckCircle2 className="w-5 h-5 text-[#6B2C7E] shrink-0 mt-0.5" />
-                <span className="text-sm sm:text-base font-medium text-slate-800 leading-snug">
+                <span className="text-sm sm:text-base font-medium text-slate-800 leading-snug min-w-0 flex-1 break-words">
                   {exp}
                 </span>
               </div>

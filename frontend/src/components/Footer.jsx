@@ -87,6 +87,12 @@ export default function Footer({ onOpenAppointment }) {
                 </Link>
               </li>
               <li>
+                <Link to="/laboratory" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                  In-House Laboratory
+                </Link>
+              </li>
+              <li>
                 <Link to="/services" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
                   Medical Services
@@ -108,6 +114,12 @@ export default function Footer({ onOpenAppointment }) {
                 <Link to="/contact" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
                   Contact Us
+                </Link>
+              </li>
+              <li className="pt-1 mt-1 border-t border-slate-800">
+                <Link to="/pulse-hospital" className="text-teal-400 hover:text-teal-300 transition-colors flex items-center gap-1.5 font-semibold">
+                  <ChevronRight className="w-3.5 h-3.5 text-teal-500" />
+                  Pulse Hospital &amp; I.C.U.
                 </Link>
               </li>
             </ul>
@@ -193,6 +205,12 @@ export default function Footer({ onOpenAppointment }) {
                 <Link to="/services#general-medicine" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
                   General Medicine
+                </Link>
+              </li>
+              <li>
+                <Link to="/laboratory" className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+                  Shri Ram Laboratory
                 </Link>
               </li>
             </ul>

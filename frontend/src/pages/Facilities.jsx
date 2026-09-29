@@ -151,14 +151,17 @@ export default function Facilities({ onOpenAppointment }) {
         </div>
       </section>
 
-      {/* Mediclaim & Cashless Banner */}
+      {/* Mediclaim & Reimbursement Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <MotionReveal variant="scale-in" className="bg-gradient-to-r from-[#1E3A5F] to-[#6B2C7E] rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-2 text-center md:text-left">
-            <h3 className="text-2xl sm:text-3xl font-extrabold">Mediclaim & Cashless Hospitalization</h3>
-            <p className="text-purple-200 text-xs font-semibold">સરળ અને કેશલેસ મેડિક્લેમ સુવિધા</p>
+            <h3 className="text-2xl sm:text-3xl font-extrabold">Mediclaim & Reimbursement</h3>
+            <p className="text-purple-200 text-xs font-semibold">સરળ અને મેડિક્લેમ રિઇમ્બર્સમેન્ટ સુવિધા</p>
             <p className="text-purple-100 text-sm max-w-xl">
-              We facilitate hassle-free cashless claims and reimbursement paperwork for all major health insurance providers and Third Party Administrators (TPAs).
+              We facilitate hassle-free mediclaim and reimbursement assistance and paperwork for patients with applicable health insurance policies.
+            </p>
+            <p className="text-purple-200 text-xs font-medium max-w-xl">
+              મેડિક્લેમ અને રિઇમ્બર્સમેન્ટ પ્રક્રિયામાં સરળ માર્ગદર્શન અને જરૂરી દસ્તાવેજી સહાય.
             </p>
           </div>
 
@@ -169,7 +172,7 @@ export default function Facilities({ onOpenAppointment }) {
               rel="noopener noreferrer"
               className="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-600 font-bold rounded-xl text-sm transition-all shadow-md text-white btn-lift"
             >
-              WhatsApp Insurance Desk
+              WhatsApp Mediclaim Desk
             </a>
             <a
               href={`tel:${hospitalInfo.contacts.emergency}`}

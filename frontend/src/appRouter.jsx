@@ -10,9 +10,11 @@ import About from './pages/About';
 import Doctors from './pages/Doctors';
 import DoctorProfile from './pages/DoctorProfile';
 import Facilities from './pages/Facilities';
+import Laboratory from './pages/Laboratory';
 import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import PulseHospital from './pages/PulseHospital';
 import NotFound from './pages/NotFound';
 
 // Scroll to top or anchor helper on route change
@@ -81,7 +83,12 @@ export default function AppRouter() {
           <Route path="/doctors/paras-patel" element={<Navigate to="/doctors/dr-paras-patel" replace />} />
           <Route path="/doctors/:doctorSlug" element={<DoctorProfile />} />
           <Route path="/facilities" element={<Facilities onOpenAppointment={handleOpenAppointment} />} />
+          <Route path="/laboratory" element={<Laboratory onOpenAppointment={handleOpenAppointment} />} />
+          <Route path="/in-house-laboratory" element={<Navigate to="/laboratory" replace />} />
+          <Route path="/lab" element={<Navigate to="/laboratory" replace />} />
           <Route path="/services" element={<Services onOpenAppointment={handleOpenAppointment} />} />
+          <Route path="/pulse-hospital" element={<PulseHospital onOpenAppointment={handleOpenAppointment} />} />
+          <Route path="/pulse" element={<Navigate to="/pulse-hospital" replace />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact onOpenAppointment={handleOpenAppointment} />} />
           <Route path="*" element={<NotFound />} />

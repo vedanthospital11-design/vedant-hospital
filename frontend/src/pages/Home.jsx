@@ -10,8 +10,12 @@ import {
   MessageCircle,
   ArrowRight,
   Sparkles,
+  CheckCircle2,
+  MapPin,
+  Building
 } from 'lucide-react';
 import { hospitalInfo, doctorsData, facilitiesData, galleryImages } from '../data/hospitalData';
+import { hospitalsNetwork } from '../data/hospitalsData';
 import { getHospitalSchema, getWebSiteSchema } from '../data/schemaData';
 import DoctorCard from '../components/DoctorCard';
 import ImageModal from '../components/ImageModal';
@@ -225,6 +229,142 @@ export default function Home({ onOpenAppointment }) {
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          OUR HEALTHCARE NETWORK (TWO HOSPITAL CENTRES)
+      ============================================================ */}
+      <section id="hospitals-network" className="bg-gradient-to-b from-slate-50 via-white to-slate-50 py-16 sm:py-24 border-t border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <MotionReveal variant="fade-up" className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-50 px-3.5 py-1 rounded-full border border-purple-200">
+              OUR HEALTHCARE NETWORK
+            </span>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Trusted Healthcare, Two Hospital Centres
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
+              Comprehensive healthcare services across trusted hospital facilities in Modasa and Aravalli.
+            </p>
+            <p className="text-xs sm:text-sm font-semibold text-[#6B2C7E]">
+              મોડાસા અને અરવલ્લી વિસ્તારમાં વિશ્વસનીય અને સર્વાંગી તબીબી સારવાર
+            </p>
+          </MotionReveal>
+
+          {/* Dynamic 2 Hospital Centres Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {hospitalsNetwork.map((hospital) => {
+              const isPulse = hospital.id === 'pulse-hospital';
+              return (
+                <div
+                  key={hospital.id}
+                  className={`rounded-3xl p-6 sm:p-9 border transition-all duration-300 flex flex-col justify-between h-full shadow-md hover:shadow-2xl group hover:-translate-y-1 ${
+                    isPulse 
+                      ? 'bg-gradient-to-br from-teal-50/70 via-white to-emerald-50/40 border-teal-200/80 hover:border-teal-400' 
+                      : 'bg-gradient-to-br from-purple-50/70 via-white to-indigo-50/40 border-purple-200/80 hover:border-purple-400'
+                  }`}
+                >
+                  <div className="space-y-6 flex-1 flex flex-col">
+                    
+                    {/* Top Identity Header */}
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-inner transition-transform group-hover:scale-105 ${
+                            isPulse 
+                              ? 'bg-teal-600 text-white' 
+                              : 'bg-[#6B2C7E] text-white'
+                          }`}
+                        >
+                          {isPulse ? <Activity className="w-6 h-6" /> : <HeartPulse className="w-6 h-6" />}
+                        </div>
+                        <div>
+                          <span
+                            className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
+                              isPulse 
+                                ? 'text-teal-800 bg-teal-100/70 border-teal-200' 
+                                : 'text-purple-800 bg-purple-100/70 border-purple-200'
+                            }`}
+                          >
+                            Hospital Centre
+                          </span>
+                          <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
+                            {hospital.name}
+                          </h3>
+                        </div>
+                      </div>
+
+                      <span
+                        className={`text-[11px] font-bold px-2.5 py-1 rounded-full border shrink-0 hidden sm:inline-flex items-center gap-1 ${
+                          isPulse 
+                            ? 'text-teal-700 bg-teal-50 border-teal-200' 
+                            : 'text-purple-700 bg-purple-50 border-purple-200'
+                        }`}
+                      >
+                        <MapPin className="w-3 h-3" />
+                        <span>{hospital.location}</span>
+                      </span>
+                    </div>
+
+                    {/* Tagline & Gujarati Subtitle */}
+                    <div className="space-y-0.5">
+                      <p className={`text-base font-bold italic font-serif ${isPulse ? 'text-teal-800' : 'text-[#6B2C7E]'}`}>
+                        “{hospital.tagline.replace(/[“”]/g, '')}”
+                      </p>
+                      {hospital.taglineGujarati && (
+                        <p className="text-xs font-semibold text-slate-500">
+                          {hospital.taglineGujarati}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Address Strip */}
+                    <div className="flex items-start gap-2 text-xs text-slate-600 bg-white/80 p-3 rounded-2xl border border-slate-200/70">
+                      <MapPin className={`w-4 h-4 shrink-0 mt-0.5 ${isPulse ? 'text-teal-600' : 'text-[#6B2C7E]'}`} />
+                      <span className="leading-relaxed">{hospital.fullAddress}</span>
+                    </div>
+
+                    {/* Highlights List */}
+                    <div className="space-y-2.5 pt-2 border-t border-slate-200/60">
+                      <span className="block text-[11px] font-extrabold uppercase tracking-wider text-slate-400">
+                        Key Care Highlights:
+                      </span>
+                      <ul className="space-y-2">
+                        {hospital.highlights.map((item, idx) => (
+                          <li key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-800">
+                            <CheckCircle2 className={`w-4 h-4 shrink-0 ${isPulse ? 'text-teal-600' : 'text-[#6B2C7E]'}`} />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                  </div>
+
+                  {/* Button Action */}
+                  <div className="pt-6 mt-6 border-t border-slate-200/60 flex items-center justify-between">
+                    <span className="text-xs font-medium text-slate-500">
+                      {isPulse ? '24×7 Emergency & Critical Care' : 'Maternity & Critical Care'}
+                    </span>
+                    <Link
+                      to={hospital.route}
+                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm shadow-sm transition-all btn-lift ${
+                        isPulse
+                          ? 'bg-teal-700 hover:bg-teal-800 text-white'
+                          : 'bg-[#6B2C7E] hover:bg-[#582468] text-white'
+                      }`}
+                    >
+                      <span>{hospital.ctaText}</span>
+                    </Link>
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+
         </div>
       </section>
 

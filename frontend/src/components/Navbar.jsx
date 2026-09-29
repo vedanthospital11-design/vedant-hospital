@@ -6,10 +6,13 @@ import {
   ChevronDown, 
   MessageCircle, 
   HeartPulse, 
+  Activity,
+  MapPin,
   Sparkles, 
   ArrowRight
 } from 'lucide-react';
 import { hospitalInfo } from '../data/hospitalData';
+import { hospitalsNetwork } from '../data/hospitalsData';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -90,6 +93,11 @@ export default function Navbar() {
     doctorsDropdownTimeoutRef.current = setTimeout(() => {
       setDoctorsMenuOpen(false);
     }, 180);
+  };
+
+  // Active check: "Our Hospitals" is active if on /pulse-hospital
+  const isHospitalsActive = () => {
+    return location.pathname.startsWith('/pulse-hospital');
   };
 
   // Active check: "About Us" is active if on /about or /facilities
@@ -441,6 +449,18 @@ export default function Navbar() {
               Services
             </Link>
 
+            {/* In-House Laboratory */}
+            <Link
+              to="/laboratory"
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                isNavActive('/laboratory')
+                  ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
+                  : 'text-slate-600 hover:text-[#6B2C7E] hover:bg-purple-50/50'
+              }`}
+            >
+              Laboratory
+            </Link>
+
             {/* Photo Gallery */}
             <Link
               to="/gallery"
@@ -677,7 +697,20 @@ export default function Navbar() {
               <span>Medical Services</span>
             </Link>
 
-            {/* 5. Photo Gallery */}
+            {/* 5. In-House Laboratory */}
+            <Link
+              to="/laboratory"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                isNavActive('/laboratory')
+                  ? 'text-[#6B2C7E] bg-purple-50 font-semibold'
+                  : 'text-slate-700 hover:bg-slate-50'
+              }`}
+            >
+              <span>In-House Laboratory</span>
+            </Link>
+
+            {/* 6. Photo Gallery */}
             <Link
               to="/gallery"
               onClick={() => setMobileMenuOpen(false)}

@@ -57,10 +57,13 @@ export const doctorsData = [
       "Infertility Care"
     ],
     experience: [
-      "Ex. Resident Doctor, SVP Hospital / Shardaben Hospital",
-      "Fellowship in Advance Sonography (Mumbai)",
-      "Fellowship in Laparoscopy, Jaslok Hospital (Mumbai)",
-      "Consultant Gynecologist & Laparoscopic Surgeon"
+      "M.B.B.S. – GAIMS (Gujarat Adani Institute of Medical Sciences), Bhuj",
+      "M.B.D.G.O. – Shri Vinoba Bhave Civil Hospital, Silvassa",
+      "D.N.B. – Kalpana Chawla Government Medical College, Karnal",
+      "Fellowship in Advanced USG – Chikitsa Diagnostic Centre, Chembur, Mumbai",
+      "Fellowship in Advanced Laparoscopy – Aurangabad",
+      "Consultant Gynecology – Anjali Hospital, Ranasan (1 Year)",
+      "Consultant Gynecologist at Pulse Hospital and I.C.U., Modasa"
     ],
     specialties: [
       "Normal & Painless Delivery (Epidural)",
@@ -79,8 +82,12 @@ export const doctorsData = [
       intro: "ડૉ. હેપ્પી પટેલ એક પ્રતિષ્ઠિત Obstetrician & Gynecologist છે. માતા અને બાળકની સુરક્ષા સાથે શ્રેષ્ઠ Medical Care અને વ્યક્તિગત સારવાર આપવાનો તેમનો મુખ્ય ઉદ્દેશ છે.",
       trainingCard: {
         title: "Medical Training",
-        primary: "Jaslok Hospital, Mumbai & SVP Hospital",
-        secondary: "પ્રતિષ્ઠિત Institutesમાંથી ઉચ્ચ તાલીમ"
+        primary: [
+          "GAIMS (Gujarat Adani Institute of Medical Sciences), Bhuj",
+          "Shri Vinoba Bhave Civil Hospital, Silvassa",
+          "Kalpana Chawla Government Medical College, Karnal"
+        ],
+        secondary: "પ્રતિષ્ઠિત સંસ્થાઓમાંથી તબીબી તાલીમ"
       },
       expertiseCard: {
         title: "Clinical Focus",
@@ -115,10 +122,11 @@ export const doctorsData = [
       "Emergency Medicine"
     ],
     experience: [
-      "Consultant Diabetologist & Cardiac Physician",
-      "Pulse Hospital & ICU Association",
-      "Expertise in Critical Care, ICU Management & Emergency Medicine",
-      "Comprehensive management of multi-system medical disorders"
+      "M.B.B.S. – GCS Medical College, Ahmedabad",
+      "M.D. General Medicine – M.M. Medical College, Mullana, Ambala",
+      "Fellowship in 2D Echocardiography – Nagpur",
+      "3 Years Experience as a Consultant Physician at Dr. Rasiklal Shah Sarvajanik Hospital, Modasa",
+      "Consultant Physician at Pulse Hospital and I.C.U., Modasa"
     ],
     specialties: [
       "24x7 ICU & Critical Emergency Management",
@@ -280,6 +288,158 @@ export const galleryImages = [
     alt: "Vedant Hospital Modasa inpatient patient room",
     subTitleGujarati: "દર્દી અને પરિવાર માટે સ્વચ્છ, AC રૂમ",
     description: "Clean, air-conditioned patient accommodations with attendant seating, private bathroom, and nursing call support."
+  },
+  {
+    id: 8,
+    title: "Mother & Newborn Care",
+    category: "Patient Rooms",
+    image: "/images/gallery/mother-newborn-care.jpg",
+    alt: "Mother and newborn care at Vedant Hospital Modasa",
+    subTitleGujarati: "માતા અને નવજાત શિશુની સંભાળ",
+    description: "Compassionate maternity and newborn care at Vedant Hospital."
+  },
+  {
+    id: 9,
+    title: "Advanced Surgical Care",
+    category: "Surgical Suites",
+    image: "/images/gallery/advanced-surgical-care.jpg",
+    alt: "Advanced surgical care at Vedant Hospital Modasa",
+    subTitleGujarati: "અદ્યતન સર્જિકલ સારવાર",
+    description: "Experienced medical team providing safe and dedicated surgical care."
+  },
+  {
+    id: 10,
+    title: "Dedicated Surgical Team",
+    category: "Surgical Suites",
+    image: "/images/gallery/dedicated-surgical-team.jpg",
+    alt: "Dedicated surgical team at Vedant Hospital Modasa operation theatre",
+    subTitleGujarati: "સમર્પિત સર્જિકલ ટીમ",
+    description: "Modern surgical environment with coordinated clinical care."
+  },
+  {
+    id: 11,
+    title: "Mother & Baby Care",
+    category: "Patient Rooms",
+    image: "/images/gallery/mother-baby-care.jpg",
+    alt: "Mother and baby care with hospital staff at Vedant Hospital Modasa",
+    subTitleGujarati: "માતા અને બાળકની સંભાળ",
+    description: "Dedicated maternity care and newborn support by our experienced hospital team."
+  },
+  {
+    id: 12,
+    title: "Newborn Care & Family Support",
+    category: "Patient Rooms",
+    image: "/images/gallery/newborn-family-support.jpg",
+    alt: "Newborn care and family support at Vedant Hospital Modasa",
+    subTitleGujarati: "નવજાત સંભાળ અને પરિવાર સપોર્ટ",
+    description: "Warm and supportive environment for families welcoming their newborn at Vedant Hospital."
   }
 ];
+
+export const laboratoryInfo = {
+  name: "Shri Ram Laboratory",
+  tagline: "In-House Laboratory at Vedant Hospital",
+  taglineGujarati: "વેદાંત હોસ્પિટલ ખાતે ઇન-હાઉસ લેબોરેટરીની સુવિધા",
+  description: "Reliable diagnostic testing and laboratory services conveniently available within the hospital premises.",
+  address: "3rd Floor, Gajanand Complex, Above Bank of Baroda, Deep Area, Samlaji Road, Modasa – 383315",
+  branch: "Shree Ram Laboratory, Rellavada",
+  contacts: {
+    phone1: "9998383147",
+    phone1Display: "+91 99983 83147",
+    phone2: "9328565061",
+    phone2Display: "+91 93285 65061",
+    whatsapp: "9998383147",
+    whatsappUrl: "https://wa.me/919998383147?text=Hello%20Shri%20Ram%20Laboratory,%20I%20would%20like%20to%20enquire%20about%20lab%20tests%20/%20home%20collection."
+  },
+  timings: "24×7 Emergency Services",
+  homeCollection: "Free Home Collection Available",
+  features: [
+    {
+      title: "Free Home Collection",
+      subtitleGujarati: "ઘરે બેઠા મફત સેમ્પલ કલેક્શનની સુવિધા",
+      desc: "Convenient diagnostic sample collection right from your doorstep across Modasa at no extra charge.",
+      badge: "Free Service"
+    },
+    {
+      title: "24×7 Emergency Services",
+      subtitleGujarati: "ઈમરજન્સી અને આઈ.સી.યુ. માટે 24 કલાક સેવા",
+      desc: "Round-the-clock rapid pathology testing for emergency admissions, ICU support, and daily patient care.",
+      badge: "24×7 Active"
+    },
+    {
+      title: "Modern Automated Diagnostics",
+      subtitleGujarati: "અદ્યતન મશીનરી અને સચોટ રિપોર્ટ",
+      desc: "Advanced diagnostic analyzers ensuring prompt turnaround time and accurate test evaluations for doctors.",
+      badge: "Quality Assured"
+    }
+  ],
+  services: [
+    {
+      id: "hematology",
+      category: "Hematology",
+      categoryGujarati: "રક્ત તપાસ",
+      description: "Complete blood parameters, cell counts, and infection evaluation.",
+      icon: "Droplets",
+      tests: ["Hemogram", "CBC"]
+    },
+    {
+      id: "thyroid",
+      category: "Thyroid",
+      categoryGujarati: "થાઇરોઇડ પ્રોફાઇલ",
+      description: "Endocrine and thyroid hormone regulatory assessment.",
+      icon: "Activity",
+      tests: ["TSH", "TSH + T3 + T4"]
+    },
+    {
+      id: "liver",
+      category: "Liver",
+      categoryGujarati: "લિવર ફંક્શન",
+      description: "Hepatic enzyme evaluation and protein balance testing.",
+      icon: "ShieldCheck",
+      tests: ["SGPT", "SGOT", "Protein + Albumin"]
+    },
+    {
+      id: "diabetes",
+      category: "Diabetes",
+      categoryGujarati: "ડાયાબિટીસ તપાસ",
+      description: "Blood glucose monitoring and 3-month glycemic control assessment.",
+      icon: "HeartPulse",
+      tests: ["FBS", "HbA1C"]
+    },
+    {
+      id: "kidney",
+      category: "Kidney",
+      categoryGujarati: "કિડની તપાસ",
+      description: "Renal filtration, urinary microscopy, and kidney function parameters.",
+      icon: "FlaskConical",
+      tests: ["Creatinine", "Urine R/M", "Urea"]
+    },
+    {
+      id: "lipid",
+      category: "Lipid Profile",
+      categoryGujarati: "લિપિડ અને કોલેસ્ટ્રોલ",
+      description: "Cardiovascular lipid markers and cholesterol balance evaluation.",
+      icon: "HeartPulse",
+      tests: ["Cholesterol", "Triglycerides", "HDL", "LDL", "VLDL"]
+    },
+    {
+      id: "vitamins",
+      category: "Vitamins",
+      categoryGujarati: "વિટામિન પ્રોફાઇલ",
+      description: "Essential micronutrient tracking for nerve and bone wellness.",
+      icon: "Sparkles",
+      tests: ["Vitamin B12", "Vitamin D3"]
+    },
+    {
+      id: "bones",
+      category: "Bones",
+      categoryGujarati: "હાડકાં અને ખનીજ",
+      description: "Skeletal health and essential mineral balance screening.",
+      icon: "Award",
+      tests: ["Calcium"]
+    }
+  ]
+};
+
+export { hospitalsNetwork } from './hospitalsData';
 

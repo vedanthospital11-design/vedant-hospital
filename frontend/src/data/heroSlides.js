@@ -11,7 +11,7 @@ export const HERO_SLIDES = [
     subHeadline: 'માતા અને શિશુ માટે સ્નેહભરી, સુરક્ષિત અને અદ્યતન સારવાર',
     description: 'Compassionate maternity care focused on safety, comfort and every important moment.',
     ctaText: 'Book an Appointment',
-    ctaLink: hospitalInfo?.whatsappUrl || 'https://wa.me/919979753737',
+    ctaLink: hospitalInfo?.whatsappUrl || 'https://wa.me/916352590491',
     ctaAction: 'appointment',
     doctor: 'Dr. Happy Patel',
     accent: '#E9D5FF', // soft lavender accent
@@ -71,7 +71,7 @@ export const HERO_SLIDES = [
     subHeadline: 'કટોકટી અને ગંભીર પરિસ્થિતિમાં ૨૪ કલાક નિષ્ણાત દેખરેખ',
     description: '24×7 doctor-supervised ICU and general medical care when you need it most.',
     ctaText: '24×7 Emergency',
-    ctaLink: `tel:${hospitalInfo?.contacts?.emergency || '919979753737'}`,
+    ctaLink: `tel:${hospitalInfo?.contacts?.emergency || '6352590491'}`,
     ctaAction: 'emergency',
     doctor: 'Dr. Paras Patel',
     accent: '#FDE68A', // soft amber accent

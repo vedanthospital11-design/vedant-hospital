@@ -284,15 +284,15 @@ export default function Home({ onOpenAppointment }) {
                             className="w-full h-full object-contain"
                           />
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <span
-                            className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
+                            className={`inline-block max-w-full text-[9px] xs:text-[10px] font-extrabold tracking-wide sm:tracking-wider px-2.5 py-0.5 rounded-full border leading-normal break-words ${
                               isPulse 
                                 ? 'text-teal-800 bg-teal-100/70 border-teal-200' 
-                                : 'text-purple-800 bg-purple-100/70 border-purple-200'
+                                : 'text-purple-800 bg-purple-100/70 border-purple-200 uppercase'
                             }`}
                           >
-                            Hospital Centre
+                            {isPulse ? "Our Attached Hospital Centre for Critical Care" : "Hospital Centre"}
                           </span>
                           <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
                             {hospital.name}

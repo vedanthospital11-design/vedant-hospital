@@ -20,8 +20,8 @@ export const hospitalInfo = {
   instagramUrl: "https://www.instagram.com/vedanthospital_modasa?stkn=MXAzc29vOG8ydDJuOQ==",
   instagramDisplay: "@vedanthospital_modasa",
   contacts: {
-    emergency: "8160810013",
-    emergencyDisplay: "+91 81608 10013",
+    emergency: "6352590491",
+    emergencyDisplay: "+91 63525 90491",
     whatsapp: "6352590491",
     whatsappDisplay: "+91 63525 90491",
     appointment1: "6352590491",
@@ -46,7 +46,7 @@ export const doctorsData = [
     altText: "Dr. Happy Patel - Obstetrics and Gynecology Specialist",
     image: "/images/dr-happy-patel.jpg",
     keyCredentials: [
-      "Ex. Resident Doctor, SVP Hospital / Shardaben Hospital",
+      "Ex. Consultant Gynecologist, Anjali Hospital, Ranasan",
       "Fellowship in Advanced Sonography (Mumbai)",
       "Fellowship in Laparoscopy, Jaslok Hospital (Mumbai)"
     ],

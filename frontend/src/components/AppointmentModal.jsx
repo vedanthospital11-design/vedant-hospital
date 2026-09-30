@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, Calendar, User, Phone, CheckCircle, Clock, HeartPulse, Stethoscope, AlertCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, Calendar, User, Phone, CheckCircle, Clock, HeartPulse, Stethoscope, AlertCircle, MessageCircle } from 'lucide-react';
 import { doctorsData, hospitalInfo } from '../data/hospitalData';
 
 export default function AppointmentModal({ isOpen, onClose, preselectedDoctorId = null }) {
@@ -13,20 +13,99 @@ export default function AppointmentModal({ isOpen, onClose, preselectedDoctorId 
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [whatsappRedirectUrl, setWhatsappRedirectUrl] = useState('');
+
+  useEffect(() => {
+    if (preselectedDoctorId) {
+      const match = doctorsData.find(
+        (d) => d.id === preselectedDoctorId || d.slug === preselectedDoctorId || (d.id && preselectedDoctorId && d.id.includes(preselectedDoctorId))
+      );
+      if (match) {
+        setFormData((prev) => ({ ...prev, doctorId: match.id }));
+      }
+    }
+  }, [preselectedDoctorId, isOpen]);
 
   if (!isOpen) return null;
 
+  const selectedDoctor = doctorsData.find((doc) => doc.id === formData.doctorId) || doctorsData[0];
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const patientName = (formData.patientName || '').trim();
+    const patientPhone = (formData.phone || '').trim();
+    const preferredDate = (formData.date || '').trim();
+    const preferredTime = (formData.timeSlot || '').trim();
+    const reason = (formData.message || '').trim() || 'Not provided';
+
+    // Validation
+    if (!patientName) {
+      alert('Please enter the patient name.');
+      return;
+    }
+    if (!patientPhone) {
+      alert('Please enter your contact phone number.');
+      return;
+    }
+    if (!preferredDate) {
+      alert('Please select your preferred appointment date.');
+      return;
+    }
+    if (!preferredTime) {
+      alert('Please select your preferred appointment time slot.');
+      return;
+    }
+
+    // Dynamic Doctor & Qualification determination
+    const isParas = selectedDoctor.id.includes('paras') || selectedDoctor.name.includes('Paras');
+    const doctorName = isParas ? 'Dr. Paras Patel' : 'Dr. Happy Patel';
+    const doctorQualification = isParas ? 'M.D. Physician' : 'M.B.D.G.O, DNB';
+
+    // WhatsApp Message following exact required structure
+    const message = [
+      '🏥 *Vedant Hospital – Appointment Request*',
+      '',
+      `👨⚕️ *Doctor:* ${doctorName}`,
+      `🎓 *Qualification:* ${doctorQualification}`,
+      '',
+      `👤 *Patient Name:* ${patientName}`,
+      `📞 *Contact Number:* ${patientPhone}`,
+      `📅 *Preferred Date:* ${preferredDate}`,
+      `⏰ *Preferred Time:* ${preferredTime}`,
+      `🩺 *Reason / Symptoms:* ${reason}`,
+      '',
+      'Please confirm the appointment request.'
+    ].join('\n');
+
+    const phoneNumber = '916352590491';
+    const encodedMessage = encodeURIComponent(message);
+
+    // Device detection: Mobile opens WhatsApp app; Desktop opens WhatsApp Web
+    const isMobile =
+      typeof navigator !== 'undefined' &&
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    const targetUrl = isMobile
+      ? `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`
+      : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+
+    setWhatsappRedirectUrl(targetUrl);
     setSubmitted(true);
+
+    // Trigger redirect
+    if (isMobile) {
+      window.location.href = targetUrl;
+    } else {
+      window.open(targetUrl, '_blank', 'noopener,noreferrer');
+    }
   };
 
   const handleReset = () => {
     setSubmitted(false);
+    setWhatsappRedirectUrl('');
     onClose();
   };
-
-  const selectedDoctor = doctorsData.find((doc) => doc.id === formData.doctorId) || doctorsData[0];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
@@ -59,10 +138,10 @@ export default function AppointmentModal({ isOpen, onClose, preselectedDoctorId 
               <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle className="w-10 h-10" />
               </div>
-              <h4 className="text-xl font-bold text-slate-800">Appointment Request Received!</h4>
-              <p className="text-xs font-semibold text-[#6B2C7E]">તમારી એપોઇન્ટમેન્ટ વિનંતી સફળતાપૂર્વક નોંધાઈ છે.</p>
+              <h4 className="text-xl font-bold text-slate-800">Redirecting to WhatsApp...</h4>
+              <p className="text-xs font-semibold text-[#6B2C7E]">વોટ્સએપ પર તમારી એપોઇન્ટમેન્ટ વિગતો તૈયાર છે.</p>
               <p className="text-sm text-slate-600 max-w-xs mx-auto leading-relaxed">
-                Thank you, <strong className="text-slate-800">{formData.patientName}</strong>. Your appointment request with <strong className="text-[#6B2C7E]">{selectedDoctor.name}</strong> for <strong className="text-slate-800">{formData.date}</strong> has been registered.
+                Thank you, <strong className="text-slate-800">{formData.patientName}</strong>. Your appointment request for <strong className="text-[#6B2C7E]">{selectedDoctor.name}</strong> on <strong className="text-slate-800">{formData.date}</strong> has been prepared for WhatsApp.
               </p>
 
               <div className="bg-purple-50 border border-purple-100 rounded-2xl p-4 text-xs text-slate-700 text-left space-y-1.5">
@@ -79,15 +158,26 @@ export default function AppointmentModal({ isOpen, onClose, preselectedDoctorId 
                   <span className="font-semibold text-slate-800">{formData.timeSlot}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Hospital Contact:</span>
-                  <span className="font-semibold text-purple-700">{hospitalInfo.contacts.appointment1Display}</span>
+                  <span className="text-slate-500">WhatsApp Desk:</span>
+                  <span className="font-semibold text-emerald-700">+91 63525 90491</span>
                 </div>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 space-y-2">
+                {whatsappRedirectUrl && (
+                  <a
+                    href={whatsappRedirectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-md flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Open WhatsApp (+91 63525 90491)</span>
+                  </a>
+                )}
                 <button
                   onClick={handleReset}
-                  className="w-full py-3 bg-[#6B2C7E] hover:bg-[#582468] text-white font-bold rounded-xl transition-colors shadow-sm"
+                  className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition-colors text-sm"
                 >
                   Done
                 </button>

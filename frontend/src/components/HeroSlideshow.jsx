@@ -354,7 +354,7 @@ export default function HeroSlideshow({ onOpenAppointment }) {
           {/* Secondary Quick Contact / Emergency */}
           {slide.ctaAction !== 'emergency' && (
             <a
-              href={`tel:${hospitalInfo?.contacts?.emergency || '919979753737'}`}
+              href={`tel:${hospitalInfo?.contacts?.emergency || '6352590491'}`}
               className="btn-lift inline-flex items-center gap-2 font-semibold text-xs sm:text-sm"
               style={{
                 paddingLeft: '16px',
